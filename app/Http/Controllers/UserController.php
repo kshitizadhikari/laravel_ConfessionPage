@@ -20,4 +20,9 @@ class UserController extends Controller
     {
         return view('user/userDashboard');
     }
+
+    public function contact()
+    {
+        return view('user/contact');
+    }
 }

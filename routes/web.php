@@ -48,6 +48,8 @@ Route::group(['middleware=' => 'auth'], function() {
     ], function() {
         Route::get('/user-home', [UserController::class, 'index'])->name('userHome');
         Route::get('/user-dashboard', [UserController::class, 'userDashboard'])->name('userDashboard');
+        Route::get('/user-contact', [UserController::class, 'contact'])->name('contact');
     });
     
 });
+
