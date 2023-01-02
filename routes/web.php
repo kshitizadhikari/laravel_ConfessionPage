@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TherapistController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -48,6 +49,15 @@ Route::group(['middleware=' => 'auth'], function() {
     ], function() {
         Route::get('/user-home', [UserController::class, 'index'])->name('userHome');
         Route::get('/user-dashboard', [UserController::class, 'userDashboard'])->name('userDashboard');
+    });
+
+    //therapist
+    Route::group([
+        'prefix' => 'therapist',
+        'as' => 'therapist',
+    ], function() {
+        Route::get('/therapist-home', [TherapistController::class, 'index'])->name('therapistHome');
+        Route::get('/therapist-approval-page', [TherapistController::class, 'therapistApprovalFormView'])->name('therapistApprovalFormView');
     });
     
 });
