@@ -23,13 +23,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//admin
-// Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function(){  
-//     Route::get('/admin-dashboard', [AdminController::class, 'adminDashboard'])->name('adminDashboard');
-// });
-
-
-
 
 Route::group(['middleware=' => 'auth'], function() {
     
@@ -40,6 +33,8 @@ Route::group(['middleware=' => 'auth'], function() {
         'as' => 'admin',
     ], function() {
         Route::get('/admin-home', [AdminController::class, 'index'])->name('adminHome');
+        Route::get('/admin-dashboard', [AdminController::class, 'adminDashboard'])->name('adminDashboard');
+
     });
 
     //user
