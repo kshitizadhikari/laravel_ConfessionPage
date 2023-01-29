@@ -23,7 +23,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
 Route::group(['middleware=' => 'auth'], function() {
     
     //admin
@@ -44,6 +43,9 @@ Route::group(['middleware=' => 'auth'], function() {
     ], function() {
         Route::get('/user-home', [UserController::class, 'index'])->name('userHome');
         Route::get('/user-dashboard', [UserController::class, 'userDashboard'])->name('userDashboard');
+
+        //Post
+        Route::post('/save-post', [UserController::class, 'savePost'])->name('savePost');
     });
 
     //therapist
