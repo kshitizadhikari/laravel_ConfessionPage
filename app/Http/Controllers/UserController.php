@@ -15,12 +15,12 @@ class UserController extends Controller
 
     public function index()
     {
-        return view('user/userHome');
+        return view('user/userHome', ['posts' => Post::all()]);
     }
 
      public function userDashboard()
     {
-        return view('user/userDashboard');
+        return view('user/userDashboard', ['posts' => Post::all()]);
     }
 
     public function savePost(Request $request)
@@ -32,5 +32,10 @@ class UserController extends Controller
         ]);
 
         return view('user/userDashboard');
+    }
+
+    public function deletePost()
+    {
+        echo "hello";
     }
 }

@@ -108,151 +108,103 @@
                         <span>Group 2</span>
                     </a>
                 </div>
-                <div class="col-7">
-
+                <!-- //middle part -->
+                <div class="col-7 border border-dark">
                     <!-- USER POST -->
-                    <form action="{{route('usersavePost')}}" method="post">
-                        @csrf
-                        <div class="bg-white border-gray">
-                            <div class="row">
-                                <div class="col">
-                                    <img src="review6.png" class="profile rounded-circle" alt="">
-                                    <label for="Post">Do
-                                        you want to share something ?</label>
-                                    <input type="text"
-                                        class="w-75 m-3 border-black text-black-dark rounded-pill bg-light ps-2 text-start"
-                                        placeholder="Title" name="postTitle">
-                                    <input type="text"
-                                        class="w-75 m-3 border-black text-black-dark rounded-pill bg-light ps-2 text-start"
-                                        placeholder="Enter Text" name="post">
-                                    <input type="hidden" value="{{ auth()->user()->id}}" name="user_id">
+                    <div class="new border border-dark">
+                        <form action="{{route('usersavePost')}}" method="post">
+                            @csrf
+                            <div class="bg-white border-primary">
+                                <div class="row">
+                                    <div class="col">
+                                        <img src="review6.png" class="profile rounded-circle" alt="">
+                                        <label for="Post">Do
+                                            you want to share something ?</label>
+                                        <input type="text"
+                                            class="w-75 m-3 border-black text-black-dark rounded-pill bg-light ps-2 text-start"
+                                            placeholder="Title" name="postTitle">
+                                        <input type="text"
+                                            class="w-75 m-3 border-black text-black-dark rounded-pill bg-light ps-2 text-start"
+                                            placeholder="Enter Text" name="post">
+                                        <input type="hidden" value="{{ auth()->user()->id}}" name="user_id">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row text-gray-darker pb-2 ps-4 pe-4">
-                                <div class="col text-center border-end hover-dark">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                        class="bi bi-pen-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z" />
-                                    </svg>
-                                    <button type="submit" class="border border-none">Post</button>
-
+                                <div class="row text-gray-darker pb-2 ps-4 pe-4">
+                                    <div class="col text-center border-end hover-dark">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z" />
+                                        </svg>
+                                        <button type="submit" class="border border-none">Post</button>
+                                    </div>
                                 </div>
-                            </div>
-                    </form>
-                    <div class="post bg-white border-gray mt-4">
-                        <div class=" pt-2 d-flex justify-content-between">
-                            <div class="d-flex">
-                                <img src="review6.png" class="post-profile rounded-circle" alt="">
-                                <div class="d-flex-column">
-                                    <span class="fw-bold fs-6">username</span>
-
-                                </div>
-                            </div>
-                            <div class="p-2 text-gray-darker">
-                                <button class="btn rounded-circle hover-dark p-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                                        class="bi bi-x" viewBox="0 0 14 14">
-                                        <path
-                                            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="post-body pt-2 ps-3">
-                            <div class="post-title fw-bold">
-                                <a href="" class="text-decoration-none text-black">
-                                    this is the title of the post
-                                </a>
-                            </div>
-                            <div class="post-text pt-1">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate iste, repellat
-                                delectus voluptatem qui corrupti error et deserunt eius quos laudantium numquam fugit
-                                est autem?
-                            </div>
-                        </div>
-                        <div class="post-image pt-2">
-                            <img src="" class="img-fluid" alt="">
-                        </div>
-                        <div class="post-footer pt-3 py-4 d-flex align-items-center">
-                            <div class="btn-group " role="group">
-                                <button type="button"
-                                    class="left-btn post-btn bg-secondary-color border-0 text-black p-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor"
-                                        class="bi bi-share-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z" />
-                                    </svg>
-                                </button>
-                                <button type="button"
-                                    class="right-btn post-btn bg-secondary-color border-0 text-black p-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor"
-                                        class="bi bi-reply-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M5.921 11.9 1.353 8.62a.719.719 0 0 1 0-1.238L5.921 4.1A.716.716 0 0 1 7 4.719V6c1.5 0 6 0 7 8-2.5-4.5-7-4-7-4v1.281c0 .56-.606.898-1.079.62z" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
+                        </form>
                     </div>
-                    <div class="post bg-white border-gray mt-4">
-                        <div class=" pt-2 d-flex justify-content-between">
-                            <div class="d-flex">
-                                <img src="review6.png" class="post-profile rounded-circle" alt="">
-                                <div class="d-flex-column">
-                                    <span class="fw-bold fs-6">username</span>
+                    <!-- POSTS -->
+                    <div class="posts">
+                        @foreach($posts as $post)
+                        @if($post['user_id'] == auth()->user()->id)
+                        <div class="post bg-white border-gray mt-4">
+                            <div class=" pt-2 d-flex justify-content-between">
+                                <div class="d-flex">
+                                    <img src="review6.png" class="post-profile rounded-circle" alt="">
+                                    <div class="d-flex-column">
+                                        <span class="fw-bold fs-6">{{auth()->user()->name}}</span>
 
+                                    </div>
+                                </div>
+                                <div class="p-2 text-gray-darker" onclick="{{route('userdeletePost')}}">
+                                    <button class="btn rounded-circle hover-dark p-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            fill="currentColor" class="bi bi-x" viewBox="0 0 14 14">
+                                            <path
+                                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                        </svg>
+                                    </button>
                                 </div>
                             </div>
-                            <div class="p-2 text-gray-darker">
-                                <button class="btn rounded-circle hover-dark p-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                                        class="bi bi-x" viewBox="0 0 14 14">
-                                        <path
-                                            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-                                    </svg>
-                                </button>
+                            <div class="post-body pt-2 ps-3">
+                                <div class="post-title fw-bold">
+                                    <a href="" class="text-decoration-none text-black">
+                                        {{$post['title']}}
+                                    </a>
+                                </div>
+                                <div class="post-text pt-1">
+                                    {{$post['post']}}
+                                </div>
+                            </div>
+                            <div class="post-image pt-2">
+                                <img src="" class="img-fluid" alt="">
+                            </div>
+                            <div class="post-footer pt-3 py-4 d-flex align-items-center">
+                                <div class="btn-group " role="group">
+                                    <button type="button"
+                                        class="left-btn post-btn bg-secondary-color border-0 text-black p-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16"
+                                            fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z" />
+                                        </svg>
+                                    </button>
+                                    <button type="button"
+                                        class="right-btn post-btn bg-secondary-color border-0 text-black p-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16"
+                                            fill="currentColor" class="bi bi-reply-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.921 11.9 1.353 8.62a.719.719 0 0 1 0-1.238L5.921 4.1A.716.716 0 0 1 7 4.719V6c1.5 0 6 0 7 8-2.5-4.5-7-4-7-4v1.281c0 .56-.606.898-1.079.62z" />
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                        <div class="post-body pt-2 ps-3">
-                            <div class="post-title fw-bold">
-                                <a href="" class="text-decoration-none text-black">
-                                    this is the title of the post
-                                </a>
-                            </div>
-                            <div class="post-text pt-1">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate iste, repellat
-                                delectus voluptatem qui corrupti error et deserunt eius quos laudantium numquam fugit
-                                est autem?
-                            </div>
-                        </div>
-                        <div class="post-image pt-2">
-                            <img src="" class="img-fluid" alt="">
-                        </div>
-                        <div class="post-footer pt-3 py-4">
-                            <div class="btn-group" role="group">
-                                <button type="button"
-                                    class="left-btn post-btn bg-secondary-color border-0 text-black p-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor"
-                                        class="bi bi-share-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z" />
-                                    </svg>
-                                </button>
-                                <button type="button"
-                                    class="right-btn post-btn bg-secondary-color border-0 text-black p-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor"
-                                        class="bi bi-reply-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M5.921 11.9 1.353 8.62a.719.719 0 0 1 0-1.238L5.921 4.1A.716.716 0 0 1 7 4.719V6c1.5 0 6 0 7 8-2.5-4.5-7-4-7-4v1.281c0 .56-.606.898-1.079.62z" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
+                        @endif
+                        @endforeach
                     </div>
                 </div>
 
-                <div class="col">
+                <!-- RIGHT SECTION -->
+                <div class="col-3">
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between">
                             <div class="ps-2 lh-1">
@@ -294,9 +246,6 @@
             </div>
         </div>
     </div>
-
-
-
 
 </body>
 

@@ -44,8 +44,9 @@ Route::group(['middleware=' => 'auth'], function() {
         Route::get('/user-home', [UserController::class, 'index'])->name('userHome');
         Route::get('/user-dashboard', [UserController::class, 'userDashboard'])->name('userDashboard');
 
-        //Post
+        //Post CRUD
         Route::post('/save-post', [UserController::class, 'savePost'])->name('savePost');
+        Route::post('/delete-post', [UserController::class, 'deletePost'])->name('deletePost');
     });
 
     //therapist
