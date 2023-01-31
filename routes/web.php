@@ -41,12 +41,12 @@ Route::group(['middleware=' => 'auth'], function() {
         'prefix' => 'user',
         'as' => 'user',
     ], function() {
-        Route::get('/user-home', [UserController::class, 'index'])->name('userHome');
+        Route::get('/user-home', [UserController::class, 'index'])->name('login');
         Route::get('/user-dashboard', [UserController::class, 'userDashboard'])->name('userDashboard');
 
         //Post CRUD
         Route::post('/save-post', [UserController::class, 'savePost'])->name('savePost');
-        Route::post('/delete-post', [UserController::class, 'deletePost'])->name('deletePost');
+        Route::get('/delete-post/{id}', [UserController::class, 'deletePost'])->name('deletePost');
     });
 
     //therapist
@@ -59,3 +59,5 @@ Route::group(['middleware=' => 'auth'], function() {
     });
     
 });
+
+// Route::get('/dashboard',[UserController::class,'dashboard'])->name('login');

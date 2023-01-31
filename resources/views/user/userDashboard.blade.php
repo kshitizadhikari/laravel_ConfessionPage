@@ -1,14 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <style>
     .bg-second-color {
         background-color: grey;
@@ -70,10 +63,12 @@
         border-bottom-right-radius: 12px;
         border-top-right-radius: 12px;
     }
+    textarea{
+        resize:none;
+    }
     </style>
-</head>
 
-<body>
+
 
     <div class="bg-light pt-4">
         <div class="container mb-5">
@@ -86,7 +81,7 @@
 
                     <a href="#">
                         <span class="position-relative me-auto">
-                            <img src="review6.png" alt="">
+                            <img src="{{asset('images/review6.png')}}" alt="">
                             <span
                                 class="position-absolute top-0 start-50 translate-middle ms-2 p-1 bg-danger border border-light rounded-circle">
 
@@ -96,15 +91,15 @@
                         <span>Group 1</span>
                     </a>
                     <a href="">
-                        <img src="review6.png" alt="">
+                        <img src="{{asset('images/review6.png')}}" alt="">
                         <span>Group 2</span>
                     </a>
                     <a href="">
-                        <img src="review6.png" alt="">
+                        <img src="{{asset('images/review6.png')}}" alt="">
                         <span>Group 2</span>
                     </a>
                     <a href="">
-                        <img src="review6.png" alt="">
+                        <img src="{{asset('images/review6.png')}}" alt="">
                         <span>Group 2</span>
                     </a>
                 </div>
@@ -112,22 +107,26 @@
                 <div class="col-7 border border-dark">
                     <!-- USER POST -->
                     <div class="new border border-dark">
-                        <form action="{{route('usersavePost')}}" method="post">
+                        <form action="{{route('usersavePost')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="bg-white border-primary">
                                 <div class="row">
                                     <div class="col">
-                                        <img src="review6.png" class="profile rounded-circle" alt="">
+                                        <img src="{{asset('images/review6.png')}}" class="profile rounded-circle" alt="">
                                         <label for="Post">Do
                                             you want to share something ?</label>
                                         <input type="text"
                                             class="w-75 m-3 border-black text-black-dark rounded-pill bg-light ps-2 text-start"
-                                            placeholder="Title" name="postTitle">
-                                        <input type="text"
-                                            class="w-75 m-3 border-black text-black-dark rounded-pill bg-light ps-2 text-start"
-                                            placeholder="Enter Text" name="post">
+                                            placeholder="Title" name="postTitle"> 
+                                            
+                                        <textarea
+                                            class="w-75 m-3 border-black text-black-dark bg-light ps-2 text-start"
+                                            placeholder="Enter Text" name="post" rows="10" cols="30"> </textarea>
                                         <input type="hidden" value="{{ auth()->user()->id}}" name="user_id">
                                     </div>
+                                </div>
+                                <div class="post-img">
+                                    <input type="file" name="file" id="file">
                                 </div>
                                 <div class="row text-gray-darker pb-2 ps-4 pe-4">
                                     <div class="col text-center border-end hover-dark">
@@ -148,20 +147,23 @@
                         <div class="post bg-white border-gray mt-4">
                             <div class=" pt-2 d-flex justify-content-between">
                                 <div class="d-flex">
-                                    <img src="review6.png" class="post-profile rounded-circle" alt="">
+                                    <img src="{{asset('images/review6.png')}}" class="post-profile rounded-circle" alt="">
                                     <div class="d-flex-column">
                                         <span class="fw-bold fs-6">{{auth()->user()->name}}</span>
 
                                     </div>
                                 </div>
-                                <div class="p-2 text-gray-darker" onclick="{{route('userdeletePost')}}">
-                                    <button class="btn rounded-circle hover-dark p-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                <div class="p-2 text-gray-darker" >
+                                    <a href="{{route('userdeletePost',$post['id'])}}">
+
+                                        <button class="btn rounded-circle hover-dark p-1" >
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             fill="currentColor" class="bi bi-x" viewBox="0 0 14 14">
                                             <path
-                                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
                                         </svg>
                                     </button>
+                                </a>
                                 </div>
                             </div>
                             <div class="post-body pt-2 ps-3">
@@ -175,8 +177,9 @@
                                 </div>
                             </div>
                             <div class="post-image pt-2">
-                                <img src="" class="img-fluid" alt="">
+                                <img src="{{asset('storage/'.$post['img'])}}" class="img-fluid" alt="">
                             </div>
+                           
                             <div class="post-footer pt-3 py-4 d-flex align-items-center">
                                 <div class="btn-group " role="group">
                                     <button type="button"
@@ -243,11 +246,10 @@
                         </li>
                     </ul>
                 </div>
+            
             </div>
         </div>
     </div>
 
-</body>
 
-</html>
 @endsection
