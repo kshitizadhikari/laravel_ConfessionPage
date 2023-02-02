@@ -25,8 +25,8 @@ class AdminController extends Controller
     
     public function edit($id)
     {
-        $adminObj = User::find($id);
-        return view('admin/adminEdit', ['data' => $adminObj]);
+        $userObj = User::find($id);
+        return view('admin/userEdit', ['data' => $userObj]);
     }
 
     public function update(Request $request)
@@ -38,17 +38,23 @@ class AdminController extends Controller
             'passwordcheck' => 'required',
         ]);
 
-        
-        $adminObj = User::find($request->id);
+        $userObj = User::find($request->id);
 
+        $userObj->name = $request->name;
+        $userObj->email = $request->email;
+        $userObj->password = $request->password;
+        $userObj->role = $request->role;
+
+        $userObj->save();
+        return view('admin/adminHome', ['allUser' => User::all()]);
 
     }
 
     public function delete($id)
     {
-        $tshirtObj = User::find($id);
-        $tshirtObj->delete();
-        return redirect('/');
+        $userObj = User::find($id);
+        $userObj->delete();
+        return view('admin/adminHome', ['allUser' => User::all()]);
     }
 
     
