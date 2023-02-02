@@ -34,6 +34,9 @@ Route::group(['middleware=' => 'auth'], function() {
         Route::get('/admin-home', [AdminController::class, 'index'])->name('adminHome');
         Route::get('/admin-dashboard', [AdminController::class, 'adminDashboard'])->name('adminDashboard');
 
+        Route::get('/edit/{id}', [AdminController::class, 'edit']);
+        Route::post('/edit', [AdminController::class, 'update'])->name('update');
+
     });
 
     //user

@@ -114,8 +114,8 @@
         </div>
         <!--  ADMIN TABLE  -->
         <div class="tableko admin mt-3">
-            <h2>Admin Table</h2>
-            <table class="table table-dark table-striped">
+            <h2 class="text-center">Admin Table</h2>
+            <table class=" table table-dark table-striped">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -132,7 +132,35 @@
                         <td>{{$user->id}}</td>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
-                        <td><a href="#">Edit</a></td>
+                        <td><a href="{{ url('admin/edit/' . $user->id )}}">Edit</a></td>
+                        <td><a href="{{ url('admin/delete/' . $user->id )}}">Delete</a></td>
+                    </tr>
+                    @endif
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        <!--  USER TABLE  -->
+        <div class="tableko user mt-3">
+            <h2 class="text-center">User Table</h2>
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Action</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($allUser as $user)
+                    @if($user->role == 0)
+                    <tr>
+                        <td>{{$user->id}}</td>
+                        <td>{{$user->name}}</td>
+                        <td>{{$user->email}}</td>
+                        <td><a href="{{url('/edit/'. $user->id)}}">Edit</a></td>
                         <td><a href="#">Delete</a></td>
                         <!-- <td><a href="{{url('/delete/' . $user->id )}}">Delete</a></td> -->
                     </tr>
