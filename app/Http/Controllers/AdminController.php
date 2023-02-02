@@ -23,4 +23,33 @@ class AdminController extends Controller
         return view('admin/adminDashboard');
     }
     
+    public function edit($id)
+    {
+        $adminObj = User::find($id);
+        return view('admin/adminEdit', ['data' => $adminObj]);
+    }
+
+    public function update(Request $request)
+    {
+        $request -> validate ([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'passwordcheck' => 'required',
+        ]);
+
+        
+        $adminObj = User::find($request->id);
+
+
+    }
+
+    public function delete($id)
+    {
+        $tshirtObj = User::find($id);
+        $tshirtObj->delete();
+        return redirect('/');
+    }
+
+    
 }
