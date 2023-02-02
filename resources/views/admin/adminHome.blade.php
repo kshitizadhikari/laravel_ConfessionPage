@@ -132,8 +132,8 @@
                         <td>{{$user->id}}</td>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
-                        <td><a href="{{ url('admin/edit/' . $user->id )}}">Edit</a></td>
-                        <td><a href="{{ url('admin/delete/' . $user->id )}}">Delete</a></td>
+                        <td>#</td>
+                        <td>#</td>
                     </tr>
                     @endif
                     @endforeach
@@ -160,9 +160,8 @@
                         <td>{{$user->id}}</td>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
-                        <td><a href="{{url('/edit/'. $user->id)}}">Edit</a></td>
-                        <td><a href="#">Delete</a></td>
-                        <!-- <td><a href="{{url('/delete/' . $user->id )}}">Delete</a></td> -->
+                        <td><a href="{{route('adminedit', $user->id)}}">Edit</a></td>
+                        <td><a href="{{route('admindelete', $user->id)}}">Delete</a></td>
                     </tr>
                     @endif
                     @endforeach

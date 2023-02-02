@@ -33,9 +33,9 @@
 <div class="edit-container">
     <!-- FORM KO SECTION -->
     <section class="formko">
-        <div class="h2">ADMIN EDIT FORM</div>
+        <div class="h2">USER EDIT FORM</div>
         <form action="{{ route('adminupdate')}}" method="post"
-            oninput='passwordcheck.setCustomValidity(passwordcheck.value != password.value ? "Passwords do not match." : ""), password.setCustomValidity(password.value.length <= 8 ? "Password must be atleast 8 characters long." : "")'>
+            oninput='passwordcheck.setCustomValidity(passwordcheck.value != password.value ? "Passwords do not match." : ""), password.setCustomValidity(password.value.length <= 7 ? "Password must be atleast 8 characters long." : "")'>
             @csrf
             <input type="hidden" class="form-control" name="id" value="{{$data->id}}">
             <div class="mb-3">
@@ -69,7 +69,7 @@
                 <select name="role">
                     <option value="0">User</option>
                     <option value="1">Admin</option>
-                    <option value="2">Therapist</option>
+                    <!-- <option value="2">Therapist</option> -->
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
