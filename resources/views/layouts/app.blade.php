@@ -21,7 +21,7 @@
 
     .container-fluid {
         background-color: #50577A;
-        height: 92vh;
+        height: fit-content;
     }
     </style>
     <title>Login Template</title>
@@ -79,7 +79,6 @@
         @yield('content')
     </div>
     <div class="footer bg-dark">Footer Part</div>
-
 </body>
 
 </html>
