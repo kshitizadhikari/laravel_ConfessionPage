@@ -92,12 +92,13 @@
         <div class="mainGrid">
             <div class="item posts">
                 <div class="text">
-                    <h4>1234 Posts</h4>
+
+                    <h4> Posts</h4>
                 </div>
             </div>
             <div class="item user">
                 <div class="text">
-                    <h4>1234 Users</h4>
+                    <h4>{{ $userCount}} Users</h4>
                 </div>
             </div>
             <div class="item reports">
