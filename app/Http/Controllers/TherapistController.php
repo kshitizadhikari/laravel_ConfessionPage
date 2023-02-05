@@ -17,4 +17,10 @@ class TherapistController extends Controller
     {
         return view('therapist/therapistDashboard');
     }
+
+    public function reschedule()
+    {
+        return redirect('/');
+        
+    }
 }
