@@ -50,19 +50,7 @@ class UserController extends Controller
                 'title' => $request->postTitle,
                 'post' => $request->post,
                 'user_id' => $request->user_id,
-                'img'=>null
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+                'img'=>null, 
                 
             ]);
         }

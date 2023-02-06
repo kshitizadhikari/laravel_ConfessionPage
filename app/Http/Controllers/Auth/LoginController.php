@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use GuzzleHttp\Psr7\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,27 +21,34 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
-    
-    // protected $redirectTo = RouteServiceProvider::UserHome;
 
-    public function authenticated()
-    {
-        if(Auth::user()->role == '1')
-        {
-            return redirect('/admin/admin-home');
-        } else if(Auth::user()->role == '0')
-        {
-            return redirect('/user/user-home');
-        } else {
-            return redirect('/');
-        }
-   
+    /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    protected $redirectTo = RouteServiceProvider::HOME;
 
-    }
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
     }
 
-    
+    public function authenticated()
+    {
+        if(Auth::user()->role == '1'){
+            return redirect('/admin/admin-home');
+        } else if(Auth::user()->role == '0'){
+            return redirect('/user/user-home');
+        } else if(Auth::user()->role == '2'){
+            return redirect('/therapist/therapist-home');
+        } else {
+            return redirect('login');
+        }
+    }
 }
