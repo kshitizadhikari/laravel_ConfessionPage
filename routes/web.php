@@ -35,14 +35,14 @@ Route::group(['middleware=' => 'auth'], function() {
         Route::get('/admin-dashboard', [AdminController::class, 'adminDashboard'])->name('adminDashboard');
 
         Route::get('/edit/{id}', [AdminController::class, 'edit'])->name('edit');
-        Route::post('/edit', [AdminController::class, 'update'])->name('update');
-        
+        Route::post('/edit', [AdminController::class, 'update'])->name('update');        
         Route::get('/delete/{id}', [AdminController::class, 'delete'])->name('delete');
     });
 
     //user
     Route::group([
         'prefix' => 'user',
+        'middleware' => 'isUser',
         'as' => 'user',
     ], function() {
         Route::get('/user-home', [UserController::class, 'index'])->name('login');
@@ -56,12 +56,11 @@ Route::group(['middleware=' => 'auth'], function() {
     //therapist
     Route::group([
         'prefix' => 'therapist',
+        'middleware' => 'isTherapist',
         'as' => 'therapist',
     ], function() {
-        Route::get('/therapist-home', [TherapistController::class, 'index'])->name('therapistHome');
+        Route::get('/therapist-home', [TherapistController::class, 'index'])->name('login');
         Route::get('/therapist-approval-page', [TherapistController::class, 'therapistApprovalFormView'])->name('therapistApprovalFormView');
     });
     
 });
-
-// Route::get('/dashboard',[UserController::class,'dashboard'])->name('login');

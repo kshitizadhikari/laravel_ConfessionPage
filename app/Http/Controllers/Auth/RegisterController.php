@@ -29,9 +29,9 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::UserHome;
+    protected $redirectTo = RouteServiceProvider::HOME;
 
-    /** 
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -41,6 +41,12 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
     protected function validator(array $data)
     {
         return Validator::make($data, [
