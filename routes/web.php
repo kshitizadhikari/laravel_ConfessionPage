@@ -25,14 +25,6 @@ Route::get('/therapist-dashboard', [TherapistController::class, 'therapistDashbo
 
 Auth::routes();
 
-//admin
-// Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function(){  
-//     Route::get('/admin-dashboard', [AdminController::class, 'adminDashboard'])->name('adminDashboard');
-// });
-
-
-
-
 Route::group(['middleware=' => 'auth'], function() {
     
     //admin
@@ -42,15 +34,35 @@ Route::group(['middleware=' => 'auth'], function() {
         'as' => 'admin',
     ], function() {
         Route::get('/admin-home', [AdminController::class, 'index'])->name('adminHome');
+        Route::get('/admin-dashboard', [AdminController::class, 'adminDashboard'])->name('adminDashboard');
+
+        Route::get('/edit/{id}', [AdminController::class, 'edit'])->name('edit');
+        Route::post('/edit', [AdminController::class, 'update'])->name('update');        
+        Route::get('/delete/{id}', [AdminController::class, 'delete'])->name('delete');
     });
 
     //user
     Route::group([
         'prefix' => 'user',
+        'middleware' => 'isUser',
         'as' => 'user',
     ], function() {
-        Route::get('/user-home', [UserController::class, 'index'])->name('userHome');
+        Route::get('/user-home', [UserController::class, 'index'])->name('login');
         Route::get('/user-dashboard', [UserController::class, 'userDashboard'])->name('userDashboard');
+
+        //Post CRUD
+        Route::post('/save-post', [UserController::class, 'savePost'])->name('savePost');
+        Route::get('/delete-post/{id}', [UserController::class, 'deletePost'])->name('deletePost');
+    });
+
+    //therapist
+    Route::group([
+        'prefix' => 'therapist',
+        'middleware' => 'isTherapist',
+        'as' => 'therapist',
+    ], function() {
+        Route::get('/therapist-home', [TherapistController::class, 'index'])->name('login');
+        Route::get('/therapist-approval-page', [TherapistController::class, 'therapistApprovalFormView'])->name('therapistApprovalFormView');
     });
     
 });

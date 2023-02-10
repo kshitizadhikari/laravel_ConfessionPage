@@ -6,21 +6,19 @@ use Illuminate\Http\Request;
 
 class TherapistController extends Controller
 {
-   
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         return view('therapist/therapistHome');
     }
-
-     public function therapistDashboard()
+    
+    public function therapistApprovalFormView()
     {
-        return view('therapist/therapistDashboard');
-    }
-
-    public function reschedule()
-    {
-        return redirect('/');
-        
+        return view('therapist/therapistApprovalForm');
     }
 }
