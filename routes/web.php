@@ -21,6 +21,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/therapist-dashboard', [TherapistController::class, 'therapistDashboard'])->name('therapistDashboard');
+
 Auth::routes();
 
 Route::group(['middleware=' => 'auth'], function() {
