@@ -53,6 +53,9 @@ Route::group(['middleware=' => 'auth'], function() {
         //Post CRUD
         Route::post('/save-post', [UserController::class, 'savePost'])->name('savePost');
         Route::get('/delete-post/{id}', [UserController::class, 'deletePost'])->name('deletePost');
+
+        //Display post
+        Route::get('/display/post/{id}',[UserController::class,'displaypost'])->name('displayPost');
     });
 
     //therapist

@@ -15,7 +15,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $posts=Post::all();
+        $posts=Post::latest()->get();
         return view('user.userDashboard',compact('posts'));
 
     }
@@ -27,34 +27,37 @@ class UserController extends Controller
 
     public function savePost(Request $request)
     {
-
+            
         $request->validate([
-            'title'=>'required',
+            'postTitle'=>'required',
             'post'=>'required'
         ]);
-        if($request->hasFile('file')){
-            $image=$request->file('file');
-             //'folderkoname','kun bhitra rakhne ho'
-            
-            $response=$image->store('images','public');
-            Post::create([
-                'title' => $request->postTitle,
-                'post' => $request->post,
-                'user_id' => $request->user_id,
-                'img'=>$response
-            ]);
-        }
-        else{
+        $image=array();
+        if( $files=$request->file('file')){
+           
 
+             //'folderkoname','kun bhitra rakhne ho'
+             foreach($files as $file)
+             {
+                $imagename=time().rand(1000,99999);
+                $extension=strtolower($file->getClientOriginalExtension());
+                $imagefullname=$imagename.".".$extension;
+                $uploadspath="public/uploads/";
+                $imageurl=$uploadspath.$imagefullname;
+                $file->move($uploadspath,$imagefullname);
+                $image[]=$imageurl;
+             }
+            
+            }
             Post::create([
                 'title' => $request->postTitle,
                 'post' => $request->post,
                 'user_id' => $request->user_id,
-                'img'=>null, 
-                
+                'img'=>implode('|',$image)
             ]);
-        }
+     
         return redirect()->back()->with(['posts' => Post::all()]);
+    
   
     }
 
@@ -63,6 +66,12 @@ class UserController extends Controller
         $data=Post::find($id);
         $data->delete();
         return redirect()->back();
+    }
+
+    public function displaypost($id){
+        
+            $post=Post::where('id',$id)->first();
+            return view('user.displaypost',compact('post'));
     }
 
     // public function dashboard(){
