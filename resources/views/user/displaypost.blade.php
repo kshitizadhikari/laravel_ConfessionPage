@@ -85,7 +85,6 @@
     .chooseimg:hover{
         cursor:pointer;
     }
-
     .post-image{
         display:grid;
         grid-template-columns:auto auto;
@@ -130,53 +129,11 @@
                 </div>
                 <!-- //middle part -->
                 <div class="col-7">
-                    <!-- USER POST -->
-                    <div class="new border border-gray">
-                        <form action="{{route('usersavePost')}}" method="post" enctype="multipart/form-data">
-                            @csrf
-                           
-                                <div class="row">
-                                    <div class="col">
-                                        <img src="{{asset('images/review6.png')}}" class="profile rounded-circle" alt="">
-                                        <label for="Post">Do
-                                            you want to share something ?</label>
-                                        <input type="text" style="min-width:90%"
-                                            class="  m-3 border-black text-black-dark rounded-pill bg-light ps-2 text-start"
-                                            placeholder="Title" name="postTitle"> 
-                                            
-                                        <textarea style="min-width:90%"
-                                            class="  m-3 border-black text-black-dark bg-light ps-2 text-start"
-                                            placeholder="Enter Text" name="post" rows="10" cols="30"> </textarea>
-                                        <input type="hidden" value="{{ auth()->user()->id}}" name="user_id">
-                                    </div>
-                                </div>
-                                <div class="post-img ps-3">
-                                    <input type="file" name="file[]" id="file" multiple>
-                                    
-                                    <label for="file" class="chooseimg me-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-image" viewBox="0 0 16 16">
-  <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-  <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13zm13 1a.5.5 0 0 1 .5.5v6l-3.775-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12v.54A.505.505 0 0 1 1 12.5v-9a.5.5 0 0 1 .5-.5h13z"/>
-</svg>Choose a Picture</label>
-                                </div>
-                                <div class="row text-gray-darker pt-4 pb-2 ps-3 pe-4 ">
-                                    <div class="col text-center">
-                                      
-                                        <button type="submit" class="border border-none w-100 ">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
-                                            <path
-                                                d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z" />
-                                        </svg>Post</button>
-                                    </div>
-                                </div>
-                        </form>
-                    </div>
+                 
                     <!-- POSTS -->
                     <div class="posts">
-                        @foreach($posts as $post)
-                        @if($post['user_id'] == auth()->user()->id)
-                        <a href="{{url('user/display/post/'.$post->id)}}">
+                      
+                       
                         <div class="post bg-white border-gray mt-4">
                             <div class=" pt-2 d-flex justify-content-between">
                                 <div class="d-flex">
@@ -186,49 +143,36 @@
 
                                     </div>
                                 </div>
-                                <div class="p-2 text-gray-darker" >
-                                    <a href="{{route('userdeletePost',$post['id'])}}">
-
-                                        <button class="btn rounded-circle  p-1" >
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            fill="currentColor" class="bi bi-x" viewBox="0 0 14 14">
-                                            <path
-                                            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-                                        </svg>
-                                    </button>
-                                </a>
-                                </div>
+                               
                             </div>
                             <div class="post-body pt-2 ps-3">
                                 <div class="post-title fw-bold">
                                     <a href="" class="text-decoration-none text-black">
-                                        {{$post['title']}}
+                                        {{$post->title}}
                                     </a>
                                 </div>
                                 <div class="post-text pt-1">
-                                    {{$post['post']}}
+                                    {{$post->post}}
                                 </div>
                             </div>
-                            @if(!empty($post['img']))
-                            <div class="post-image pt-2 " >
-                                @php
-                                $images=explode('|',$post['img'])
+                            @if(!empty($post->img))
+                            <div class="post-image pt-2">
+                            @php
+                                $images=explode('|',$post->img)
                                 @endphp
-                                
-                                @foreach($images as $image)
+                                        @foreach($images as $image)
                                  
 
                                        
                                     
-                                        <img src="{{url($image)}}" class="img-fluid w-100 h-100" alt="" style="object-fit:cover;" >
+                                        <img src="{{url($image)}}" class="img-fluid w-100 h-100" alt=""style="object-fit:cover;"  >
 
                                   
                                                           
                                  
-                                    @endforeach
-                              
-                            </div>
-                            @endif
+                                    @endforeach                           
+                                 </div>
+                                 @endif
                            
                             <div class="post-footer pt-3 py-4 d-flex align-items-center">
                                 <div class="btn-group ps-2 " role="group">
@@ -253,10 +197,46 @@
                                 </div>
                             </div>
                         </div>
-                        </a>
-                        @endif
-                        @endforeach
+                        <!-- COMMENT -->
+                        <div class="comment h-100">
+                            <div class="card">
+                                <div class="card-header">
+                                <p>Comments</p>
+
+                                </div>
+                                <div class="card-body">
+
+                                    <div class=" pt-2 d-flex justify-content-between">
+                                    <div class="d-flex">
+                                    <img src="{{asset('images/review6.png')}}" class="post-profile rounded-circle" alt="">
+                                    <div class="d-flex-column">
+                                    <input type="text" style="min-width:130%"
+                                            class=" form-control m-3 border-black text-black-dark rounded-pill bg-light ps-2 text-start"
+                                            placeholder="Comment" name="comment">
+
+                                    </div>
+                                    </div>
+                                
+                                    </div>
+                                    <div class="d-flex-column">
+
+                                        <div class="othercomm  d-flex" style="align-items:center;gap:1rem;">
+                                            <img src="{{asset('images/review6.png')}}" class="post-profile rounded-circle" alt="">
+                                            <div class="d-flex-column">
+
+                                                <div class="fw-bold fs-5">abc</div>
+                                                <div class="comm" >hello this is a comment</div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
                     </div>
+                    </div>
+
+                  
                 </div>
 
                 <!-- RIGHT SECTION -->
