@@ -25,6 +25,7 @@
     }
     </style>
     <title>Login Template</title>
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     @vite(['resources/js/app.js'])
 </head>
 

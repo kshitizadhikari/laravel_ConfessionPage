@@ -56,6 +56,10 @@ Route::group(['middleware=' => 'auth'], function() {
 
         //Display post
         Route::get('/display/post/{id}',[UserController::class,'displaypost'])->name('displayPost');
+
+        //edit post
+        Route::get('/edit/post/{id}',[UserController::class,'editpost'])->name('editPost');
+        Route::post('/edit/edit-post',[UserController::class,'updatepost'])->name('editPost.edit');
     });
 
     //therapist
