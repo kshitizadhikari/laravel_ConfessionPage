@@ -64,6 +64,15 @@ class UserController extends Controller
     public function deletePost($id)
     {
         $data=Post::find($id);
+        $images=explode('|',$data->img);
+        foreach($images as $image)
+        {
+
+            if(file_exists($image)){
+                unlink($image);
+            }
+        }
+        
         $data->delete();
         return redirect()->back();
     }
@@ -73,7 +82,10 @@ class UserController extends Controller
             $post=Post::where('id',$id)->first();
             return view('user.displaypost',compact('post'));
     }
-
+        public function editpost($id){
+            $data=Post::find($id);
+            return view('user.editpost',compact('data'));
+        }
     // public function dashboard(){
     //     return view('user.userDashboard');
     // }

@@ -2,96 +2,7 @@
 
 @section('content')
 
-    <style>
-    .bg-second-color {
-        background-color: grey;
-    }
 
-    #left-list {
-        margin-left: 20px;
-
-    }
-
-    #left-list a {
-        text-decoration: none;
-        padding: 5px;
-        color: #000;
-        font-size: 13px;
-        margin-bottom: 5px;
-    }
-
-    #left-list img {
-        width: 20px;
-        height: 20px;
-        border-radius: 5px;
-    }
-
-    .profile {
-        width: 25px;
-        height: 25px;
-        border-radius: 5px;
-    }
-
-    .border-gray {
-        border-style: solid;
-        border-color: rgb(221, 221, 221);
-        border-width: 1px;
-
-    }
-
-    .text-gray-dark {
-        color: rgb(177, 177, 177);
-    }
-
-    .hover-dark:hover {
-        background-color: rgb(233, 233, 233);
-        border-radius: 5px;
-    }
-
-    .post-profile {
-        width: 55px;
-        height: 55px;
-        padding: 7px;
-    }
-
-    .left-btn {
-        border-bottom-left-radius: 12px;
-        border-top-left-radius: 12px;
-    }
-
-    .right-btn {
-        border-bottom-right-radius: 12px;
-        border-top-right-radius: 12px;
-    }
-    textarea{
-        resize:none;
-    }
-    input[type="file"]{
-        display:none;
-    }
-
-    .chooseimg{
-        color:white;
-        height:30px;
-        width:100px;
-        background-color:gray;
-        font-size:10px;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-      
-
-    }
-    .chooseimg:hover{
-        cursor:pointer;
-    }
-
-    .post-image{
-        display:grid;
-        grid-template-columns:auto auto;
-        /* grid-template-rows: repeat(1, 1fr); */
-    }
-    </style>
 
 
 
@@ -176,7 +87,7 @@
                     <div class="posts">
                         @foreach($posts as $post)
                         @if($post['user_id'] == auth()->user()->id)
-                        <a href="{{url('user/display/post/'.$post->id)}}">
+                        
                         <div class="post bg-white border-gray mt-4">
                             <div class=" pt-2 d-flex justify-content-between">
                                 <div class="d-flex">
@@ -187,9 +98,18 @@
                                     </div>
                                 </div>
                                 <div class="p-2 text-gray-darker" >
+                                <a id="edit-post" href="{{route('usereditPost',$post['id'])}}" >
+
+                                        <button class="btn   p-1" >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+</svg>
+                                        </button>
+                                        </a>
                                     <a href="{{route('userdeletePost',$post['id'])}}">
 
-                                        <button class="btn rounded-circle  p-1" >
+                                        <button class="btn  p-1" >
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             fill="currentColor" class="bi bi-x" viewBox="0 0 14 14">
                                             <path
@@ -200,11 +120,13 @@
                                 </div>
                             </div>
                             <div class="post-body pt-2 ps-3">
+                           
                                 <div class="post-title fw-bold">
-                                    <a href="" class="text-decoration-none text-black">
+                                    <a href="{{url('user/display/post/'.$post->id)}}" class="text-decoration-none text-black">
                                         {{$post['title']}}
                                     </a>
                                 </div>
+                               
                                 <div class="post-text pt-1">
                                     {{$post['post']}}
                                 </div>
@@ -233,27 +155,29 @@
                             <div class="post-footer pt-3 py-4 d-flex align-items-center">
                                 <div class="btn-group ps-2 " role="group">
                                     <button type="button"
-                                        class="left-btn post-btn bg-secondary-color border-0 text-black p-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
-                                        </svg>123454
+                                        class="left-btn post-btn bg-transparent border-0 text-black p-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill " viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                        </svg>
+                                        1 people like this
+                                    </button>
+                                 
+                                    <button type="button"
+                                        class=" post-btn bg-transparent  border-0 ms-2 text-black p-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat" viewBox="0 0 16 16">
+                                    <path d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z"/>
+                                    </svg> 2 Comments
                                     </button>
                                     <button type="button"
-                                        class="right-btn post-btn bg-secondary-color border-0 me-2 text-black p-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
-                                    </svg>124323
-                                    </button>
-                                    <button type="button"
-                                        class=" post-btn bg-secondary-color rounded-pill border-0 ms-2 text-black p-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-reply-fill" viewBox="0 0 16 16">
-                                    <path d="M5.921 11.9 1.353 8.62a.719.719 0 0 1 0-1.238L5.921 4.1A.716.716 0 0 1 7 4.719V6c1.5 0 6 0 7 8-2.5-4.5-7-4-7-4v1.281c0 .56-.606.898-1.079.62z"/>
-                                    </svg>20
+                                        class="report-btn post-btn bg-transparent  border-0 ms-2 text-black p-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-flag" viewBox="0 0 16 16">
+                                        <path d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12.435 12.435 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A19.626 19.626 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a19.587 19.587 0 0 0 1.349-.476l.019-.007.004-.002h.001M14 1.221c-.22.078-.48.167-.766.255-.81.252-1.872.523-2.734.523-.886 0-1.592-.286-2.203-.534l-.008-.003C7.662 1.21 7.139 1 6.5 1c-.669 0-1.606.229-2.415.478A21.294 21.294 0 0 0 3 1.845v6.433c.22-.078.48-.167.766-.255C4.576 7.77 5.638 7.5 6.5 7.5c.847 0 1.548.28 2.158.525l.028.01C9.32 8.29 9.86 8.5 10.5 8.5c.668 0 1.606-.229 2.415-.478A21.317 21.317 0 0 0 14 7.655V1.222z"/>
+                                        </svg>
                                     </button>
                                 </div>
                             </div>
                         </div>
-                        </a>
+                        
                         @endif
                         @endforeach
                     </div>
