@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\post_like;
 use GuzzleHttp\Promise\Create;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -86,7 +88,45 @@ class UserController extends Controller
             $data=Post::find($id);
             return view('user.editpost',compact('data'));
         }
+
+
+
+        public function likePost(Request $request){
+           
+            if($request->ajax())
+            {
+                $data=$request->all();
+                
+                
+                $postsearch=post_like::where('post_id',$data['postid'])->where('user_id',auth()->user()->id);            
+                if($postsearch->count()<1)
+                {
+                    
+                    
+                    post_like::create([
+                        'post_id' => $data['postid'],
+                        'user_id' => auth()->user()->id,
+                        
+                    ]);
+                    $postcount=post_like::where('post_id',$data['postid'])->count();
+                             return response()->json(array('msg' => 'liked' , 'postcount'=>$postcount));
+                         }
+                         else{
+                             $postsearch->delete();
+                             $postcount=post_like::where('post_id',$data['postid'])->count();
+                             return response()->json(array('msg' => 'disliked' , 'postcount'=>$postcount));
+                         }
+                    
+                         
+            }
+              
+        }
+
+       
+        
     // public function dashboard(){
     //     return view('user.userDashboard');
     // }
+
+
 }
