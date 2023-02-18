@@ -98,7 +98,7 @@
             </div>
             <div class="item user">
                 <div class="text">
-                    <h4>{{ $userCount}} Users</h4>
+                    <h4> Users</h4>
                 </div>
             </div>
             <div class="item reports">

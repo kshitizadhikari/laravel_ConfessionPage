@@ -16,8 +16,7 @@ class AdminController extends Controller
     public function index()
     {
         $user = User::where('role', '<=', '0');
-        $userCount = $user->count();
-        return view('admin/adminHome', ['allUser' => User::all(), 'userCount' => $userCount ]);
+        return view('admin/adminHome', ['allUser' => User::all()]);
     }
     
     public function adminDashboard()

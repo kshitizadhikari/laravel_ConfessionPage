@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->string('email')->unique();
             $table->string('password');
+            $table->integer('age');
+            $table->string('gender');
             $table->integer('role')->default('0');
             $table->string('remember_token')->nullable();
             $table->timestamps();

@@ -52,6 +52,23 @@
                                 <div class="form-text">@error('email') {{$message}} @enderror <br>
                                 </div>
                             </div>
+                            <div class="mb-3">
+                                <label for="Role" class="form-label">Gender</label>
+                                <select name="gender">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="female">Other</option>
+                                    <!-- <option value="2">Therapist</option> -->
+                                </select>
+                                <label for="age">Age:</label>
+                                <select id="age" name="age">
+                                    <?php
+                                        for ($i = 15; $i <= 90; $i++) {
+                                        echo '<option value="' . $i . '">' . $i . '</option>';
+                                        }
+                                    ?>
+                                </select>
+                            </div>
                             <div class="mb-3 p-0">
                                 <!-- <label for="password" class="form-label">Password</label> -->
                                 <input type="password" class="form-control  @error('password') is-invalid @enderror"
