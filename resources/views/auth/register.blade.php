@@ -54,14 +54,12 @@
                             </div>
                             <div class="mb-3">
                                 <label for="Role" class="form-label">Gender</label>
-                                <select name="role">
+                                <select name="gender">
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                     <option value="female">Other</option>
                                     <!-- <option value="2">Therapist</option> -->
                                 </select>
-                            </div>
-                            <div class="mb-3">
                                 <label for="age">Age:</label>
                                 <select id="age" name="age">
                                     <?php

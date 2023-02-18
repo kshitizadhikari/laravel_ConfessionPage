@@ -21,7 +21,9 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->unique()->name(),
             'email' => $this->faker->unique()->safeEmail(),
-            'password' => Hash::make('123456789'),
+            'age' => $this->faker->numberBetween(18, 90),
+            'gender' => $this->faker->randomElement(['Male', 'Female', 'Other']),
+            'password' => Hash::make('12345678'),
             'role' => $this->faker->numberBetween(0, 2),
         ];
     }
