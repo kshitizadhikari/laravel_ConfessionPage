@@ -409,10 +409,38 @@ function drawBasic() {
                                                 <td>{{$user->id}}</td>
                                                 <td>{{$user->name}}</td>
                                                 <td>{{$user->email}}</td>
-                                                <td><a href="{{route('adminedit', $user->id)}}">Edit</a></td>
-                                                <td><a href="{{route('admindelete', $user->id)}}">Delete</a></td>
+                                                <td><a href="{{route('admineditUser', $user->id)}}">Edit</a></td>
+                                                <td><a href="{{route('admindeleteUser', $user->id)}}">Delete</a>
+                                                </td>
                                             </tr>
                                             @endif
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- POST TABLE -->
+                                <h2 class="title-1 m-b-25 m-t-50">POST TABLE</h2>
+                                <div class="table-responsive table--no-card m-b-40">
+                                    <table class="table table-dark table-striped">
+
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Title</th>
+                                                <th scope="col">Post</th>
+                                                <th scope="col">User_ID</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($allPosts as $post)
+                                            <tr>
+                                                <td>{{$post->id}}</td>
+                                                <td>{{$post->title}}</td>
+                                                <td>{{$post->post}}</td>
+                                                <td>{{$post->user_id}}</td>
+                                                <td><a href="{{route('admindeleteUser', $post->id)}}">Delete</a></td>
+                                            </tr>
                                             @endforeach
                                         </tbody>
                                     </table>

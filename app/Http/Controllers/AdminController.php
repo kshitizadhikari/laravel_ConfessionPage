@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,16 +16,9 @@ class AdminController extends Controller
     
     public function index()
     {
-        $data="";
-        $result = DB::table('users')
-                            ->select('gender', DB::raw('COUNT(*) as count'))
-                            ->groupBy('gender')
-                            ->get();
-        foreach($result as $val){
-            $data.="['$val->gender', $val->count],";
-        }
-        $pieChartData = $data;
-        return view('admin/adminHome', ['allUser' => User::all(), 'pieChartData' => $pieChartData], );
+        $chartController = new ChartController;
+        $pieChartData = $chartController->drawPieChart();
+        return view('admin/adminHome', ['allUser' => User::all(), 'allPosts' => Post::all(), 'pieChartData' => $pieChartData], );
     }
     
     public function adminDashboard()
@@ -32,7 +26,7 @@ class AdminController extends Controller
         return view('admin/adminDashboard');
     }
     
-    public function edit($id)
+    public function editUser($id)
     {
         $userObj = User::find($id);
         return view('admin/userEdit', ['data' => $userObj]);
@@ -55,15 +49,21 @@ class AdminController extends Controller
         $userObj->role = $request->role;
 
         $userObj->save();
-        return view('admin/adminHome', ['allUser' => User::all()]);
+
+        $chartController = new ChartController;
+        $pieChartData = $chartController->drawPieChart();
+        return view('admin/adminHome', ['allUser' => User::all(), 'allPosts' => Post::all(), 'pieChartData' => $pieChartData]);
 
     }
 
-    public function delete($id)
+    public function deleteUser($id)
     {
         $userObj = User::find($id);
         $userObj->delete();
-        return view('admin/adminHome', ['allUser' => User::all()]);
+
+        $chartController = new ChartController;
+        $pieChartData = $chartController->drawPieChart();
+        return view('admin/adminHome', ['allUser' => User::all(),  'allPosts' => Post::all(), 'pieChartData' => $pieChartData]);
     }
 
     
