@@ -64,6 +64,10 @@ Route::group(['middleware=' => 'auth'], function() {
 
         //like post
         Route::post('/like-post',[UserController::class,'likePost']);
+
+
+        //profile 
+        Route::get('/profile/{id}',[UserController::class,'profilepage'])->name('profile');
        
     });
 

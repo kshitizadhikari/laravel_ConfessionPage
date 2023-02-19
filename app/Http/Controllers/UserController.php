@@ -123,7 +123,10 @@ class UserController extends Controller
         }
 
        
-        
+        public function profilepage(){
+           
+            return view('user.profile',['posts' => Post::all()]);
+        }
     // public function dashboard(){
     //     return view('user.userDashboard');
     // }
