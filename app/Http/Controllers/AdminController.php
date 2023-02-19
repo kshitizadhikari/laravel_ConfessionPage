@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -15,8 +15,16 @@ class AdminController extends Controller
     
     public function index()
     {
-        $user = User::where('role', '<=', '0');
-        return view('admin/adminHome', ['allUser' => User::all()]);
+        $data="";
+        $result = DB::table('users')
+                            ->select('gender', DB::raw('COUNT(*) as count'))
+                            ->groupBy('gender')
+                            ->get();
+        foreach($result as $val){
+            $data.="['$val->gender', $val->count],";
+        }
+        $pieChartData = $data;
+        return view('admin/adminHome', ['allUser' => User::all(), 'pieChartData' => $pieChartData], );
     }
     
     public function adminDashboard()
