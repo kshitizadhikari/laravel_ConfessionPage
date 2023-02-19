@@ -2,7 +2,7 @@
 
 @section('content')
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
@@ -40,12 +40,11 @@
     <div class="container-fluid bg-primary py-5 mb-5 hero-header">
         <div class="container py-5">
             <div class="row justify-content-start">
-                <div class="col-lg-8 text-center text-lg-start">
-                    <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5" style="border-color: rgba(256, 256, 256, .3) !important;">Welcome To Medinova</h5>
+                <div class="col-lg-8 text-center text-lg-start" >
+                    <!-- <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5" style="border-color: rgba(256, 256, 256, .3) !important;">Welcome</h5> -->
                     <h1 class="display-1 text-white mb-md-4">Safe place to speak truth!</h1>
                     <div class="pt-2">
                         <a href="" class="btn btn-light rounded-pill py-md-3 px-md-5 mx-2">Start your confession</a>
-                        <!-- <a href="" class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">read/a> -->
                     </div>
                 </div>
             </div>
@@ -76,24 +75,7 @@
                                 <h6 class="mb-0">Qualified<small class="d-block text-primary">Therapists</small></h6>
                             </div>
                         </div>
-                        <!-- <div class="col-sm-3 col-6">
-                            <div class="bg-light text-center rounded-circle py-4">
-                                <i class="fa fa-3x fa-procedures text-primary mb-3"></i>
-                                <h6 class="mb-0">Emergency<small class="d-block text-primary">Services</small></h6>
-                            </div>
-                        </div> -->
-                        <!-- <div class="col-sm-3 col-6">
-                            <div class="bg-light text-center rounded-circle py-4">
-                                <i class="fa fa-3x fa-microscope text-primary mb-3"></i>
-                                <h6 class="mb-0">Accurate<small class="d-block text-primary">Testing</small></h6>
-                            </div>
-                        </div> -->
-                        <!-- <div class="col-sm-3 col-6">
-                            <div class="bg-light text-center rounded-circle py-4">
-                                <i class="fa fa-3x fa-ambulance text-primary mb-3"></i>
-                                <h6 class="mb-0">Free<small class="d-block text-primary">Ambulance</small></h6>
-                            </div>
-                        </div> -->
+                        
                     </div>
                 </div>
             </div>
@@ -248,46 +230,12 @@
     <!-- Team End -->
 
 
-    <!-- Search Start -->
-    <div class="container-fluid bg-primary my-5 py-5">
-        <div class="container py-5">
-            <div class="text-center mx-auto mb-5" style="max-width: 500px;">
-                <h5 class="d-inline-block text-white text-uppercase border-bottom border-5">Find A Doctor</h5>
-                <h1 class="display-4 mb-4">Find Mental Healthcare Professionals</h1>
-                <h5 class="text-white fw-normal">Duo ipsum erat stet dolor sea ut nonumy tempor. Tempor duo lorem eos sit sed ipsum takimata ipsum sit est. Ipsum ea voluptua ipsum sit justo</h5>
-            </div>
-            <div class="mx-auto" style="width: 100%; max-width: 600px;">
-                <div class="input-group">
-                    <select class="form-select border-primary w-25" style="height: 60px;">
-                        <option selected>Categories</option>
-                            <option value="1">BPD</option>
-                            <option value="2">PTSD</option>
-                            <option value="3">Stress</option>
-                            <option value="4">Anxiety</option>
-                            <option value="5">Depression</option>
-                            <option value="6">General</option>
-                            <option value="7">Other</option>
-
-
-                    </select>
-                    <input type="text" class="form-control border-primary w-50" placeholder="Keyword">
-                    <button class="btn btn-dark border-0 w-25">Search</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Search End -->
-
-
-   
-
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light mt-5 py-5">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">Get In Touch</h4>
-                    <p class="mb-4">No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed dolor</p>
                     <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>Kamalpokhari, Kathmandu, Nepal</p>
                     <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>kpk@gmail.com</p>
                     <p class="mb-0"><i class="fa fa-phone-alt text-primary me-3"></i>+977 9841756060</p>
@@ -307,7 +255,6 @@
                     <div class="d-flex">
                         <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
