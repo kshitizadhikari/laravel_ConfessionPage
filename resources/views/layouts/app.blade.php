@@ -22,7 +22,6 @@
     }
 
     .container-fluid {
-        background-color: #50577A;
         height: fit-content;
     }
     </style>
@@ -34,7 +33,7 @@
 <body>
 
     <div class="header">
-        <nav class="navbar navbar-dark navbar-expand-lg bg-dark p-2">
+        <nav class="navbar navbar-dark navbar-expand-lg bg-dark p-3">
             <a class="navbar-brand" href="#">KPK</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
                 aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">

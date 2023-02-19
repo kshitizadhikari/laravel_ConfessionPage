@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TherapistController;
+use App\Http\Controllers\ChartController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
