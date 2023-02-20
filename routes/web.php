@@ -69,6 +69,9 @@ Route::group(['middleware=' => 'auth'], function() {
 
         //profile 
         Route::get('/profile/{id}',[UserController::class,'profilepage'])->name('profile');
+
+       
+      
        
     });
 
