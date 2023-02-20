@@ -7,9 +7,10 @@
                                 <div class="row">
                                     <div class="col">
                                       
+                                        <input type="hidden" value="{{$data->id}}" name="id">
                                         <input type="text" style="min-width:90%"
                                             class="  m-3 border-black text-black-dark rounded-pill bg-light ps-2 text-start"
-                                            placeholder="Title" name="postTitle " value="{{$data->title}}"> 
+                                            placeholder="Title" name="postTitle" value="{{$data->title}}"> 
                                             
                                         <textarea style="min-width:90%"
                                             class="  m-3 border-black text-black-dark bg-light ps-2 text-start"

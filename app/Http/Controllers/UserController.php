@@ -84,14 +84,86 @@ class UserController extends Controller
             $post=Post::where('id',$id)->first();
             return view('user.displaypost',compact('post'));
     }
+        
         public function editpost($id){
             $data=Post::find($id);
             return view('user.editpost',compact('data'));
         }
 
+        public function updatepost(Request $req){
+
+            $data=Post::find($req->id);
+            
+        $images=explode('|',$data->img);
+        foreach($images as $image)
+        {
+
+            if(file_exists($image)){
+                unlink($image);
+            }
+        }
+        $image=array();
+        if( $files=$req->file('file')){
+           
+
+             //'folderkoname','kun bhitra rakhne ho'
+             foreach($files as $file)
+             {
+                $imagename=time().rand(1000,99999);
+                $extension=strtolower($file->getClientOriginalExtension());
+                $imagefullname=$imagename.".".$extension;
+                $uploadspath="public/uploads/";
+                $imageurl=$uploadspath.$imagefullname;
+                $file->move($uploadspath,$imagefullname);
+                $image[]=$imageurl;
+             }
+            
+            }
+
+
+             $data->title=$req->postTitle;
+             $data->post=$req->post;
+             $data->user_id=$req->user_id;
+             $data->img=implode('|',$image);
+             $data->save();
+            return redirect()->route('login');
+        }
+
 
 
         public function likePost(Request $request){
+           
+            if($request->ajax())
+            {
+                $data=$request->all();
+                
+                
+                $postsearch=post_like::where('post_id',$data['postid'])->where('user_id',auth()->user()->id);            
+                if($postsearch->count()<1)
+                {
+                    
+                    
+                    post_like::create([
+                        'post_id' => $data['postid'],
+                        'user_id' => auth()->user()->id,
+                        
+                    ]);
+                    $postcount=post_like::where('post_id',$data['postid'])->count();
+                             return response()->json(array('msg' => 'liked' , 'postcount'=>$postcount));
+                         }
+                         else{
+                             $postsearch->delete();
+                             $postcount=post_like::where('post_id',$data['postid'])->count();
+                             return response()->json(array('msg' => 'disliked' , 'postcount'=>$postcount));
+                         }
+                    
+                         
+            }
+              
+        }
+
+
+        public function likePosts(Request $request){
            
             if($request->ajax())
             {
