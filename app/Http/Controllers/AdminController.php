@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Post;
+use App\Models\post_like;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,7 +19,11 @@ class AdminController extends Controller
     {
         $chartController = new ChartController;
         $pieChartData = $chartController->drawPieChart();
-        return view('admin/adminHome', ['allUser' => User::all(), 'allPosts' => Post::all(), 'pieChartData' => $pieChartData], );
+
+        $userCount = User::where('role', 0)->count();
+        $postCount = Post::count();
+        $likeCount = post_like::count();
+        return view('admin/adminHome', ['allUser' => User::all(), 'userCount' => $userCount, 'allPosts' => Post::all(), 'postCount' => $postCount, 'likeCount' => $likeCount,'pieChartData' => $pieChartData], );
     }
     
     public function adminDashboard()
