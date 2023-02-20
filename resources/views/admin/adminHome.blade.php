@@ -17,7 +17,8 @@ function drawChart() {
     ]);
 
     var options = {
-        title: ''
+        title: '',
+        is3D: true,
     };
 
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -264,7 +265,7 @@ function drawBasic() {
                                                 <i class="zmdi zmdi-account-o"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>10368</h2>
+                                                <h2>{{$userCount}}</h2>
                                                 <span>USERS</span>
                                             </div>
                                         </div>
@@ -283,7 +284,7 @@ function drawBasic() {
                                                 <i class="zmdi zmdi-shopping-cart"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>388,688</h2>
+                                                <h2>{{$postCount}}</h2>
                                                 <span>POSTS</span>
                                             </div>
                                         </div>
@@ -302,7 +303,7 @@ function drawBasic() {
                                                 <i class="zmdi zmdi-calendar-note"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>1,086</h2>
+                                                <h2>{{$likeCount}}</h2>
                                                 <span>LIKES</span>
                                             </div>
                                         </div>
