@@ -30,7 +30,7 @@ class AdminController extends Controller
     {
         return view('admin/adminDashboard');
     }
-    
+
     public function editUser($id)
     {
         $userObj = User::find($id);

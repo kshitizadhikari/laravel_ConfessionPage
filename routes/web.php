@@ -36,6 +36,7 @@ Route::group(['middleware=' => 'auth'], function() {
     ], function() {
         Route::get('/admin-home', [AdminController::class, 'index'])->name('adminHome');
         Route::get('/admin-dashboard', [AdminController::class, 'adminDashboard'])->name('adminDashboard');
+        Route::get('/admin-layout', [AdminController::class, 'adminLayout'])->name('adminLayout');
 
         Route::get('/edit/{id}', [AdminController::class, 'editUser'])->name('editUser');
         Route::post('/edit', [AdminController::class, 'update'])->name('update');        

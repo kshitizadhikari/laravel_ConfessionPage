@@ -21,10 +21,11 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->unique()->name(),
             'email' => $this->faker->unique()->safeEmail(),
-            'age' => $this->faker->numberBetween(18, 90),
             'gender' => $this->faker->randomElement(['Male', 'Female', 'Other']),
+            'age' => $this->faker->numberBetween(18, 90),
+            'country' => $this->faker->randomElement(['Nepal', 'India', 'China', 'USA', 'UK', 'Austrailia']),
             'password' => Hash::make('12345678'),
-            'role' => $this->faker->numberBetween(0, 2),
+            'role' => $this->faker->numberBetween(0, 1),
         ];
     }
 }

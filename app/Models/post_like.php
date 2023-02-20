@@ -13,6 +13,5 @@ class post_like extends Model
         'post_id',
         'user_id',
         
-
     ];
 }

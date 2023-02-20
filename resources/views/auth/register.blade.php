@@ -57,8 +57,7 @@
                                 <select name="gender">
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
-                                    <option value="female">Other</option>
-                                    <!-- <option value="2">Therapist</option> -->
+                                    <option value="other">Other</option>
                                 </select>
                                 <label for="age">Age:</label>
                                 <select id="age" name="age">
@@ -69,8 +68,18 @@
                                     ?>
                                 </select>
                             </div>
+                            <div class="mb-3">
+                                <label for="Country" class="form-label">Select Country</label>
+                                <select name="country">
+                                    <option value="Nepal">Nepal</option>
+                                    <option value="India">India</option>
+                                    <option value="China">China</option>
+                                    <option value="USA">USA</option>
+                                    <option value="UK">UK</option>
+                                    <option value="Australia">Australia</option>
+                                </select>
+                            </div>
                             <div class="mb-3 p-0">
-                                <!-- <label for="password" class="form-label">Password</label> -->
                                 <input type="password" class="form-control  @error('password') is-invalid @enderror"
                                     id=" password" placeholder="Password" name="password" required
                                     autocomplete="new-password">
