@@ -54,7 +54,7 @@
                                     you want to share something ?</label>
                                 <input type="text" style="min-width:90%"
                                     class="m-3 border border-black text-black-dark rounded-pill bg-light ps-2 text-start"
-                                    placeholder="Title" name="postTitle">
+                                    placeholder="Title" name="postTitle required">
 
                                 <textarea style="min-width:90%"
                                     class="m-3 border border-black text-black-dark bg-light ps-2 text-start "
@@ -246,7 +246,7 @@
                             <img src="review6.png" height="20" width="20" class="rounded" alt="" srcset="">
                         </div>
                         <div class="ps-2 lh-1">
-                            <div class="fw-bold">Confession</div>
+                            <div class="fw-bold">Group</div>
                             <div class="text-secondary fw-light"><small> Lorem ipsum dolor sit amet........</small>
                             </div>
                         </div>
@@ -256,7 +256,7 @@
                             <img src="review6.png" height="20" width="20" class="rounded" alt="" srcset="">
                         </div>
                         <div class="ps-2 lh-1">
-                            <div class="fw-bold">Confession</div>
+                            <div class="fw-bold">Group</div>
                             <div class="text-secondary fw-light"><small> Lorem ipsum dolor sit amet........</small>
                             </div>
                         </div>
@@ -266,7 +266,7 @@
                             <img src="review6.png" height="20" width="20" class="rounded" alt="" srcset="">
                         </div>
                         <div class="ps-2 lh-1">
-                            <div class="fw-bold">Confession</div>
+                            <div class="fw-bold">Group</div>
                             <div class="text-secondary fw-light"><small> Lorem ipsum dolor sit amet........</small>
                             </div>
                         </div>
@@ -280,7 +280,7 @@
 <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
 <script>
 $('.post-btn').click(function(e) {
-    // e.preventDefault();
+    e.preventDefault();
     var postid = $(this).closest(".likeform").find('.idpost').val();
     var self = this;
     //  alert(postid);
