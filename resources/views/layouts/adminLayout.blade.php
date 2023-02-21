@@ -82,7 +82,7 @@ function drawBasic() {
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-    <title>KPK</title>
+    <title>KPK Confession</title>
     @vite(['resources/js/app.js'])
 </head>
 
