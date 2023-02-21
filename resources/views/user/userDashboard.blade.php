@@ -171,7 +171,7 @@
                                 {{$post['post']}}
                             </div>
 
-                            @endif
+                            
                            
                             <div class="post-footer pt-3 py-4 d-flex align-items-center">
                                 <div class="btn-group ps-2 " role="group">
