@@ -16,8 +16,13 @@ class Post extends Model
         'img'
 
     ];
+
     public function likedUser(){
         return $this->belongsToMany(User::class);
+    }
+
+    public function comments() {
+        return $this->hasMany(Comment::class);
     }
 
 }
