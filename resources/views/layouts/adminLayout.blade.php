@@ -155,6 +155,7 @@ function drawBasic() {
                 </div>
                 <div class="menu-sidebar__content js-scrollbar1">
                     <nav class="navbar-sidebar">
+
                         <ul class="list-unstyled navbar__list">
                             <li>
                                 <a class="js-arrow" href="{{route('adminadminHome')}}">
@@ -173,13 +174,15 @@ function drawBasic() {
                                     <i class="far fa-check-square"></i>Forms</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
-                                        <a href="{{route('admineditUser', ['id' => Auth::id()])}}">UserForm</a>
+                                        <a href="#" data-toggle="modal" data-target="#myModal">UserForm</a>
+
                                     </li>
                                     <li>
-                                        <a href="{{route('admineditAdmin', ['id' => Auth::id()])}}">AdminForm</a>
+                                        <a href="#">AdminForm</a>
                                     </li>
                                 </ul>
                             </li>
+                        </ul>
                     </nav>
                 </div>
             </aside>
@@ -245,7 +248,7 @@ function drawBasic() {
                 <!-- END HEADER DESKTOP -->
                 <!-- MAIN CONTENT-->
                 <div class="main-content p-0">
-                    <div class="section__content section__content--p30">
+                    <div class="section__content section__content--p30 z-index-300">
                         <div class="container-fluid">
                             @yield('admin-content')
                         </div>
