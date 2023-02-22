@@ -72,7 +72,11 @@ Route::group(['middleware=' => 'auth'], function() {
         //profile 
         Route::get('/profile/{id}',[UserController::class,'profilepage'])->name('profile');
 
-       
+       //settings
+       Route::get('/setting/{id}',[UserController::class,'setting'])->name('settings');
+        
+       //edit userprofile
+       Route::post('/edit/user',[UserController::class,'editprofile'])->name('editprofile.edit');
       
        
     });
