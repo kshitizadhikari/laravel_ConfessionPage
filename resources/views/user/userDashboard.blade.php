@@ -141,6 +141,16 @@
                                 {{$post['post']}}
                             </div>
 
+<<<<<<< HEAD
+                            
+                           
+                            <div class="post-footer pt-3 py-4 d-flex align-items-center">
+                                <div class="btn-group ps-2 " role="group">
+                                    <span  class="likeform">
+                                    <input type="hidden" class="idpost" name="postid" id="postid" value="{{$post['id']}}">
+                                    
+                                  
+=======
                         </div>
                         @if(!empty($post['img']))
                         <div class="post-image pt-2 ">
@@ -169,6 +179,7 @@
                                     <input type="hidden" class="idpost" name="postid" id="postid"
                                         value="{{$post['id']}}">
 
+>>>>>>> 5896b4544add9e4bf26b5b3f8a626e05ba952679
 
                                     <button type="submit"
                                         class="left-btn post-btn bg-transparent border-0 text-black p-1">
