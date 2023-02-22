@@ -23,20 +23,42 @@ class AdminController extends Controller
         $userCount = User::where('role', 0)->count();
         $postCount = Post::count();
         $likeCount = post_like::count();
-        return view('admin/adminHome', ['allUser' => User::all(), 'userCount' => $userCount, 'allPosts' => Post::all(), 'postCount' => $postCount, 'likeCount' => $likeCount,'pieChartData' => $pieChartData], );
+        return view('admin/adminHome', ['allUser' => User::all(), 'userCount' => $userCount, 'allPosts' => Post::all(), 'postCount' => $postCount, 'likeCount' => $likeCount,'pieChartData' => $pieChartData]);
     }
     
-    public function adminDashboard()
+    public function adminTables()
     {
-        return view('admin/adminDashboard');
+        $chartController = new ChartController;
+        $pieChartData = $chartController->drawPieChart();
+        $userCount = User::where('role', 0)->count();
+        $postCount = Post::count();
+        $likeCount = post_like::count();
+        return view('admin/adminTables', ['allUser' => User::all(), 'userCount' => $userCount, 'allPosts' => Post::all(), 'postCount' => $postCount, 'likeCount' => $likeCount,'pieChartData' => $pieChartData]);
+
     }
 
     public function editUser($id)
     {
+        $chartController = new ChartController;
+        $pieChartData = $chartController->drawPieChart();
+        $userCount = User::where('role', 0)->count();
+        $postCount = Post::count();
+        $likeCount = post_like::count();
         $userObj = User::find($id);
-        return view('admin/userEdit', ['data' => $userObj]);
+        return view('admin/userEdit', ['data' => $userObj, 'allUser' => User::all(), 'userCount' => $userCount, 'allPosts' => Post::all(), 'postCount' => $postCount, 'likeCount' => $likeCount,'pieChartData' => $pieChartData]);
     }
 
+    public function editAdmin($id)
+    {
+        $chartController = new ChartController;
+        $pieChartData = $chartController->drawPieChart();
+        $userCount = User::where('role', 0)->count();
+        $postCount = Post::count();
+        $likeCount = post_like::count();
+        $userObj = User::find($id);
+        return view('admin/adminEdit', ['data' => $userObj, 'allUser' => User::all(), 'userCount' => $userCount, 'allPosts' => Post::all(), 'postCount' => $postCount, 'likeCount' => $likeCount,'pieChartData' => $pieChartData]);
+    }
+    
     public function update(Request $request)
     {
         $request -> validate ([
