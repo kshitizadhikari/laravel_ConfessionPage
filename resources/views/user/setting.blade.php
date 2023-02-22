@@ -1,3 +1,169 @@
 @extends('layouts.app')
 @section('content')
+<style>
+        .nav-link {
+            padding: 10px 0 10px 30px;
+            transition: all .2s;
+            color:#bfc0cd;
+        }
+        .nav-link:hover a{
+            color:black;
+            text-decoration: none;
+        }
+        
+    </style>
+<body class="bg-right">
+    <div class="container-fuild mt-5">
+        <div class="row">
+            <div class="col-md-10 col-11 mx-auto">
+                <div class="row">
+                    <!-- left side navbar -->
+                    <div class="col-lg-3 col-md-4 d-md-block">
+                        <div class="card bg-common card-left">
+                              <div class="card-body">
+                                <nav class="nav d-md-block d-none">
+                                    <a data-bs-toggle='tab' class="nav-link active" aria-current="page" href="#profile">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person mr-1" viewBox="0 0 16 16">
+                                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                                      </svg>Profile
+                                    </a>
+                                    <a data-bs-toggle='tab' class="nav-link" aria-current="page" href="#account">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person mr-1" viewBox="0 0 16 16">
+                                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                                      </svg>Account Settings
+                                    </a>
+                                    <a data-bs-toggle='tab' class="nav-link" href="#security">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person mr-1" viewBox="0 0 16 16">
+                                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                                      </svg>Security
+                                    </a>
+                                    
+                                   
+                                  </nav>
+                              </div>      
+                        </div>
+                    </div>
+
+                    <!-- right-panel -->
+                    <div class="col-lg-9 col-md-8">
+                        <div class="card">
+                            <div class="card-header border-bottom mb-3 d-md-none">
+                                <ul class="nav nav-tabs card-header-tabs nav-fill">
+                                    <li class="nav-item">
+                                      <a data-bs-toggle='tab' class="nav-link active" aria-current="page" href="#profile">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person mr-1" viewBox="0 0 16 16">
+                                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                                          </svg>Profile
+                                    </a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a data-bs-toggle='tab' class="nav-link" aria-current="page" href="#account">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person mr-1" viewBox="0 0 16 16">
+                                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                                          </svg>Account Settings
+                                    </a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a data-bs-toggle='tab' class="nav-link" href="#security">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person mr-1" viewBox="0 0 16 16">
+                                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                                          </svg>Security
+                                    </a>
+                                    </li>
+                                   
+                                </ul>      
+                            </div>
+                            <!-- right part -->
+                            <div class="card-body tab-content border-0">
+                                <div class="tab-pane active" id="profile">
+                                    <h6>PROFILE INFORMATION</h6>
+                                    <hr>
+                                    <form action="{{route('usereditprofile.edit')}}" method="post" enctype="multipart/form-data">
+                                        @csrf
+                                    <input type="hidden" class="form-control" name="id" value="{{$data->id}}">
+
+                                        <div class="mb-3">
+                                            <label  class="form-label">FULL NAME</label>
+                                            <input type="text" class="form-control" name="names" placeholder="Name" value="{{$data->name}}">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label  class="form-label">EMAIL</label>
+                                            <input type="email" class="form-control" name="email" placeholder="Name" value="{{$data->email}}">
+                                        </div>
+                                       
+                                        <div class="mb-3">
+                                            <label  class="form-label">AGE</label>
+                                            <input type="text" class="form-control" name="age" value="{{$data->age}}" placeholder="age">
+                                        </div>
+                                        <input type="hidden" class="form-control" name="password" value="{{$data->password}}" placeholder="age">
+                                        
+                                        <div class="mb-3">
+                                            <label  class="form-label">GENDER</label>
+                                         <!-- <select name="gender" class="form-control" value="{{$data->gender}}">
+                                             <option value="male">MALE</option>
+                                             <option value="female">FEMALE</option>
+                                             <option value="other">OTHER</option>
+                                         </select> -->
+                                         <input type="text" class="form-control" name="gender" value="{{$data->gender}}">
+
+                               
+                                        </div>
+                                        <div class="mb-3">
+                                            <label  class="form-label">COUNTRY</label>
+                                        <input type="text" class="form-control" name="country" placeholder="Country" value="{{$data->country}}">
+
+                                        </div>
+                                         
+                                            <br>
+                                            <button class="btn btn-primary" type="submit">Update</button>
+                                    </form>
+
+                                </div>
+                                <div class="tab-pane" id="account">
+                                        <h6>ACCOUNT SETTINGS</h6>
+                                        <hr>
+                                        <form action="">
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlInput1" class="form-label" >Username</label>
+                                                <input type="text" class="form-control" value="{{auth()->user()->name}}" id="exampleFormControlInput1" readonly>
+                                            </div>
+                                        </form>
+                                        <label for="exampleFormControlInput1" class="form-label text-danger">Delete Account</label>
+                                        <p class="text-muted">
+                                            Once you delete your account,there is no going back.Please be certain
+                                        </p>
+                                        <button class="btn btn-danger" type="button">Delete Account</button>
+
+
+
+                                </div>
+                                <div class="tab-pane" id="security">
+                                    <h6>SECURITY</h6>
+                                    <hr>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Old Password</label>
+                                        <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">New Password</label>
+                                        <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Confirm Password</label>
+                                        <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                                    </div>
+                                    <button class="btn btn-primary" type="button">Update Password</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
 @endsection

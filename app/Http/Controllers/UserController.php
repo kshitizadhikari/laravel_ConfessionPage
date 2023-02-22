@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
 use App\Models\post_like;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Facades\Auth;
@@ -132,6 +133,8 @@ class UserController extends Controller
         }
 
 
+       
+
 
         public function likePost(Request $request){
            
@@ -164,36 +167,26 @@ class UserController extends Controller
               
         }
 
+            // setting
 
-        public function likePosts(Request $request){
+
+             public function setting($id){
+                $data=User::find($id);
+               
+                return view('user.setting',compact('data'));
+        }
+       
+        public function editprofile(Request $req){
+            $data=User::find($req->id);
+            $data->name=$req->names;
+            $data->email=$req->email;
+            $data->password=$req->password;
+            $data->age=$req->age;
+            $data->gender=$req->gender;
+            $data->country=$req->country;
            
-            if($request->ajax())
-            {
-                $data=$request->all();
-                
-                
-                $postsearch=post_like::where('post_id',$data['postid'])->where('user_id',auth()->user()->id);            
-                if($postsearch->count()<1)
-                {
-                    
-                    
-                    post_like::create([
-                        'post_id' => $data['postid'],
-                        'user_id' => auth()->user()->id,
-                        
-                    ]);
-                    $postcount=post_like::where('post_id',$data['postid'])->count();
-                             return response()->json(array('msg' => 'liked' , 'postcount'=>$postcount));
-                         }
-                         else{
-                             $postsearch->delete();
-                             $postcount=post_like::where('post_id',$data['postid'])->count();
-                             return response()->json(array('msg' => 'disliked' , 'postcount'=>$postcount));
-                         }
-                    
-                         
-            }
-              
+            $data->save();
+           return redirect()->route('login');
         }
 
        
