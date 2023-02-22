@@ -7,6 +7,8 @@ use App\Models\Post;
 use App\Models\post_like;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class UserController extends Controller
 {
@@ -199,6 +201,8 @@ class UserController extends Controller
            
             return view('user.profile',['posts' => Post::all()]);
         }
+
+        
     // public function dashboard(){
     //     return view('user.userDashboard');
     // }

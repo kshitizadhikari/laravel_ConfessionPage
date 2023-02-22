@@ -21,4 +21,21 @@ class ChartController extends Controller
         $pieChartData = $data;
         return $pieChartData;
     }
+    
+    public function getUserCountry(){
+    	$data = array();
+        $result = DB::table('users')
+                    ->select('country', DB::raw('COUNT(*) as count'))
+                    ->groupBy('country')
+                    ->get();            
+        foreach($result as $val){
+            $data[] = array("country" => "$val->country", "count" => $val->count);
+        }
+        $userCountry = array();
+        $userCountry = $data;
+        return $userCountry;
+    }
+    // array_push($data, "$val->country, $val->count");
+    
+
 }
