@@ -257,7 +257,7 @@ function drawBarChart() {
                         <td>{{$post->title}}</td>
                         <td>{{$post->post}}</td>
                         <td>{{$post->user_id}}</td>
-                        <td><a href="{{route('admindeleteUser', $post->id)}}">Delete</a></td>
+                        <td><a href="{{route('admindeletePostAdmin', $post->id)}}">Delete</a></td>
                     </tr>
                     @endforeach
                 </tbody>
