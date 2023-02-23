@@ -159,7 +159,8 @@ function drawBasic() {
                         <ul class="list-unstyled navbar__list">
                             <li>
                                 <a class="js-arrow" href="{{route('adminadminHome')}}">
-                                    <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                                    <i class="fas fa-home"></i></i>Dashboard</a>
+                                <!-- <i class="fas fa-tachometer-alt"></i>Dashboard</a> -->
                             </li>
                             <li>
                                 <a href="chart.html">
@@ -174,7 +175,7 @@ function drawBasic() {
                                     <i class="far fa-check-square"></i>Forms</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
-                                        <a href="#" data-toggle="modal" data-target="#myModal">UserForm</a>
+                                        <a href="{{route('adminuserForm')}}">UserForm</a>
 
                                     </li>
                                     <li>
@@ -202,7 +203,8 @@ function drawBasic() {
                                             <img src="{{asset('assets/images/icon/avatar-01.jpg')}}" alt="UserImg" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">{{Auth::user()->name}}</a>
+                                            <a href="#">{{Auth::user()->name}}</a>
+                                            <i class="fas fa-chevron-down"></i>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -221,18 +223,18 @@ function drawBasic() {
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="{{route('admineditAdmin', $user->id)}}">
-                                                        <i class="zmdi zmdi-account"></i>Account</a>
+                                                    <a href="{{route('admineditAdmin')}}">
+                                                        <i class="fas fa-user"></i>Account</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Setting</a>
+                                                        <i class="fas fa-cog"></i>Setting</a>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
                                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                                    <i class="zmdi zmdi-power"></i>{{ __('Logout') }}</a>
+                                                    <i class="fas fa-sign-out-alt"></i>{{ __('Logout') }}</a>
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                                     class="d-none">
                                                     @csrf
@@ -248,7 +250,7 @@ function drawBasic() {
                 <!-- END HEADER DESKTOP -->
                 <!-- MAIN CONTENT-->
                 <div class="main-content p-0">
-                    <div class="section__content section__content--p30 z-index-300">
+                    <div class="section__content section__content--p20">
                         <div class="container-fluid">
                             @yield('admin-content')
                         </div>

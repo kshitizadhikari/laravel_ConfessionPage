@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 
 
 use Illuminate\Http\Request;
+use LengthException;
 
 class ChartController extends Controller
 {
@@ -27,9 +28,10 @@ class ChartController extends Controller
         $result = DB::table('users')
                     ->select('country', DB::raw('COUNT(*) as count'))
                     ->groupBy('country')
-                    ->get();            
+                    ->orderBy('count', 'desc') 
+                    ->get();        
+         
         foreach($result as $val){
-        $colour = "b87333";
             $data.="['$val->country', $val->count, '#'],";
         }
         $barChartData = $data;

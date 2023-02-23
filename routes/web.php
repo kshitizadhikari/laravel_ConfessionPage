@@ -38,11 +38,14 @@ Route::group(['middleware=' => 'auth'], function() {
         Route::get('/admin-tables', [AdminController::class, 'adminTables'])->name('adminTables');
         Route::get('/admin-layout', [AdminController::class, 'adminLayout'])->name('adminLayout');
         
-        Route::get('/edit-admin/{id}', [AdminController::class, 'editAdmin'])->name('editAdmin');
+        Route::get('/edit-admin', [AdminController::class, 'editAdmin'])->name('editAdmin');
+        
+        Route::get('/user-form', [AdminController::class, 'userForm'])->name('userForm');
         Route::get('/edit-user/{id}', [AdminController::class, 'editUser'])->name('editUser');
         
         Route::post('/edit-user', [AdminController::class, 'update'])->name('update');        
         Route::get('/delete-user/{id}', [AdminController::class, 'deleteUser'])->name('deleteUser');
+        Route::get('/delete-post-admin/{id}', [AdminController::class, 'deletePostAdmin'])->name('deletePostAdmin');
     });
 
     //user
