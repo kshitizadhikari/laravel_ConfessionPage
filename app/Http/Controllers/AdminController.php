@@ -19,11 +19,12 @@ class AdminController extends Controller
     {
         $chartController = new ChartController;
         $pieChartData = $chartController->drawPieChart();
+        $barChartData = $chartController->getUserCountryForBargraph();
         $userCountry = $chartController->getUserCountry();
         $userCount = User::where('role', 0)->count();
         $postCount = Post::count();
         $likeCount = post_like::count();
-        return view('admin/adminHome', ['allUser' => User::all(), 'userCount' => $userCount, 'allPosts' => Post::all(), 'postCount' => $postCount, 'likeCount' => $likeCount,'pieChartData' => $pieChartData, 'userCountry' => $userCountry] );
+        return view('admin/adminHome', ['allUser' => User::all(), 'userCount' => $userCount, 'allPosts' => Post::all(), 'postCount' => $postCount, 'likeCount' => $likeCount,'pieChartData' => $pieChartData, 'barChartData' => $barChartData,'userCountry' => $userCountry] );
     }
     
     public function adminTables()

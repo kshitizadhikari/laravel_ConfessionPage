@@ -22,6 +22,20 @@ class ChartController extends Controller
         return $pieChartData;
     }
     
+    public function getUserCountryForBargraph(){
+    	$data="";
+        $result = DB::table('users')
+                    ->select('country', DB::raw('COUNT(*) as count'))
+                    ->groupBy('country')
+                    ->get();            
+        foreach($result as $val){
+        $colour = "b87333";
+            $data.="['$val->country', $val->count, '#'],";
+        }
+        $barChartData = $data;
+        return $barChartData;
+    }
+
     public function getUserCountry(){
     	$data = array();
         $result = DB::table('users')

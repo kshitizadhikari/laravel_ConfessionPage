@@ -5,7 +5,7 @@ google.charts.load('current', {
     'packages': ['corechart', 'bar']
 });
 google.charts.setOnLoadCallback(drawChart);
-google.charts.setOnLoadCallback(drawBasic);
+google.charts.setOnLoadCallback(drawBarChart);
 
 
 function drawChart() {
@@ -26,34 +26,38 @@ function drawChart() {
     chart.draw(data, options);
 }
 
-function drawBasic() {
-
+function drawBarChart() {
     var data = google.visualization.arrayToDataTable([
-        ['City', '2010 Population', ],
-        ['New York City, NY', 8175000],
-        ['Los Angeles, CA', 3792000],
-        ['Chicago, IL', 2695000],
-        ['Houston, TX', 2099000],
-        ['Philadelphia, PA', 1526000]
+        ["Country", "Population", {
+            role: "style"
+        }],
+        <?php echo $barChartData; ?>
+    ]);
+
+    var view = new google.visualization.DataView(data);
+    view.setColumns([0, 1,
+        {
+            calc: "stringify",
+            sourceColumn: 1,
+            type: "string",
+            role: "annotation"
+        },
+        2
     ]);
 
     var options = {
-        title: 'Population of Largest U.S. Cities',
-        chartArea: {
-            width: '50%'
+        title: "Population of User in Different Countries",
+        width: 600,
+        height: 400,
+        bar: {
+            groupWidth: "95%"
         },
-        hAxis: {
-            title: 'Total Population',
-            minValue: 0
+        legend: {
+            position: "none"
         },
-        vAxis: {
-            title: 'City'
-        }
     };
-
-    var chart1 = new google.visualization.BarChart(document.getElementById('bargraph1'));
-
-    chart1.draw(data, options);
+    var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+    chart.draw(view, options);
 }
 </script>
 
@@ -152,7 +156,7 @@ function drawBasic() {
             <div class="au-card-inner">
                 <h3 class="title-2 tm-b-5">Users and Countries</h3>
                 <div class="row no-gutters">
-                    <div id="bargraph1" class="ms-5" style="width: 100%; height: 347px;">
+                    <div id="barchart_values" class="ms-5" style="width: 100%; height: 347px;">
                     </div>
                 </div>
             </div>
