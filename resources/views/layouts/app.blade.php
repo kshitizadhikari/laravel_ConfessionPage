@@ -33,8 +33,9 @@
         margin-left:30px;
     }
     .menu-pic{
-        width:25px;
+        width:30px;
         border-radius:50%;
+        margin-left:5px;
     }
     .line{
         border:0;
