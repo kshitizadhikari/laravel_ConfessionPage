@@ -279,7 +279,7 @@
                 <img src="review6.png" height="20" width="20" class="rounded" alt="" srcset="">
               </div>
               <div class="ps-2 lh-1">
-                <div class="fw-bold">Confession</div>
+                <div class="fw-bold">Group</div>
                 <div class="text-secondary fw-light"><small> Lorem ipsum dolor sit amet........</small></div>
               </div>
             </li>
@@ -288,7 +288,7 @@
                 <img src="review6.png" height="20" width="20" class="rounded" alt="" srcset="">
               </div>
               <div class="ps-2 lh-1">
-                <div class="fw-bold">Confession</div>
+                <div class="fw-bold">Group</div>
                 <div class="text-secondary fw-light"><small> Lorem ipsum dolor sit amet........</small></div>
               </div>
             </li>
@@ -297,7 +297,7 @@
                 <img src="review6.png" height="20" width="20" class="rounded" alt="" srcset="">
               </div>
                 <div class="ps-2 lh-1">
-                            <div class="fw-bold">Confession</div>
+                            <div class="fw-bold">Group</div>
                             <div class="text-secondary fw-light"><small> Lorem ipsum dolor sit amet........</small></div>
                             </div>
                         </li>

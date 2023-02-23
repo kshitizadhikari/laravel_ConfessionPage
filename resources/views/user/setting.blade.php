@@ -132,28 +132,43 @@
                                         <p class="text-muted">
                                             Once you delete your account,there is no going back.Please be certain
                                         </p>
-                                        <button class="btn btn-danger" type="button">Delete Account</button>
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#ModalDelete" class="btn btn-danger" >Delete Account</a>
 
 
 
                                 </div>
+                                
                                 <div class="tab-pane" id="security">
                                     <h6>SECURITY</h6>
                                     <hr>
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Old Password</label>
-                                        <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">New Password</label>
-                                        <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Confirm Password</label>
-                                        <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                                    </div>
-                                    <button class="btn btn-primary" type="button">Update Password</button>
 
+                                   <form action="{{route('userchangepassword')}}" method="post" enctype="multipart/form-data">
+                                        @csrf
+                                    <input type="hidden" class="form-control" name="id" value="{{$data->id}}">
+                                    <input type="hidden" class="form-control" name="names" value="{{$data->name}}">
+                                    <input type="hidden" class="form-control" name="age" value="{{$data->age}}">
+                                    <input type="hidden" class="form-control" name="email" value="{{$data->email}}">
+                                    <input type="hidden" class="form-control" name="gender" value="{{$data->gender}}">
+                                    <input type="hidden" class="form-control" name="country" value="{{$data->country}}">
+                                    <input type="hidden" class="form-control" name="pass" value="{{$data->password}}">
+
+
+
+
+                                    <div class="mb-3">
+                                        <label  class="form-label">Old Password</label>
+                                        <input type="password" name="oldpass"class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label  class="form-label">New Password</label>
+                                        <input type="password" name="newpass" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label  class="form-label">Confirm Password</label>
+                                        <input type="password" name="passconfirm" class="form-control">
+                                    </div>
+                                    <button class="btn btn-primary" type="submit">Update Password</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -165,5 +180,5 @@
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-
+@include('modal.deleteuser')
 @endsection

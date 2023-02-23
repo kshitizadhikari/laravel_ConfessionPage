@@ -9,6 +9,7 @@ use App\Models\post_like;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 
 class UserController extends Controller
@@ -189,6 +190,43 @@ class UserController extends Controller
            return redirect()->route('login');
         }
 
+        public function changepass(Request $req){
+            $data=User::find($req->id);
+           
+            $passwordstatus=Hash::check($req->oldpass,auth()->user()->password);
+            if($passwordstatus){
+                if($req->newpass==$req->passconfirm)
+                {
+
+                    $data->name=$req->names;
+                    $data->email=$req->email;
+                    $data->password=Hash::make($req->newpass);
+                    $data->age=$req->age;
+                    $data->gender=$req->gender;
+                    $data->country=$req->country;
+                    
+                    $data->save();
+                    return redirect()->route('login');
+                }
+                else{
+                    return redirect()->back();
+
+                }
+            }
+            else{
+                return redirect()->back();
+            }
+        }
+
+
+        public function deleteuse($id)
+        {
+            $data=User::find($id);
+            dd($data);
+           
+            $data->delete();
+            return redirect()->back();
+        }
        
         public function profilepage(){
            

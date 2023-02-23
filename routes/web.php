@@ -80,7 +80,15 @@ Route::group(['middleware=' => 'auth'], function() {
         
        //edit userprofile
        Route::post('/edit/user',[UserController::class,'editprofile'])->name('editprofile.edit');
+
       
+
+       //change password
+       Route::post('/changepassword',[UserController::class,'changepass'])->name('changepassword');
+
+
+       //setting delete user
+       Route::get('/delete/{id}', [UserController::class, 'deleteuse'])->name('deleteuse');
        
     });
 
