@@ -61,6 +61,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav ms-auto">
+
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href=" ">Contact Us</a>
+                    </li>
+
                     <!-- Authentication Links -->
                     @guest
                     @if (Route::has('login'))
@@ -68,12 +74,17 @@
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
                     @endif
+                    
 
                     @if (Route::has('register'))
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                     </li>
                     @endif
+
+
+                    
+
                     @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -105,6 +116,9 @@
                             </form>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('contact') }}">{{ __('Contact') }}</a>
+                    </li>
                     @endguest
                 </ul>
             </div>
@@ -113,7 +127,6 @@
     <div class="container-fluid">
         @yield('content')
     </div>
-    <div class="footer bg-dark">Footer Part</div>
 </body>
 <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
 

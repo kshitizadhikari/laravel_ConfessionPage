@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TherapistController;
 use App\Http\Controllers\ChartController;
@@ -23,6 +24,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/register', [RegisterController::class, 'register'])->name('register');
+
+Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
+
+
 
 Route::get('/therapist-dashboard', [TherapistController::class, 'therapistDashboard'])->name('therapistDashboard');
 
