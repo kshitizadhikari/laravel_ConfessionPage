@@ -227,6 +227,9 @@ class UserController extends Controller
             $data->delete();
             return redirect()->back();
         }
+
+
+       
        
         public function profilepage(){
            
