@@ -15,16 +15,17 @@
     <link href="img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">  
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://tabler-icons.io/" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" /> 
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -33,10 +34,59 @@
     <link href="css/style.css" rel="stylesheet">
 
     <style>
-        .homepage{
-            display: flex;
-            height: 100%;
+        
+        .image{
+            position: relative;
         }
+        /* .image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('images/fix.jpg');
+            z-index: -1;
+            opacity: 0.5;
+        } */
+
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            position: relative;
+            opacity: 65%;
+        }
+        .col-lg-8 {
+            position: absolute;
+            top: 50%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-align:left;
+
+        }
+        .text-right {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            
+            text-align: right;
+
+         }  
+         .display-1 {
+            font-size: 50px;
+            font-style: italic;
+         }
+         .pt-2{
+            font-size: 45px;
+            font-style: oblique;
+         }
+        
+       
+
     </style>
 </head>
 
@@ -44,41 +94,48 @@
 
 
     <!-- Hero Start -->
-    <div class="homepage">
-    <div class="container-fluid bg-primary py-5 mb-5 hero-header">
+
+    <div class="container-fluid bg-dark bg-opacity-10 py-3 mb-3">
+    <div class="middle">
+        <img src="{{asset('images/hero3.jpg')}}" class="img-fluid" alt="">
+
         <div class="container py-5">
             <div class="row justify-content-start">
                 <div class="col-lg-8 text-center text-lg-start" >
                     <!-- <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5" style="border-color: rgba(256, 256, 256, .3) !important;">Welcome</h5> -->
-                    <h1 class="display-1 text-white mb-md-4">Safe place to speak truth!</h1>
+                    <h3 class="display-1 text-dark mb-md-2">We all have secrets.</h3>
+                         <h3 class="display-1 text-dark mb-md-2">Let them out. </h3>
+                         <h3 class="display-1 text-dark mb-md-2">Anonymously!</h3>
                     <div class="pt-2">
-                        <a href="" class="btn btn-light rounded-pill py-md-3 px-md-5 mx-2">Start your confession</a>
+                        <a href="{{url('/register/')}}" class="btn btn-outline-dark rounded-pill text-black py-md-3 px-md-6 mx-4">
+                           Start your confession
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
     </div>
     <!-- Hero End -->
 
 
     <!-- About Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid bg-dark bg-opacity-10 py-3">
         <div class="container">
             <div class="row gx-5">
                 <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <!-- <img class="position-absolute w-100 h-100 rounded" src="img/about.jpg" style="object-fit: cover;"> -->
-                        <img src="{{asset('images/front1.jpg')}}" alt="">
+                        <img src="{{asset('images/front8.jpg')}}" style="opacity: 100%" alt="">
 
                     </div>
                 </div>
                 <div class="col-lg-7">
                     <div class="mb-4">
-                        <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">About Us</h5>
-                        <h1 class="display-4">Best Platform to share your stories!</h1>
+                        <h5 class="d-inline-block text-dark text-uppercase border-bottom border-5 border-secondary">About Us</h5>
+                        <h1 class="display-4 text-black">Best Platform to share your stories!</h1>
                     </div>
-                    <p>This is a platform where you can....</p>
+                    <p1 class="text-white">This is a platform where you can....</p1>
 
                     <!-- <div class="row g-3 pt-3">
                         <div class="col-sm-3 col-6">
@@ -146,10 +203,17 @@
 
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <div class="text-right">
+    <a href="#" class="btn btn-lg btn-outline-light btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    </div>
+   
+
+ 
 
 
     <!-- JavaScript Libraries -->
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
@@ -157,7 +221,7 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script> 
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
