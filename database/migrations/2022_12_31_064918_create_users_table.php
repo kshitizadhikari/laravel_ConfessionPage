@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('gender');
             $table->integer('age');
+            $table->string('username');
             $table->string('country');
             $table->integer('role')->default('0');
             $table->string('remember_token')->nullable();

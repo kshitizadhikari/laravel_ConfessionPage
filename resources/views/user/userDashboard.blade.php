@@ -86,22 +86,28 @@
                     </div>
                     <!-- POSTS -->
                     <div class="posts">
+                        @if(count($posts)>0)
                         @foreach($posts as $post)
-                        @if($post['user_id'] == auth()->user()->id)
+
+                        @php
+                        $postusername=App\Models\User::where('id',$post->user_id)->first();
+                        @endphp
                         
                         <div class="post bg-white border-gray mt-4">
                             <div class=" pt-2 d-flex justify-content-between">
+                        
                                 <div class="d-flex">
                                     <img src="{{asset('images/review6.png')}}" class="post-profile rounded-circle" alt="">
                                     <div class="d-flex-column">
-                                        <a href="{{route('userprofile',auth()->user()->id)}}">
-
-                                            <span class="fw-bold fs-6">{{auth()->user()->name}}</span>
+                                        <a href="{{route('userprofile',$postusername->id)}}">
+                                        
+                                            <span class="fw-bold fs-6">{{$postusername->username}}</span>
                                         </a>
 
                                     </div>
                                 </div>
                                 <div class="p-2 text-gray-darker" >
+                                    @if($postusername->id==auth()->user()->id)
                                 <a id="edit-post" href="{{route('usereditPost',$post['id'])}}" >
 
                                         <button class="btn   p-1" >
@@ -111,6 +117,7 @@
                                         </svg>
                                         </button>
                                         </a>
+                                      
                                     <a href="{{route('userdeletePost',$post['id'])}}">
 
                                         <button class="btn  p-1" >
@@ -121,6 +128,7 @@
                                         </svg>
                                     </button>
                                 </a>
+                                @endif
                                 </div>
                             </div>
                             <div class="post-body pt-2 ps-3">
@@ -212,9 +220,10 @@
                                 </div>
                             </div>
                         </div>
-                        
-                       @endif
                         @endforeach
+                        @else
+                        <p>NO post </p>
+                        @endif
                     </div>
                 </div>
 
@@ -279,11 +288,9 @@ $.ajax({
        if(response.msg=="liked")
        {
         
-        // $('#likecount').html()={{$postcount}};
+      
        $(self).closest(".post-btn").find('#postdis').attr('fill','lightblue');
-    // alert(response.postcount);
-    // $(self).closest(".post-btn").find('#postdis').removeClass('notliked');
-    //    $(self).closest(".post-btn").find('#postdis').addClass('liked');
+  
         $(self).closest(".post-btn").find('#likecount').html(response.postcount);
         
         
@@ -291,8 +298,7 @@ $.ajax({
         else if(response.msg=="disliked"){
             
             $(self).closest(".post-btn").find('#postdis').attr('fill','black');
-            // $(self).closest(".post-btn").find('#postdis').removeClass('liked');
-            // $(self).closest(".post-btn").find('#postdis').addClass('notliked');
+       
             $(self).closest(".post-btn").find('#likecount').html(response.postcount);
 
         }

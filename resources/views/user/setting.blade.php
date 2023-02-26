@@ -125,7 +125,7 @@
                                         <form action="">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label" >Username</label>
-                                                <input type="text" class="form-control" value="{{auth()->user()->name}}" id="exampleFormControlInput1" readonly>
+                                                <input type="text" class="form-control" value="{{auth()->user()->username}}" id="exampleFormControlInput1" readonly>
                                             </div>
                                         </form>
                                         <label for="exampleFormControlInput1" class="form-label text-danger">Delete Account</label>

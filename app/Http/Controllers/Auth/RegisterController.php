@@ -67,13 +67,31 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $fname=$data['name'];
+        $chars=substr($fname,0,2);
+        $username=$this->Usernamegenerate($chars);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'age' => $data['age'],
+            'username'=>$username,
             'gender' => $data['gender'],
             'country' => $data['country'],
         ]);
+    }
+
+    public function Usernamegenerate($chars){
+        $number=mt_rand(1000,99999);
+        $username="User".$chars.$number;
+        if($this->Usernameexists($username)){
+            return $this->Usernamegenerate($chars);
+        }
+        return $username;
+
+    }
+
+    public function Usernameexists($username){
+        return User::where(['username'=>$username])->exists();
     }
 }

@@ -85,7 +85,7 @@
                         
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <img src="{{asset('images/review6.png')}}" class="menu-pic" alt="">
-                            <span style="font-weight:200;">{{Auth()->user()->name}}</span>
+                            <span style="font-weight:200;">{{Auth()->user()->username}}</span>
                             <hr class="line">
                             <a class="dropdown-item" href="{{route('usersettings',auth()->user()->id)}}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">

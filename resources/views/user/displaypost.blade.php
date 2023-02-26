@@ -140,7 +140,10 @@
                                     <img src="{{asset('images/review6.png')}}" class="post-profile rounded-circle" alt="">
                                     <div class="d-flex-column">
                                     <a href="{{route('userprofile',auth()->user()->id)}}">
-                                      <span class="fw-bold fs-6">{{auth()->user()->name}}</span>
+                                    @php
+                                        $postusername=App\Models\User::where('id',$post->user_id)->first();
+                                        @endphp
+                                      <span class="fw-bold fs-6">{{$postusername->username}}</span>
                                       </a>
 
                                     </div>
