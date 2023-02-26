@@ -155,8 +155,8 @@ function drawBarChart() {
         <div class="au-card recent-report">
             <div class="au-card-inner">
                 <h3 class="title-2 tm-b-5">Users and Countries</h3>
-                <div class="row no-gutters">
-                    <div id="barchart_values" class="ms-5" style="width: 100%; height: 347px;">
+                <div class="row no-gutters w-75">
+                    <div id="barchart_values" class="ms-5">
                     </div>
                 </div>
             </div>

@@ -20,6 +20,7 @@ class UserFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->name(),
+            'username' => $this->faker->unique()->text(13),
             'email' => $this->faker->unique()->safeEmail(),
             'gender' => $this->faker->randomElement(['Male', 'Female', 'Other']),
             'age' => $this->faker->numberBetween(18, 90),
