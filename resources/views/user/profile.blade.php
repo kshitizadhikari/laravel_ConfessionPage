@@ -89,7 +89,7 @@
     <div class="container mb-5">
       <div class="row">
         <div class="col-12">
-         
+      
          
           <div class="post bg-white border-gray m-4">
            
@@ -99,7 +99,8 @@
             
             
             <img src="{{asset('images/review6.png')}}" class="rounded-circle"id="profile" alt="" srcset="">
-            <span id="username"class="fw-bold fs-6">{{auth()->user()->name}}</span>
+            
+            <span id="username"class="fw-bold fs-6">{{$data->username}}</span>
             <div>
             </div>
           </div>
@@ -147,21 +148,22 @@
   
             <div class="posts">
                         @foreach($posts as $post)
-                        @if($post['user_id'] == auth()->user()->id)
+                        @if($post['user_id'] == $data->id)
                         
                         <div class="post bg-white border-gray mt-4">
                             <div class=" pt-2 d-flex justify-content-between">
                                 <div class="d-flex">
                                     <img src="{{asset('images/review6.png')}}" class="post-profile rounded-circle" alt="">
                                     <div class="d-flex-column">
-                                        <a href="{{route('userprofile',auth()->user()->id)}}">
+                                        <a href="{{route('userprofile',$data->id)}}">
 
-                                            <span class="fw-bold fs-6">{{auth()->user()->name}}</span>
+                                            <span class="fw-bold fs-6">{{$data->username}}</span>
                                         </a>
 
                                     </div>
                                 </div>
                                 <div class="p-2 text-gray-darker" >
+                                @if($data->id==auth()->user()->id)
                                 <a id="edit-post" href="{{route('usereditPost',$post['id'])}}" >
 
                                         <button class="btn   p-1" >
@@ -171,6 +173,7 @@
 </svg>
                                         </button>
                                         </a>
+                                       
                                     <a href="{{route('userdeletePost',$post['id'])}}">
 
                                         <button class="btn  p-1" >
@@ -181,6 +184,7 @@
                                         </svg>
                                     </button>
                                 </a>
+                                @endif
                                 </div>
                             </div>
                             <div class="post-body pt-2 ps-3">
@@ -302,19 +306,15 @@ $('.post-btn').click(function(e) {
         success: function(response) {
             if (response.msg == "liked") {
 
-                // $('#likecount').html()={{$postcount}};
                 $(self).closest(".post-btn").find('#postdis').attr('fill', 'lightblue');
-                // alert(response.postcount);
-                // $(self).closest(".post-btn").find('#postdis').removeClass('notliked');
-                //    $(self).closest(".post-btn").find('#postdis').addClass('liked');
+          
                 $(self).closest(".post-btn").find('#likecount').html(response.postcount);
 
 
             } else if (response.msg == "disliked") {
 
                 $(self).closest(".post-btn").find('#postdis').attr('fill', 'black');
-                // $(self).closest(".post-btn").find('#postdis').removeClass('liked');
-                // $(self).closest(".post-btn").find('#postdis').addClass('notliked');
+           
                 $(self).closest(".post-btn").find('#likecount').html(response.postcount);
 
             }

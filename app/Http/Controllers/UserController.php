@@ -61,7 +61,7 @@ class UserController extends Controller
                 'user_id' => $request->user_id,
                 'img'=>implode('|',$image)
             ]);
-     
+
         return redirect()->back()->with(['posts' => Post::all()]);
     
   
@@ -227,10 +227,16 @@ class UserController extends Controller
             $data->delete();
             return redirect()->back();
         }
+
+
        
-        public function profilepage(){
-           
-            return view('user.profile',['posts' => Post::all()]);
+       
+        public function profilepage($id){
+            
+           $data=User::find($id);
+        //    dd($data);
+         
+            return view('user.profile',['posts' => Post::all()],compact('data'));
         }
 
         

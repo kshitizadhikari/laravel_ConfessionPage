@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\TherapistController;
 use App\Http\Controllers\ChartController;
 use Illuminate\Support\Facades\Route;
@@ -97,7 +98,13 @@ Route::group(['middleware=' => 'auth'], function() {
        //setting delete user
        Route::get('/delete/{id}', [UserController::class, 'deleteuse'])->name('deleteuse');
        
+
+   
     });
+    
+    //comments
+    
+    Route::post('/comment',[CommentController::class, 'commentstore'])->name('comment');
 
     //therapist
     Route::group([
