@@ -63,9 +63,9 @@
                 <ul class="navbar-nav ms-auto">
 
                 
-                    <li class="nav-item">
-                        <a class="nav-link" href=" ">Contact Us</a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{route('contact')}} ">Contact Us</a>
+                </li>
 
                     <!-- Authentication Links -->
                     @guest

@@ -25,7 +25,7 @@ Route::get('/', function () {
 });
 Route::get('/register', [RegisterController::class, 'register'])->name('register');
 
-Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 
 
