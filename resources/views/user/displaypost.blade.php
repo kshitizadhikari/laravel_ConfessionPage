@@ -188,7 +188,7 @@
                                         @php
                                         $postlike=App\Models\post_like::where('user_id',auth()->user()->id)->where('post_id',$post['id'])->get();
                                         $postcount=App\Models\post_like::where('post_id',$post['id'])->count();
-                                        $comments=App\Models\Comment::where('post_id',$post['id'])->get();
+                                        $comments=App\Models\Comment::where('post_id',$post['id'])->latest()->get();
                                         
                                      
                                         
