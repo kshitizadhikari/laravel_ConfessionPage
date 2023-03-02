@@ -44,6 +44,7 @@ Route::group(['middleware=' => 'auth'], function() {
     ], function() {
         Route::get('/admin-home', [AdminController::class, 'index'])->name('adminHome');
         Route::get('/admin-tables', [AdminController::class, 'adminTables'])->name('adminTables');
+        Route::get('/admin-charts', [AdminController::class, 'adminCharts'])->name('adminCharts');
         Route::get('/admin-layout', [AdminController::class, 'adminLayout'])->name('adminLayout');
         
         Route::get('/edit-admin', [AdminController::class, 'editAdmin'])->name('editAdmin');

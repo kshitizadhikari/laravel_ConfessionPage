@@ -163,7 +163,7 @@ function drawBasic() {
                                 <!-- <i class="fas fa-tachometer-alt"></i>Dashboard</a> -->
                             </li>
                             <li>
-                                <a href="chart.html">
+                                <a href="{{route('adminadminCharts')}}">
                                     <i class="fas fa-chart-bar"></i>Charts</a>
                             </li>
                             <li>

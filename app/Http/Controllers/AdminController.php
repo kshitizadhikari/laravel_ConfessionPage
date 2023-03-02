@@ -24,7 +24,7 @@ class AdminController extends Controller
         $userCount = User::where('role', 0)->count();
         $postCount = Post::count();
         $likeCount = post_like::count();
-        return view('admin/adminHome', ['allUser' => User::all(), 'userCount' => $userCount, 'allPosts' => Post::all(), 'postCount' => $postCount, 'likeCount' => $likeCount,'pieChartData' => $pieChartData, 'barChartData' => $barChartData,'userCountry' => $userCountry] );
+        return view('admin/adminHome', ['allUser' => User::paginate(10), 'userCount' => $userCount, 'allPosts' => Post::paginate(10), 'postCount' => $postCount, 'likeCount' => $likeCount,'pieChartData' => $pieChartData, 'barChartData' => $barChartData,'userCountry' => $userCountry] );
     }
     
     public function adminTables()
@@ -36,7 +36,19 @@ class AdminController extends Controller
         $userCount = User::where('role', 0)->count();
         $postCount = Post::count();
         $likeCount = post_like::count();
-        return view('admin/adminTables', ['allUser' => User::all(), 'userCount' => $userCount, 'allPosts' => Post::all(), 'postCount' => $postCount, 'likeCount' => $likeCount,'pieChartData' => $pieChartData, 'barChartData' => $barChartData,'userCountry' => $userCountry]);
+        return view('admin/adminTables', ['allUser' => User::paginate(10), 'userCount' => $userCount, 'allPosts' => Post::paginate(10), 'postCount' => $postCount, 'likeCount' => $likeCount,'pieChartData' => $pieChartData, 'barChartData' => $barChartData,'userCountry' => $userCountry]);
+    }
+
+    public function adminCharts()
+    {
+        $chartController = new ChartController;
+        $pieChartData = $chartController->drawPieChart();
+        $barChartData = $chartController->getUserCountryForBargraph();
+        $userCountry = $chartController->getUserCountry();
+        $userCount = User::where('role', 0)->count();
+        $postCount = Post::count();
+        $likeCount = post_like::count();
+        return view('admin/adminCharts', ['allUser' => User::paginate(10), 'userCount' => $userCount, 'allPosts' => Post::paginate(10), 'postCount' => $postCount, 'likeCount' => $likeCount,'pieChartData' => $pieChartData, 'barChartData' => $barChartData,'userCountry' => $userCountry]);
     }
 
     public function userForm()
@@ -48,7 +60,7 @@ class AdminController extends Controller
         $userCount = User::where('role', 0)->count();
         $postCount = Post::count();
         $likeCount = post_like::count();
-        return view('admin/adminUserForm', ['allUser' => User::all(), 'userCount' => $userCount, 'allPosts' => Post::all(), 'postCount' => $postCount, 'likeCount' => $likeCount,'pieChartData' => $pieChartData, 'barChartData' => $barChartData,'userCountry' => $userCountry]);
+        return view('admin/adminUserForm', ['allUser' => User::paginate(10), 'userCount' => $userCount, 'allPosts' => Post::paginate(10), 'postCount' => $postCount, 'likeCount' => $likeCount,'pieChartData' => $pieChartData, 'barChartData' => $barChartData,'userCountry' => $userCountry]);
 
     }
 
@@ -62,7 +74,7 @@ class AdminController extends Controller
         $postCount = Post::count();
         $likeCount = post_like::count();
         $userObj = User::find($id);
-        return view('admin/userEdit', ['allUser' => User::all(), 'userCount' => $userCount, 'allPosts' => Post::all(), 'postCount' => $postCount, 'likeCount' => $likeCount,'pieChartData' => $pieChartData, 'barChartData' => $barChartData,'userCountry' => $userCountry]);
+        return view('admin/userEdit', ['allUser' => User::paginate(10), 'userCount' => $userCount, 'allPosts' => Post::paginate(10), 'postCount' => $postCount, 'likeCount' => $likeCount,'pieChartData' => $pieChartData, 'barChartData' => $barChartData,'userCountry' => $userCountry]);
     }
 
     public function editAdmin($id)
@@ -75,7 +87,7 @@ class AdminController extends Controller
         $postCount = Post::count();
         $likeCount = post_like::count();
         $userObj = User::find($id);
-        return view('admin/adminEdit', ['allUser' => User::all(), 'userCount' => $userCount, 'allPosts' => Post::all(), 'postCount' => $postCount, 'likeCount' => $likeCount,'pieChartData' => $pieChartData, 'barChartData' => $barChartData,'userCountry' => $userCountry]);
+        return view('admin/adminEdit', ['allUser' => User::paginate(10), 'userCount' => $userCount, 'allPosts' => Post::paginate(10), 'postCount' => $postCount, 'likeCount' => $likeCount,'pieChartData' => $pieChartData, 'barChartData' => $barChartData,'userCountry' => $userCountry]);
     }
     
     public function update(Request $request)
@@ -104,7 +116,7 @@ class AdminController extends Controller
         $postCount = Post::count();
         $likeCount = post_like::count();
 
-        return view('admin/adminHome', ['allUser' => User::all(), 'userCount' => $userCount, 'allPosts' => Post::all(), 'postCount' => $postCount, 'likeCount' => $likeCount,'pieChartData' => $pieChartData, 'barChartData' => $barChartData,'userCountry' => $userCountry]);
+        return view('admin/adminHome', ['allUser' => User::paginate(10), 'userCount' => $userCount, 'allPosts' => Post::paginate(10), 'postCount' => $postCount, 'likeCount' => $likeCount,'pieChartData' => $pieChartData, 'barChartData' => $barChartData,'userCountry' => $userCountry]);
 
     }
 
@@ -119,7 +131,7 @@ class AdminController extends Controller
         $userCount = User::where('role', 0)->count();
         $postCount = Post::count();
         $likeCount = post_like::count();
-        return view('admin/adminHome', ['allUser' => User::all(), 'userCount' => $userCount, 'allPosts' => Post::all(), 'postCount' => $postCount, 'likeCount' => $likeCount,'pieChartData' => $pieChartData, 'barChartData' => $barChartData,'userCountry' => $userCountry] );
+        return view('admin/adminHome', ['allUser' => User::paginate(10), 'userCount' => $userCount, 'allPosts' => Post::paginate(10), 'postCount' => $postCount, 'likeCount' => $likeCount,'pieChartData' => $pieChartData, 'barChartData' => $barChartData,'userCountry' => $userCountry] );
     }
 
     public function deletePostAdmin($id)
