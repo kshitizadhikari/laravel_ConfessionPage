@@ -1516,19 +1516,7 @@ section {
     line-height: calc(20/13);
 }
 
-.account-dropdown:after {
-    content: '';
-    display: block;
-    width: 19px;
-    height: 19px;
-    border-bottom: 9px solid #fff;
-    border-top: 9px solid transparent;
-    border-left: 9px solid transparent;
-    border-right: 9px solid transparent;
-    position: absolute;
-    top: -18px;
-    right: 33px;
-}
+
 
 .account-dropdown__item a {
     display: block;

@@ -205,6 +205,7 @@ function drawBarChart() {
                     @endforeach
                 </tbody>
             </table>
+            {{$allUser->links()}}
         </div>
         <!-- USER TABLE -->
         <h2 class="title-1 m-b-25 m-t-50">USER TABLE</h2>
@@ -235,6 +236,8 @@ function drawBarChart() {
                     @endforeach
                 </tbody>
             </table>
+            {{$allUser->links()}}
+
         </div>
         <!-- POST TABLE -->
         <h2 class="title-1 m-b-25 m-t-50">POST TABLE</h2>
@@ -262,6 +265,7 @@ function drawBarChart() {
                     @endforeach
                 </tbody>
             </table>
+            {{$allPosts->links()}}
         </div>
     </div>
     <!-- COUNTRIES -->
