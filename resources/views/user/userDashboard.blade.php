@@ -90,6 +90,7 @@
                     </div>
 
                     <div class="ajax-load text-center" style="display:none;">
+                    <img src="{{asset('images/loading-circle.gif')}}" alt="">
                     <p>Loading posts....</p>
                     </div>
                 </div>
@@ -190,9 +191,10 @@ $.ajax({
         }
     })
     .done(function(data){
-        if(data.html==" ")
+        
+        if(data.html=="")
         {
-            $(".ajax-load").html("no more record found");
+            $(".ajax-load").html("No more post found");
             return;
         }
         $('.ajax-load').hide();
