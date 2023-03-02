@@ -18,4 +18,7 @@ class CommentController extends Controller
         $data=Comment::where('post_id',$postid)->get();
         return redirect()->back()->with(['comments' => Comment::all()]);
     }
+
+
+    
 }

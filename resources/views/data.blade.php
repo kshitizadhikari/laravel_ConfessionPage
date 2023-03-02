@@ -134,6 +134,5 @@
                             </div>
                         </div>
                         @endforeach
-                        @else
-                        <p>NO post </p>
+                     
                         @endif

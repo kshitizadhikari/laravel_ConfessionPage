@@ -136,7 +136,7 @@
                                         $postusername=App\Models\User::where('id',$post->user_id)->first();
                                         @endphp
                        
-                        <div class="post bg-white border-gray mt-4">
+                        <div class="post bg-gray border-gray shadow-lg mt-4">
                             <div class=" pt-2 d-flex justify-content-between">
                                 <div class="d-flex">
                                     <img src="{{asset('images/review6.png')}}" class="post-profile rounded-circle" alt="">
@@ -239,14 +239,11 @@
                         <!-- COMMENT -->
 
                         <div class="comment h-80">
-                            <div class="card">
-                                <div class="card-header">
-                                <p>Comments</p>
+                            <!-- <div class="card"> -->
 
-                                </div>
-                                <div class="card-body">
+                                <!-- <div class="card-body"> -->
 
-                                    <div class=" pt-2 d-flex justify-content-between">
+                                    <!-- <div class=" pt-2 d-flex justify-content-between">
                                         <div class="d-flex">
                                             <img src="{{asset('images/review6.png')}}" class="post-profile rounded-circle" alt="">
                                                 <div class="d-flex-column">
@@ -254,38 +251,72 @@
                                                         @csrf
                                                             <input type="hidden" name="userid" value="{{auth()->user()->id}}">
                                                             <input type="hidden" name="postid" value="{{$post->id}}">
-                                                            <input type="text"  class=" form-control m-3 border-black text-black-dark rounded-pill bg-light ps-2 text-start" placeholder="Comment" name="comment">
-                                                            <button type="submit" class="btn btn-primary">Post</button>
+                                                            <div class="input-group">
+                                                            <input type="text" class="form-control" placeholder="comment" name="comment">
+                                                            <button class="btn btn-outline-primary" type="submit" id="button-addon2">Post</button>
+                                                            </div>
                                                     </form>
                                                 </div>
                                         </div>
                                 
-                                    </div>
+                                    </div> -->
+
+                                    <div class="flex items-center justify-center shadow-lg my-5">
+                                    <form action="{{route('comment')}}" method="post" enctype="multipart/form-data" class="w-full max-w-xl bg-gray rounded-lg px-4  pb-4" >
+                                        @csrf
+                                <div class="flex flex-wrap -mx-3 mv-6">
+                                <h5 class="px-4 pt-3 pb-2 text-gray-200 text-lg">Add a new Comment</h5>
+                                <div class="w-full md:w-full px-3 mb-2 mt-2">
+                                <input type="hidden" name="userid" value="{{auth()->user()->id}}">
+                                <input type="hidden" name="postid" value="{{$post->id}}">
+                                    <textarea class="bg-gray-100 rounded border-gray-400 leading-normal w-100 h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white border border-secondary" placeholder="type your comment" name="comment" required></textarea>
+                                </div>
+                                <div class="-mr-1">
+
+                                    <input type="submit" class="bg-white text-gray-700 font-medium py-1 px-4  border border-gray-400 rounded-lg tracking-wide mr-1 ms-3" value="Post comment">
+                                </div>
+                                </div>
+
+                            </form>
+
+                        </div>
                                     
                                     @foreach($comments as $comment)
                                     @php
                                     $commentusername=App\Models\User::where('id',$comment->user_id)->first();
                                      @endphp
-                                    <div class="d-flex-column border ">
+                                    <div class="comment-container pt-1 pb-2 mb-3" style="border:1px solid rgba(0,0,0,0.3); border-radius:0.5rem;">
+                                        <div class="comment-card">
+                                            <div class="comment-title">
+                                                <img src="{{asset('images/review6.png')}}" class="post-profile rounded-circle"  alt="">
+                                               
+                                                    <strong>{{$commentusername->username}}</strong>
+                                                  
+                                                <div class="comment-body fs-6"style="margin-left:60px">
 
-                                        <div class="othercomm d-flex" style="align-items:center;gap:1rem;">
-                                            <img src="{{asset('images/review6.png')}}" class="post-profile rounded-circle" alt="">
-                                            <div class="d-flex-column">
-
-                                                <div class="fw-bold fs-5">{{$commentusername->username}}</div>
-                                                <div class="comm" >{{$comment->comment}}</div>
+                                                    <span>{{$comment->comment}}</span>
+                                                </div>
+                                              
+                                                
+                                                
                                             </div>
-                                            
+                                            <div class="comment-footer">
+
+                                            </div>
                                         </div>
                                     </div>
                                     @endforeach
                                     
                                     
                                     
-                                </div>
+                                <!-- </div> -->
                                 
-                            </div>
+                            <!-- </div> -->
                         </div>
+
+                       
+
+                       
                      
                     </div>      
 
