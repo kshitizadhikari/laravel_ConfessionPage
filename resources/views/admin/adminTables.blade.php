@@ -26,8 +26,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($allUser as $user)
-                            @if($user->role == 1)
+                            @foreach($admins as $user)
                             <tr>
                                 <td>{{$user->id}}</td>
                                 <td>{{$user->name}}</td>
@@ -35,10 +34,10 @@
                                 <td>#</td>
                                 <td>#</td>
                             </tr>
-                            @endif
                             @endforeach
                         </tbody>
                     </table>
+                    {{$admins->appends(['users' => $users->currentPage(), 'allPosts' => $allPosts->currentPage()])->links()}}
                 </div>
                 <!-- USER TABLE -->
                 <h2 class="title-1 m-b-25 m-t-50 text-center">USER TABLE</h2>
@@ -55,8 +54,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($allUser as $user)
-                            @if($user->role == 0)
+                            @foreach($users as $user)
                             <tr>
                                 <td>{{$user->id}}</td>
                                 <td>{{$user->name}}</td>
@@ -65,10 +63,11 @@
                                 <td><a href="{{route('admindeleteUser', $user->id)}}">Delete</a>
                                 </td>
                             </tr>
-                            @endif
                             @endforeach
                         </tbody>
                     </table>
+                    {{$users->appends(['admins' => $admins->currentPage(), 'allPosts' => $allPosts->currentPage(),])->links()}}
+
                 </div>
                 <!-- POST TABLE -->
                 <h2 class="title-1 m-b-25 m-t-50 text-center">POST TABLE</h2>
@@ -96,6 +95,8 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{$allPosts->appends(['admins' => $admins->currentPage(), 'users' => $users->currentPage(),])->links()}}
+
                 </div>
             </div>
 
