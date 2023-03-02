@@ -192,8 +192,7 @@ function drawBarChart() {
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($allUser as $user)
-                    @if($user->role == 1)
+                    @foreach($admins as $user)
                     <tr>
                         <td>{{$user->id}}</td>
                         <td>{{$user->name}}</td>
@@ -201,11 +200,10 @@ function drawBarChart() {
                         <td>#</td>
                         <td>#</td>
                     </tr>
-                    @endif
                     @endforeach
                 </tbody>
             </table>
-            {{$allUser->links()}}
+            {{$admins->appends(['users' => $users->currentPage(), 'allPosts' => $allPosts->currentPage()])->links()}}
         </div>
         <!-- USER TABLE -->
         <h2 class="title-1 m-b-25 m-t-50">USER TABLE</h2>
@@ -222,8 +220,7 @@ function drawBarChart() {
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($allUser as $user)
-                    @if($user->role == 0)
+                    @foreach($users as $user)
                     <tr>
                         <td>{{$user->id}}</td>
                         <td>{{$user->name}}</td>
@@ -232,11 +229,10 @@ function drawBarChart() {
                         <td><a href="{{route('admindeleteUser', $user->id)}}">Delete</a>
                         </td>
                     </tr>
-                    @endif
                     @endforeach
                 </tbody>
             </table>
-            {{$allUser->links()}}
+            {{$users->appends(['admins' => $admins->currentPage(), 'allPosts' => $allPosts->currentPage(),])->links()}}
 
         </div>
         <!-- POST TABLE -->
@@ -260,12 +256,13 @@ function drawBarChart() {
                         <td>{{$post->title}}</td>
                         <td>{{$post->post}}</td>
                         <td>{{$post->user_id}}</td>
-                        <td><a href="{{route('admindeletePostAdmin', $post->id)}}">Delete</a></td>
+                        <td><a href="{{route('admindeleteUser', $post->id)}}">Delete</a></td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
-            {{$allPosts->links()}}
+            {{$allPosts->appends(['admins' => $admins->currentPage(), 'users' => $users->currentPage(),])->links()}}
+
         </div>
     </div>
     <!-- COUNTRIES -->

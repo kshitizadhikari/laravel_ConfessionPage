@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        User::factory()->times(15)->create(); 
+        User::factory()->times(30)->create(); 
         Post::factory()->times(50)->create();
         post_like::factory()->times(30)->create();
     }
