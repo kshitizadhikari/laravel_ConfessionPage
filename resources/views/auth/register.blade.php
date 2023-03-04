@@ -3,7 +3,8 @@
 @section('content')
 <style>
 .container {
-    height: 90vh;
+    margin-top: 50px;
+    height: 80vh;
 }
 
 .card {
@@ -35,7 +36,7 @@
             <div class="col-md-5 bg-dark">
                 <div class=" card-body">
                     <div class="text-center mt-2">
-                        <h3 class="card-title ">SignUp Form</h3>
+                        <h3 class="card-title text-info">SignUp Form</h3>
                         <form class="mt-5 p-2" action="{{ route('register') }}" method="post">
                             @csrf
                             <div class="mb-3 p-0">

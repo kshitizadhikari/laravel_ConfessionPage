@@ -47,8 +47,8 @@ function drawBarChart() {
 
     var options = {
         title: "Population of User in Different Countries",
-        width: 600,
-        height: 400,
+        width: 400,
+        height: 325,
         bar: {
             groupWidth: "95%"
         },
@@ -154,9 +154,9 @@ function drawBarChart() {
     <div class="col-lg-6">
         <div class="au-card recent-report">
             <div class="au-card-inner">
-                <h3 class="title-2 tm-b-5">Users and Countries</h3>
-                <div class="row no-gutters w-75">
-                    <div id="barchart_values" class="ms-5">
+                <h3 class="title-2 tm-b-5 mt-2">Users and Countries</h3>
+                <div class="row no-gutters w-75 ">
+                    <div id="barchart_values" class="ms-5" style="height: auto; width: fit-content;">
                     </div>
                 </div>
             </div>
