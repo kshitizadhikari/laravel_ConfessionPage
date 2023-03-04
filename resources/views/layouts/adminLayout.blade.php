@@ -170,19 +170,6 @@ function drawBasic() {
                                 <a href="{{route('adminadminTables')}}">
                                     <i class="fas fa-table"></i>Tables</a>
                             </li>
-                            <li class="has-sub">
-                                <a class="js-arrow" href="#">
-                                    <i class="far fa-check-square"></i>Forms</a>
-                                <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                    <li>
-                                        <a href="{{route('adminuserForm')}}">UserForm</a>
-
-                                    </li>
-                                    <li>
-                                        <a href="#">AdminForm</a>
-                                    </li>
-                                </ul>
-                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -223,7 +210,7 @@ function drawBasic() {
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="{{route('admineditAdmin')}}">
+                                                    <a href="{{route('adminAccountView')}}">
                                                         <i class="fas fa-user"></i>Account</a>
                                                 </div>
                                                 <div class="account-dropdown__item">

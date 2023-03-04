@@ -29,9 +29,6 @@ Route::get('/register', [RegisterController::class, 'register'])->name('register
 Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
 
 
-
-Route::get('/therapist-dashboard', [TherapistController::class, 'therapistDashboard'])->name('therapistDashboard');
-
 Auth::routes();
 
 Route::group(['middleware=' => 'auth'], function() {
@@ -43,18 +40,10 @@ Route::group(['middleware=' => 'auth'], function() {
         'as' => 'admin',
     ], function() {
         Route::get('/admin-home', [AdminController::class, 'index'])->name('adminHome');
+        Route::get('/admin-account', [AdminController::class, 'accountView'])->name('AccountView');
         Route::get('/admin-tables', [AdminController::class, 'adminTables'])->name('adminTables');
         Route::get('/admin-charts', [AdminController::class, 'adminCharts'])->name('adminCharts');
         Route::get('/admin-layout', [AdminController::class, 'adminLayout'])->name('adminLayout');
-        
-        Route::get('/edit-admin', [AdminController::class, 'editAdmin'])->name('editAdmin');
-        
-        Route::get('/user-form', [AdminController::class, 'userForm'])->name('userForm');
-        Route::get('/edit-user/{id}', [AdminController::class, 'editUser'])->name('editUser');
-        
-        Route::post('/edit-user', [AdminController::class, 'update'])->name('update');        
-        Route::get('/delete-user/{id}', [AdminController::class, 'deleteUser'])->name('deleteUser');
-        Route::get('/delete-post-admin/{id}', [AdminController::class, 'deletePostAdmin'])->name('deletePostAdmin');
     });
 
     //user
@@ -107,14 +96,5 @@ Route::group(['middleware=' => 'auth'], function() {
     
     Route::post('/comment',[CommentController::class, 'commentstore'])->name('comment');
 
-    //therapist
-    Route::group([
-        'prefix' => 'therapist',
-        'middleware' => 'isTherapist',
-        'as' => 'therapist',
-    ], function() {
-        Route::get('/therapist-home', [TherapistController::class, 'index'])->name('login');
-        Route::get('/therapist-approval-page', [TherapistController::class, 'therapistApprovalFormView'])->name('therapistApprovalFormView');
-    });
     
 });
