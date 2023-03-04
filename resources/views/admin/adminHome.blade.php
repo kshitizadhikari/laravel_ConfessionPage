@@ -227,7 +227,7 @@ function drawBarChart() {
                         <td>{{$user->email}}</td>
                         <td><a href="{{route('admineditUser', $user->id)}}">Edit</a></td>
                         <td><a href="{{route('admindeleteUser', $user->id)}}">Delete</a>
-                        </td>
+                        </td>`
                     </tr>
                     @endforeach
                 </tbody>
