@@ -223,7 +223,7 @@ function drawBasic() {
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="{{route('admineditAdmin')}}">
+                                                    <a href="{{route('adminAccountView')}}">
                                                         <i class="fas fa-user"></i>Account</a>
                                                 </div>
                                                 <div class="account-dropdown__item">

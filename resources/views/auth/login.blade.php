@@ -42,7 +42,7 @@
             <div class="col-md-6 bg-dark">
                 <div class=" card-body">
                     <div class="text-center mt-2">
-                        <h3 class="card-title ">Login Form</h3>
+                        <h3 class="card-title text-info">Login Form</h3>
                         <form class="mt-5 p-2" action="{{ route('login') }}" method="post">
                             @csrf
                             <div class="mb-3 p-0">

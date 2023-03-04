@@ -34,8 +34,27 @@ class AdminController extends Controller
                                         'likeCount' => $likeCount,
                                         'pieChartData' => $pieChartData, 
                                         'barChartData' => $barChartData,'userCountry' => $userCountry]); 
-       }
+    }
     
+    public function accountView()
+    {
+        $chartController = new ChartController;
+        $chartController = new ChartController;
+        $pieChartData = $chartController->drawPieChart();
+        $barChartData = $chartController->getUserCountryForBargraph();
+        $userCountry = $chartController->getUserCountry();
+        $userCount = User::where('role', 0)->count();
+        $postCount = Post::count();
+        $likeCount = post_like::count();
+        return view('admin/adminAccount', ['admins' => User::where('role', 1)->paginate(10, ['*'], 'admins'),
+                                        'users' => User::where('role', 0)->paginate(10, ['*'], 'users'), 
+                                        'userCount' => $userCount, 
+                                        'allPosts' => Post::paginate(10, ['*'], 'posts'),
+                                        'postCount' => $postCount,
+                                        'likeCount' => $likeCount,
+                                        'pieChartData' => $pieChartData, 
+                                        'barChartData' => $barChartData,'userCountry' => $userCountry]); 
+    }
     public function adminTables()
     {
         $chartController = new ChartController;
