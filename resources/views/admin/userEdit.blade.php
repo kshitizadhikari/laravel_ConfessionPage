@@ -34,7 +34,7 @@
     <!-- FORM KO SECTION -->
     <section class="formko">
         <div class="h2">USER EDIT FORM</div>
-        <form action="{{ route('adminupdate')}}" method="post"
+        <form action="{{ route('adminadminUpdate')}}" method="post"
             oninput='passwordcheck.setCustomValidity(passwordcheck.value != password.value ? "Passwords do not match." : ""), password.setCustomValidity(password.value.length <= 7 ? "Password must be atleast 8 characters long." : "")'>
             @csrf
             <input type="hidden" class="form-control" name="id" value="{{$data->id}}">
