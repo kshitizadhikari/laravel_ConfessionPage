@@ -49,7 +49,7 @@
                            
                                 <div class="row">
                                     <div class="col">
-                                        <img src="{{asset('images/review6.png')}}" class="profile rounded-circle" alt="">
+                                        <img src="{{asset(auth()->user()->img)}}" class="profile rounded-circle" alt="">
                                         <label for="Post">Do
                                             you want to share something ?</label>
                                         <input type="text" style="min-width:90%"

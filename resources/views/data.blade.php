@@ -10,7 +10,7 @@
                             <div class=" pt-2 d-flex justify-content-between">
                         
                                 <div class="d-flex">
-                                    <img src="{{asset('images/review6.png')}}" class="post-profile rounded-circle" alt="">
+                                    <img src="{{asset($postusername->img)}}" class="post-profile rounded-circle" alt="">
                                     <div class="d-flex-column">
                                         <a href="{{route('userprofile',$postusername->id)}}">
                                         

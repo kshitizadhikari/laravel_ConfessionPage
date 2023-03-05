@@ -139,7 +139,7 @@
                         <div class="post bg-gray border-gray shadow-lg mt-4">
                             <div class=" pt-2 d-flex justify-content-between">
                                 <div class="d-flex">
-                                    <img src="{{asset('images/review6.png')}}" class="post-profile rounded-circle" alt="">
+                                    <img src="{{asset($postusername->img)}}" class="post-profile rounded-circle" alt="">
                                     <div class="d-flex-column">
                                     <a href="{{route('userprofile',$postusername->id)}}">
                                   
@@ -288,7 +288,7 @@
                                     <div class="comment-container pt-1 pb-2 mb-3" style="border:1px solid rgba(0,0,0,0.3); border-radius:0.5rem;">
                                         <div class="comment-card">
                                             <div class="comment-title">
-                                                <img src="{{asset('images/review6.png')}}" class="post-profile rounded-circle"  alt="">
+                                                <img src="{{asset($commentusername->img)}}" class="post-profile rounded-circle"  alt="">
                                                
                                                     <strong>{{$commentusername->username}}</strong>
                                                   
