@@ -98,7 +98,7 @@
             </div>
             
             
-            <img src="{{asset('images/review6.png')}}" class="rounded-circle"id="profile" alt="" srcset="">
+            <img src="{{asset($data->img)}}" class="rounded-circle" style="border-color:lightgray;"id="profile" alt="" srcset="">
             
             <span id="username"class="fw-bold fs-6">{{$data->username}}</span>
             <div>
@@ -153,7 +153,7 @@
                         <div class="post bg-white border-gray mt-4">
                             <div class=" pt-2 d-flex justify-content-between">
                                 <div class="d-flex">
-                                    <img src="{{asset('images/review6.png')}}" class="post-profile rounded-circle" alt="">
+                                    <img src="{{asset($data->img)}}" class="post-profile rounded-circle" alt="">
                                     <div class="d-flex-column">
                                         <a href="{{route('userprofile',$data->id)}}">
 
