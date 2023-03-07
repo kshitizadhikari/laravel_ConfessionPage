@@ -187,7 +187,7 @@ function drawBasic() {
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="{{asset('assets/images/icon/avatar-01.jpg')}}" alt="UserImg" />
+                                            <img src="{{asset(Auth::user()->img)}}" alt="UserImg" />
                                         </div>
                                         <div class="content">
                                             <a href="#">{{Auth::user()->name}}</a>
@@ -197,8 +197,8 @@ function drawBasic() {
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="{{asset('assets/images/icon/avatar-01.jpg')}}"
-                                                            alt="John Doe" />
+                                                        <img src="{{asset(Auth::user()->img)}}"
+                                                            alt="Auth::user()->name" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
