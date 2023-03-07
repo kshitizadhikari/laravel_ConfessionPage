@@ -68,6 +68,10 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $fname=$data['name'];
+        $randomnum=mt_rand(1,14);
+        
+        $path="pp/pp-";
+        $exten="png";
         $chars=substr($fname,0,2);
         $username=$this->Usernamegenerate($chars);
         return User::create([
@@ -76,8 +80,10 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'age' => $data['age'],
             'username'=>$username,
+            'img'=>$path.$randomnum.".".$exten,
             'gender' => $data['gender'],
             'country' => $data['country'],
+            
         ]);
     }
 
