@@ -95,7 +95,7 @@ function drawBasic() {
                 <div class="header-mobile__bar">
                     <div class="container-fluid">
                         <div class="header-mobile-inner">
-                            <a class="logo" href="index.html">
+                            <a class="logo" href="{{route('adminadminHome')}}">
                                 <img src="images/icon/logo.png" alt="KPK LOGO" />
                             </a>
                             <button class="hamburger hamburger--slider" type="button">
@@ -149,7 +149,7 @@ function drawBasic() {
             <!-- MENU SIDEBAR-->
             <aside class="menu-sidebar d-none d-lg-block">
                 <div class="logo">
-                    <a href="#">
+                    <a href="{{route('adminadminHome')}}">
                         <img src="{{asset('assets/images/icon/logo.png')}}" alt="KPK Logo" />
                     </a>
                 </div>
@@ -211,7 +211,7 @@ function drawBasic() {
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
                                                     <a href="{{route('adminAccountView')}}">
-                                                        <i class="fas fa-user"></i>Account</a>
+                                                        <i class="fas fa-user"></i>Profile</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
                                                     <a href="#">

@@ -206,7 +206,7 @@ function drawBarChart() {
             {{$admins->appends(['users' => $users->currentPage(), 'allPosts' => $allPosts->currentPage()])->links()}}
         </div>
         <!-- USER TABLE -->
-        <h2 class="title-1 m-b-25 m-t-50">USER TABLE</h2>
+        <h2 class="title-1 m-b-25 m-t-50 text-center">USER TABLE</h2>
         <div class="table-responsive table--no-card m-b-40">
             <table class="table table-dark table-striped">
 
@@ -227,7 +227,7 @@ function drawBarChart() {
                         <td>{{$user->email}}</td>
                         <td><a href="{{route('admineditUser', $user->id)}}">Edit</a></td>
                         <td><a href="{{route('admindeleteUser', $user->id)}}">Delete</a>
-                        </td>`
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

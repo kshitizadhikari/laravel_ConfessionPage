@@ -3,7 +3,7 @@
 
 <style>
 .container {
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .card {
@@ -32,9 +32,13 @@
                     </div>
                     <div class="col-md-7">
                         <div class=" card-body">
-                            <div class="mb-3 p-0 div-input">
-                                <label class="form-label p-2">Username : </label>
+                            <div class="mb-3 p-0 form-input">
+                                <label class="form-label p-2">Name : </label>
                                 <label class="form-label p-2">{{Auth::user()->name}}</label>
+                            </div>
+                            <div class="mb-3 p-0 form-input">
+                                <label class="form-label p-2">Username : </label>
+                                <label class="form-label p-2">{{Auth::user()->username}}</label>
                             </div>
                             <div class="mb-3 p-0 form-input">
                                 <label class="form-label p-2">Email : </label>
