@@ -57,7 +57,7 @@ class UserController extends Controller
                 $extension=strtolower($file->getClientOriginalExtension());
                 $imagefullname=$imagename.".".$extension;
                 $uploadspath="public/uploads/";
-                $imageurl=$uploadspath.$imagefullname;
+                $imageurl=$imagefullname;
                 $file->move($uploadspath,$imagefullname);
                 $image[]=$imageurl;
              }
@@ -125,7 +125,7 @@ class UserController extends Controller
                 $extension=strtolower($file->getClientOriginalExtension());
                 $imagefullname=$imagename.".".$extension;
                 $uploadspath="public/uploads/";
-                $imageurl=$uploadspath.$imagefullname;
+                $imageurl=$imagefullname;
                 $file->move($uploadspath,$imagefullname);
                 $image[]=$imageurl;
              }
@@ -139,6 +139,51 @@ class UserController extends Controller
              $data->img=implode('|',$image);
              $data->save();
             return redirect()->route('login');
+        }
+
+
+        public function deleteimage($img,$postid){
+            
+
+            $data=Post::find($postid);
+            $postdata=Post::where('id',$postid)->first();
+            $images=explode('|',$data->img);
+            $combinedimg=array();
+            
+            foreach($images as $image)
+            {
+                
+                if($image==$img){
+                    unlink("public/uploads/".$image);
+                    
+                   
+                    
+                    if(count($images)==1){
+                        Post::find($postid)->update([
+                            'id'=>$postid,
+                            'title'=>$postdata->title,
+                            'post'=>$postdata->post,
+                            'userid'=>$postdata->user_id,
+                            'img'=>null
+                        ]);
+                    }
+                }
+                else{
+                    
+                $combinedimg[]=$image;
+            
+                    Post::find($postid)->update([
+                        'id'=>$postid,
+                        'title'=>$postdata->title,
+                        'post'=>$postdata->post,
+                        'userid'=>$postdata->user_id,
+                        'img'=>implode('|',$combinedimg)
+                    ]);
+            }
+        }
+        $post=Post::where('id',$postid)->first();
+        return redirect()->back();
+
         }
 
 
