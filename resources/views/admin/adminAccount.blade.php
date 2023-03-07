@@ -62,6 +62,11 @@
                     </div>
                     <div class="col-md-5">
                         <label class="form-label p-2">Profile Picture : </label>
+                        <div class="image">
+                            <a href="#">
+                                <img src="{{asset(Auth::user()->img)}}" alt="Auth::user()->name" />
+                            </a>
+                        </div>
 
                     </div>
                 </div>
