@@ -32,13 +32,24 @@
                                 @php
                                 
                                 $images=explode('|',$data['img']);
-                                
+                             
                                 @endphp
                                 
+                                @if($images[0]=="")
+                                <p class="text-center">NO images</p>
+                              @else
                                 @foreach($images as $image)
-                                        <img src="{{url($image)}}" class="img-fluid" alt="" style="object-fit:cover;height:100px;width:100px;" >
+                                
+                                <div class="d-flex me-2" style="flex-direction:column; gap:10px;">
 
-                                    @endforeach
+                                    <img src="{{url('public/uploads/'.$image)}}" class="img-fluid " alt="" style="object-fit:cover;height:100px;width:100px;" >
+                                  <a href="{{route('userdeleteimg',['img' => $image, 'postid' =>$data->id])}}"> <button type="button" class="btn btn-danger">delete</button></a> 
+                                 
+                                </div>
+
+                                @endforeach
+                                @endif
+
                               
                             </div>
                                 <div class="row text-gray-darker pt-4 pb-2 ps-3 pe-4 ">

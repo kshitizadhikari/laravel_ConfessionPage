@@ -67,7 +67,7 @@
 
                                        
                                     
-                                        <img src="{{url($image)}}" class="img-fluid w-100 h-100" alt="" style="object-fit:cover;" >
+                                        <img src="{{url('public/uploads/'.$image)}}" class="img-fluid w-100 h-100" alt="" style="object-fit:cover;" >
 
                                   
                                                           

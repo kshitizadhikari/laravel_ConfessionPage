@@ -74,6 +74,8 @@ Route::group(['middleware=' => 'auth'], function() {
         Route::get('/edit/post/{id}',[UserController::class,'editpost'])->name('editPost');
         Route::post('/edit/edit-post',[UserController::class,'updatepost'])->name('editPost.edit');
 
+        Route::get('/deleteimg/{img?}/{postid?}',[UserController::class,'deleteimage'])->name('deleteimg');
+
         //like post
         Route::post('/like-post',[UserController::class,'likePost']);
 
