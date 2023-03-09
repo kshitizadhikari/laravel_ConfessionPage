@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Contact;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Post;
@@ -15,5 +17,6 @@ class DatabaseSeeder extends Seeder
         User::factory()->times(30)->create(); 
         Post::factory()->times(50)->create();
         post_like::factory()->times(30)->create();
+        Contact::factory()->times(7)->create();
     }
 }

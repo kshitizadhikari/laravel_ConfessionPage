@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Post;
+use App\Models\Contact;
 use App\Models\post_like;
 use Dflydev\DotAccessData\Data;
 use Illuminate\Http\Request;
@@ -20,7 +21,6 @@ class AdminController extends Controller
     public function index()
     {
         $chartController = new ChartController;
-        $chartController = new ChartController;
         $pieChartData = $chartController->drawPieChart();
         $barChartData = $chartController->getUserCountryForBargraph();
         $userCountry = $chartController->getUserCountry();
@@ -34,7 +34,9 @@ class AdminController extends Controller
                                         'postCount' => $postCount,
                                         'likeCount' => $likeCount,
                                         'pieChartData' => $pieChartData, 
-                                        'barChartData' => $barChartData,'userCountry' => $userCountry]); 
+                                        'barChartData' => $barChartData,'userCountry' => $userCountry,
+                                        'allMessages' => Contact::all(),
+                                    ]); 
     }
     
     public function accountView()

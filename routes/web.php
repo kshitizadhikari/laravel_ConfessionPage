@@ -27,6 +27,7 @@ Route::get('/', function () {
 Route::get('/register', [RegisterController::class, 'register'])->name('register');
 
 Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
+Route::post('/save-message', [ContactController::class, 'saveMessage'])->name('saveMessage');
 
 
 Auth::routes();
