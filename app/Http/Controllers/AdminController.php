@@ -58,7 +58,9 @@ class AdminController extends Controller
                                             'pieChartData' => $pieChartData, 
                                             'barChartData' => $barChartData,'userCountry' => $userCountry]); 
         }
-    public function adminTables()
+
+
+    public function tableAdmin()
     {
         $chartController = new ChartController;
         $pieChartData = $chartController->drawPieChart();
@@ -67,7 +69,47 @@ class AdminController extends Controller
         $userCount = User::where('role', 0)->count();
         $postCount = Post::count();
         $likeCount = post_like::count();
-        return view('admin/adminTables', ['admins' => User::where('role', 1)->paginate(10, ['*'], 'admins'),
+        return view('admin/tableAdmin', ['admins' => User::where('role', 1)->paginate(10, ['*'], 'admins'),
+                                          'users' => User::where('role', 0)->paginate(10, ['*'], 'users'), 
+                                          'allPosts' => Post::paginate(10, ['*'], 'posts'),
+                                          'userCount' => $userCount, 
+                                          'postCount' => $postCount,
+                                          'likeCount' => $likeCount,
+                                          'pieChartData' => $pieChartData, 
+                                          'barChartData' => $barChartData,
+                                          'userCountry' => $userCountry]);
+    }
+
+    public function tableUser()
+    {
+        $chartController = new ChartController;
+        $pieChartData = $chartController->drawPieChart();
+        $barChartData = $chartController->getUserCountryForBargraph();
+        $userCountry = $chartController->getUserCountry();
+        $userCount = User::where('role', 0)->count();
+        $postCount = Post::count();
+        $likeCount = post_like::count();
+        return view('admin/tableUser', ['admins' => User::where('role', 1)->paginate(10, ['*'], 'admins'),
+                                          'users' => User::where('role', 0)->paginate(10, ['*'], 'users'), 
+                                          'allPosts' => Post::paginate(10, ['*'], 'posts'),
+                                          'userCount' => $userCount, 
+                                          'postCount' => $postCount,
+                                          'likeCount' => $likeCount,
+                                          'pieChartData' => $pieChartData, 
+                                          'barChartData' => $barChartData,
+                                          'userCountry' => $userCountry]);
+    }
+
+    public function tablePost()
+    {
+        $chartController = new ChartController;
+        $pieChartData = $chartController->drawPieChart();
+        $barChartData = $chartController->getUserCountryForBargraph();
+        $userCountry = $chartController->getUserCountry();
+        $userCount = User::where('role', 0)->count();
+        $postCount = Post::count();
+        $likeCount = post_like::count();
+        return view('admin/tablePost', ['admins' => User::where('role', 1)->paginate(10, ['*'], 'admins'),
                                           'users' => User::where('role', 0)->paginate(10, ['*'], 'users'), 
                                           'allPosts' => Post::paginate(10, ['*'], 'posts'),
                                           'userCount' => $userCount, 
@@ -161,7 +203,7 @@ class AdminController extends Controller
 
         $userObj->save();
 
-       return redirect()->route('adminadminHome');
+       return redirect()->route('admintableUser');
 
     }
 
@@ -170,7 +212,7 @@ class AdminController extends Controller
         $userObj = User::find($id);
         $userObj->delete();
         
-        return redirect()->route('adminadminHome');
+        return redirect()->route('admintableUser');
     }
 
     public function deletePostAdmin($id)
