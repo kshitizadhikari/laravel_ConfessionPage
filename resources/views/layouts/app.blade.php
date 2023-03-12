@@ -148,5 +148,69 @@
     </div>
 </body>
 <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
+<script>
+function likebtn(ae){
+
+
+   
+    
+    //  console.log('hello');
+     var send= ae.getAttribute('value');
+            $('#postid').val(send);
+            console.log(send);
+
+            var postid=$('#postid').val();
+            console.log(postid);
+            
+    
+    // var postid=$(this).closest(".likeform").find('.idpost').val();
+  
+      
+   
+$.ajax({
+    type:'post',
+    url:'/user/like-post',
+    data:{
+        postid:postid,_token:'{{csrf_token()}}'
+    },
+    success:function(response){
+        if(response.msg=="liked")
+        {
+            
+          ae.closest('.post-btn').getElementsByClassName('postdis')[0].setAttribute('fill','lightblue');
+          
+                // send.closest(".post-btn").find('.postdis').attr('fill','lightblue');
+                ae.closest('.post-btn').getElementsByClassName('likecount')[0].innerHTML=response.postcount;
+            // send.closest(".post-btn").find('#likecount').html(response.postcount);
+            
+        
+      
+        }
+        else if(response.msg=="disliked"){
+            
+            ae.closest('.post-btn').getElementsByClassName('postdis')[0].setAttribute('fill','black');
+       
+            ae.closest('.post-btn').getElementsByClassName('likecount')[0].innerHTML=response.postcount;
+            
+            
+
+        }
+        
+
+    },
+    error:function(){
+        alert("error");
+    }
+});
+
+
+   
+    }
+
+   
+
+
+   
+</script>
 
 </html>

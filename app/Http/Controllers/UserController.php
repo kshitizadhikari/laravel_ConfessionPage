@@ -24,7 +24,7 @@ class UserController extends Controller
         $posts=Post::latest()->paginate(5);
         if($request->ajax())
         {
-            $view=view('data',compact('posts'))->render();
+            $view=view('data',compact('posts'))->fragment('content');
             return response()->json(['html'=>$view]);
         }
         

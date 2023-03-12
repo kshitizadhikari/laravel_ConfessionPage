@@ -1,4 +1,9 @@
+
+
+
+@fragment('content')
 @if(count($posts)>0)
+
                         @foreach($posts as $post)
 
                         @php
@@ -80,11 +85,12 @@
                             <div class="post-footer pt-3 py-4 d-flex align-items-center">
                                 <div class="btn-group ps-2 " role="group">
                                     <span  class="likeform">
-                                    <input type="hidden" class="idpost" name="postid" id="postid" value="{{$post['id']}}">
+                                    <input type="hidden" class="idpost" name="postid" id="postid" >
+                                   
                                     
                                   
                                     <button type="submit"
-                                        class="left-btn post-btn bg-transparent border-0 text-black p-1">
+                                        class="left-btn post-btn bg-transparent border-0 text-black p-1" value="{{$post['id']}}" onclick="likebtn(this)">
                                         @php
                                         $postlike=App\Models\post_like::where('user_id',auth()->user()->id)->where('post_id',$post['id'])->get();
                                         $postcount=App\Models\post_like::where('post_id',$post['id'])->count();
@@ -97,18 +103,18 @@
                                      
                                                                                                                                                
                                             @if($postlike->count()>0)
-                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" id="postdis" fill="lightblue"  class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="postdis" fill="lightblue"  class="bi bi-heart-fill" viewBox="0 0 16 16">
                                         <path  d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                                        </svg> <span id="likecount">{{$postcount}}</span> Like
+                                        </svg> <span class="likecount">{{$postcount}}</span> Like
                                     
                                         @else
                                   
 
                                       
       
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" id="postdis" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="postdis" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
                                         <path  d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                                        </svg> <span id="likecount">{{$postcount}}</span> Like
+                                        </svg> <span class="likecount">{{$postcount}}</span> Like
 
                                       
                                         @endif
@@ -136,3 +142,12 @@
                         @endforeach
                      
                         @endif
+                        @endfragment
+                      
+                        
+     
+
+
+
+
+ 

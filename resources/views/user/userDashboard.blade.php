@@ -138,48 +138,6 @@
   </div>
   <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
   <script>
-  
-   $('.post-btn').click(function(e)
-   { 
-    // e.preventDefault();
-    var postid=$(this).closest(".likeform").find('.idpost').val();
-   var self=this;
-    //  alert(postid);
-   
-$.ajax({
-    type:'post',
-    url:'/user/like-post',
-    data:{
-        postid:postid,_token:'{{csrf_token()}}'
-    },
-    success:function(response){
-       if(response.msg=="liked")
-       {
-        
-      
-       $(self).closest(".post-btn").find('#postdis').attr('fill','lightblue');
-  
-        $(self).closest(".post-btn").find('#likecount').html(response.postcount);
-        
-        
-        }
-        else if(response.msg=="disliked"){
-            
-            $(self).closest(".post-btn").find('#postdis').attr('fill','black');
-       
-            $(self).closest(".post-btn").find('#likecount').html(response.postcount);
-
-        }
-        
-
-    },
-    error:function(){
-        alert("error");
-    }
-});
-   
-    }
-   );
 
 
    function loadmoreData(page){
@@ -206,7 +164,8 @@ $.ajax({
    }
    var page=1;
    $(window).scroll(function(){
-    if($(window).scrollTop()+$(window).height()+1>=$(document).height()){
+   
+    if($(window).scrollTop()+$(window).height()>$(document).height()){
         page++;
         loadmoreData(page);
     }
