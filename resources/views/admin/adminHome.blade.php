@@ -287,6 +287,7 @@ function drawBarChart() {
     </div>
 </div>
 <div class="row">
+    <!-- Report -->
     <div class="col-lg-6">
         <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
             <div class="au-card-title" style="background-image:url('images/bg-title-01.jpg');">
@@ -358,6 +359,7 @@ function drawBarChart() {
             </div>
         </div>
     </div>
+    <!-- MESSAGE -->
     <div class="col-lg-6">
         <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
             <div class="au-card-title" style="background-image:url('images/bg-title-02.jpg');">
@@ -374,119 +376,27 @@ function drawBarChart() {
                     <div class="au-message__noti">
                         <p>You Have
                             <span>2</span>
-
                             new messages
                         </p>
                     </div>
                     <div class="au-message-list">
+                        @foreach($allMessages as $val)
                         <div class="au-message__item unread">
                             <div class="au-message__item-inner">
                                 <div class="au-message__item-text">
-                                    <div class="avatar-wrap">
-                                        <div class="avatar">
-                                            <img src="images/icon/avatar-02.jpg" alt="John Smith">
-                                        </div>
-                                    </div>
                                     <div class="text">
-                                        <h5 class="name">John Smith</h5>
-                                        <p>Have sent a photo</p>
+                                        <h5 class="name">Subject: {{$val->subject}}</h5>
+                                        <p>Sender: {{$val->name}}</p>
                                     </div>
                                 </div>
-                                <div class="au-message__item-time">
-                                    <span>12 Min ago</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="au-message__item unread">
-                            <div class="au-message__item-inner">
                                 <div class="au-message__item-text">
-                                    <div class="avatar-wrap online">
-                                        <div class="avatar">
-                                            <img src="images/icon/avatar-03.jpg" alt="Nicholas Martinez">
-                                        </div>
-                                    </div>
                                     <div class="text">
-                                        <h5 class="name">Nicholas Martinez</h5>
-                                        <p>You are now connected on message</p>
+                                        <h6 class="name">View Details</h5>
                                     </div>
-                                </div>
-                                <div class="au-message__item-time">
-                                    <span>11:00 PM</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="au-message__item">
-                            <div class="au-message__item-inner">
-                                <div class="au-message__item-text">
-                                    <div class="avatar-wrap online">
-                                        <div class="avatar">
-                                            <img src="images/icon/avatar-04.jpg" alt="Michelle Sims">
-                                        </div>
-                                    </div>
-                                    <div class="text">
-                                        <h5 class="name">Michelle Sims</h5>
-                                        <p>Lorem ipsum dolor sit amet</p>
-                                    </div>
-                                </div>
-                                <div class="au-message__item-time">
-                                    <span>Yesterday</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="au-message__item">
-                            <div class="au-message__item-inner">
-                                <div class="au-message__item-text">
-                                    <div class="avatar-wrap">
-                                        <div class="avatar">
-                                            <img src="images/icon/avatar-05.jpg" alt="Michelle Sims">
-                                        </div>
-                                    </div>
-                                    <div class="text">
-                                        <h5 class="name">Michelle Sims</h5>
-                                        <p>Purus feugiat finibus</p>
-                                    </div>
-                                </div>
-                                <div class="au-message__item-time">
-                                    <span>Sunday</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="au-message__item js-load-item">
-                            <div class="au-message__item-inner">
-                                <div class="au-message__item-text">
-                                    <div class="avatar-wrap online">
-                                        <div class="avatar">
-                                            <img src="images/icon/avatar-04.jpg" alt="Michelle Sims">
-                                        </div>
-                                    </div>
-                                    <div class="text">
-                                        <h5 class="name">Michelle Sims</h5>
-                                        <p>Lorem ipsum dolor sit amet</p>
-                                    </div>
-                                </div>
-                                <div class="au-message__item-time">
-                                    <span>Yesterday</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="au-message__item js-load-item">
-                            <div class="au-message__item-inner">
-                                <div class="au-message__item-text">
-                                    <div class="avatar-wrap">
-                                        <div class="avatar">
-                                            <img src="images/icon/avatar-05.jpg" alt="Michelle Sims">
-                                        </div>
-                                    </div>
-                                    <div class="text">
-                                        <h5 class="name">Michelle Sims</h5>
-                                        <p>Purus feugiat finibus</p>
-                                    </div>
-                                </div>
-                                <div class="au-message__item-time">
-                                    <span>Sunday</span>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="au-message__footer">
                         <button class="au-btn au-btn-load js-load-btn">load more</button>
@@ -544,13 +454,6 @@ function drawBarChart() {
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-12">
-        <div class="copyright">
-            <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.
-            </p>
-        </div>
-    </div>
-</div>
+
 
 @endsection

@@ -117,26 +117,18 @@ function drawBasic() {
                                 <a href="chart.html">
                                     <i class="fas fa-chart-bar"></i>Charts</a>
                             </li>
-                            <li>
-                                <a href="{{route('adminadminTables')}}">
-                                    <i class="fas fa-table"></i>Tables</a>
-                            </li>
-                            <li>
-                                <a href="form.html">
-                                    <i class="far fa-check-square"></i>Forms</a>
-                            </li>
                             <li class="has-sub">
                                 <a class="js-arrow" href="#">
-                                    <i class="fas fa-copy"></i>Pages</a>
-                                <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                    <i class="fas fa-table"></i>Tables</a>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
-                                        <a href="login.html">Login</a>
+                                        <a href="{{route('admintableAdmin')}}">Admin Table</a>
                                     </li>
                                     <li>
-                                        <a href="register.html">Register</a>
+                                        <a href="{{route('admintableUser')}}">User Table</a>
                                     </li>
                                     <li>
-                                        <a href="forget-pass.html">Forget Password</a>
+                                        <a href="{{route('admintablePost')}}">Post Table</a>
                                     </li>
                                 </ul>
                             </li>
@@ -166,9 +158,20 @@ function drawBasic() {
                                 <a href="{{route('adminadminCharts')}}">
                                     <i class="fas fa-chart-bar"></i>Charts</a>
                             </li>
-                            <li>
-                                <a href="{{route('adminadminTables')}}">
+                            <li class="has-sub">
+                                <a class="js-arrow" href="#">
                                     <i class="fas fa-table"></i>Tables</a>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                    <li>
+                                        <a href="{{route('admintableAdmin')}}">Admin Table</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('admintableUser')}}">User Table</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('admintablePost')}}">Post Table</a>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </nav>

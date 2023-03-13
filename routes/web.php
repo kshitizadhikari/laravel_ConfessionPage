@@ -27,6 +27,7 @@ Route::get('/', function () {
 Route::get('/register', [RegisterController::class, 'register'])->name('register');
 
 Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
+Route::post('/save-message', [ContactController::class, 'saveMessage'])->name('saveMessage');
 
 
 Auth::routes();
@@ -41,7 +42,12 @@ Route::group(['middleware=' => 'auth'], function() {
     ], function() {
         Route::get('/admin-home', [AdminController::class, 'index'])->name('adminHome');
         Route::get('/admin-account', [AdminController::class, 'accountView'])->name('AccountView');
-        Route::get('/admin-tables', [AdminController::class, 'adminTables'])->name('adminTables');
+        
+        // TABLES
+        Route::get('/admin-table', [AdminController::class, 'tableAdmin'])->name('tableAdmin');
+        Route::get('/user-table', [AdminController::class, 'tableUser'])->name('tableUser');
+        Route::get('/post-table', [AdminController::class, 'tablePost'])->name('tablePost');
+
         Route::get('/admin-charts', [AdminController::class, 'adminCharts'])->name('adminCharts');
         Route::get('/edit-admin', [AdminController::class, 'editAdmin'])->name('editAdmin');
         

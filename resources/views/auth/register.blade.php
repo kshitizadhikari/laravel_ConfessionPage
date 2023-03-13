@@ -3,8 +3,8 @@
 @section('content')
 <style>
 .container {
-    margin-top: 50px;
-    height: 80vh;
+    padding-top: 20px;
+    height: fit-content;
 }
 
 .card {
