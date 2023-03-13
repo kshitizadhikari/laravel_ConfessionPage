@@ -2,13 +2,7 @@
 @section('admin-content')
 
 <div class="row">
-    <div class="col-md-12 p-4 ">
-        <div class="overview-wrap">
-            <h2 class="title-1">Tables</h2>
-        </div>
-    </div>
-
-    <div class="col-md-12 p-4">
+    <div class="col-md-12 p-4 mt-2">
         <div class="row">
             <!-- TABLES -->
             <div class="col-lg-12">
