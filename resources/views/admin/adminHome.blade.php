@@ -367,9 +367,6 @@ function drawBarChart() {
                 <h3>
                     <i class="zmdi zmdi-comment-text"></i>New Messages
                 </h3>
-                <button class="au-btn-plus">
-                    <i class="zmdi zmdi-plus"></i>
-                </button>
             </div>
             <div class="au-inbox-wrap js-inbox-wrap">
                 <div class="au-message js-list-load">
@@ -386,7 +383,10 @@ function drawBarChart() {
                                 <div class="au-message__item-text">
                                     <div class="text">
                                         <h5 class="name">Subject: {{$val->subject}}</h5>
-                                        <p>Sender: {{$val->name}}</p>
+                                        <p class="sender">Sender: {{$val->name}}</p>
+                                        <p class="mail" hidden>{{$val->email}}</p>
+                                        <p class="messagee" hidden>{{$val->message}}</p>
+                                        <p class="sentAt " hidden>{{$val->created_at}}</p>
                                     </div>
                                 </div>
                                 <div class="au-message__item-text">
@@ -402,53 +402,26 @@ function drawBarChart() {
                         <button class="au-btn au-btn-load js-load-btn">load more</button>
                     </div>
                 </div>
+                <!-- MESSAGE DETAILS -->
                 <div class="au-chat">
-                    <div class="au-chat__title">
-                        <div class="au-chat-info">
-                            <div class="avatar-wrap online">
-                                <div class="avatar avatar--small">
-                                    <img src="images/icon/avatar-02.jpg" alt="John Smith">
-                                </div>
-                            </div>
-                            <span class="nick">
-                                <a href="#">John Smith</a>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="au-chat__content">
-                        <div class="recei-mess-wrap">
-                            <span class="mess-time">12 Min ago</span>
-                            <div class="recei-mess__inner">
-                                <div class="avatar avatar--tiny">
-                                    <img src="images/icon/avatar-02.jpg" alt="John Smith">
-                                </div>
-                                <div class="recei-mess-list">
-                                    <div class="recei-mess">Lorem ipsum dolor sit amet,
-                                        consectetur adipiscing elit non iaculis</div>
-                                    <div class="recei-mess">Donec tempor, sapien ac viverra
+                    <aside class="profile-nav alt">
+                        <section class="card">
+                            <div class="card-header user-header alt bg-dark">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h2 class="text-light display-6"></h2>
+                                        <p class="text-light">Project Manager</p>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="send-mess-wrap">
-                            <span class="mess-time">30 Sec ago</span>
-                            <div class="send-mess__inner">
-                                <div class="send-mess-list">
-                                    <div class="send-mess">Lorem ipsum dolor sit amet,
-                                        consectetur adipiscing elit non iaculis</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="au-chat-textfield">
-                        <form class="au-form-icon">
-                            <input class="au-input au-input--full au-input--h65" type="text"
-                                placeholder="Type a message">
-                            <button class="au-input-icon">
-                                <i class="zmdi zmdi-camera"></i>
-                            </button>
-                        </form>
-                    </div>
+                            <ul class="list-group list-group-flush mt-4">
+                                <li class="subject list-group-item fs-5 mt-4">SUBJECT: </li>
+                                <li class="messagee list-group-item fs-5 mt-4">MESSAGE: </li>
+                                <li class="sentAt list-group-item fs-5 mt-4">SENT AT: </li>
+                            </ul>
+
+                        </section>
+                    </aside>
                 </div>
             </div>
         </div>

@@ -3644,8 +3644,9 @@ section {
 
 .au-message__footer {
     text-align: center;
-    padding-top: 35px;
-    padding-bottom: 45px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background: #636262;
 }
 
 .au-message p {
@@ -3653,7 +3654,7 @@ section {
 }
 
 .au-message-list {
-    height: 424px;
+    height: 320px;
     position: relative;
     overflow-y: auto;
 }
@@ -3662,7 +3663,7 @@ section {
     padding: 25px 15px;
     padding-left: 40px;
     padding-bottom: 22px;
-    border-bottom: 1px solid #f2f2f2;
+    border-bottom: 1px solid #6e6d6d;
 }
 
 .au-message__noti p {
@@ -3674,16 +3675,17 @@ section {
 }
 
 .au-message__item {
-    border-bottom: 1px solid #f2f2f2;
+    border-bottom: 1px solid #707070;
     cursor: pointer;
     -webkit-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     transition: all 0.5s ease;
+    margin-left: 2px;
 }
 
 .au-message__item:hover {
-    background: #f7f7f7;
+    background: #cec4c4;
 }
 
 .au-message__item-inner {
