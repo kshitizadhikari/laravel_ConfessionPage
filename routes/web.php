@@ -86,6 +86,9 @@ Route::group(['middleware=' => 'auth'], function() {
         Route::post('/like-post',[UserController::class,'likePost']);
 
 
+       
+
+
         //profile 
         Route::get('/profile/{id}',[UserController::class,'profilepage'])->name('profile');
 
@@ -107,6 +110,9 @@ Route::group(['middleware=' => 'auth'], function() {
 
    
     });
+
+     //report post
+     Route::post('/report-post',[UserController::class,'reportPost']);
     
     //comments
     
