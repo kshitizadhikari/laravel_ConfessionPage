@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\post_like;
+use App\Models\post_report;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -26,10 +27,13 @@ class UserController extends Controller
         {
             $view=view('data',compact('posts'))->fragment('content');
             return response()->json(['html'=>$view]);
+            
         }
+
+        $randomposts=DB::table('Posts')->inRandomOrder()->take(8)->get();
         
 
-         return view('user.userDashboard',compact('posts'));
+         return view('user.userDashboard',compact('posts'),compact('randomposts'));
         
 
     }
@@ -196,7 +200,7 @@ class UserController extends Controller
             {
                 $data=$request->all();
                 
-                
+               
                 $postsearch=post_like::where('post_id',$data['postid'])->where('user_id',auth()->user()->id);            
                 if($postsearch->count()<1)
                 {
@@ -220,6 +224,42 @@ class UserController extends Controller
             }
               
         }
+
+//report post
+        public function reportPost(Request $request){
+           
+            if($request->ajax())
+            {
+                $data=$request->all();
+                
+                 $reporter=Post::find($data['postid']);
+                
+                $postsearch=post_report::where('post_id',$data['postid'])->where('user_id',auth()->user()->id);            
+                if($postsearch->count()<1)
+                {
+                    
+                    
+                    post_report::create([
+                        'post_id' => $data['postid'],
+                        'user_id' => auth()->user()->id,
+                        'ruser_id'=>$reporter['user_id']
+                        
+                    ]);
+                    
+                             return response()->json(array('msg' =>'liked'));
+                         }
+                         else{
+                             $postsearch->delete();
+                             return response()->json(array('msg' =>'disliked'));
+                         }
+                    
+                         
+            }
+              
+        }
+
+
+
 
             // setting
 

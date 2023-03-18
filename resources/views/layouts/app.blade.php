@@ -59,7 +59,7 @@
         @guest
 
         <nav class="navbar navbar-dark navbar-expand-lg bg-dark p-2">
-            <a class="navbar-brand" href="{{route('welcome')}}">KPK</a>
+            <a class="navbar-brand" href="{{route('login')}}">KPK</a>
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav ms-auto">
@@ -90,7 +90,7 @@
 
                     @else
                     <nav class="navbar navbar-dark navbar-expand-lg bg-dark p-2">
-                        <a class="navbar-brand" href="{{route('useruserDashboard')}}">KPK</a>
+                        <a class="navbar-brand" href="{{route('login')}}">KPK</a>
 
                         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                             <ul class="navbar-nav ms-auto">
@@ -163,7 +163,7 @@ function likebtn(ae){
     //  console.log('hello');
      var send= ae.getAttribute('value');
             $('#postid').val(send);
-            console.log(send);
+           
 
             var postid=$('#postid').val();
             console.log(postid);
@@ -212,6 +212,65 @@ $.ajax({
 
    
     }
+    function reportbtn(ae){
+
+
+   
+    
+//  console.log('hello');
+ var send= ae.getAttribute('value');
+        $('#postid').val(send);
+       
+
+        var postid=$('#postid').val();
+        console.log(postid);
+      
+        
+
+// var postid=$(this).closest(".likeform").find('.idpost').val();
+
+  
+
+$.ajax({
+type:'post',
+url:'/report-post',
+data:{
+    postid:postid,_token:'{{csrf_token()}}'
+},
+success:function(response){
+    if(response.msg=="liked")
+    {
+        
+      ae.closest('.report-btn').getElementsByClassName('reportdis')[0].setAttribute('fill','lightblue');
+      
+            // send.closest(".post-btn").find('.postdis').attr('fill','lightblue');
+     
+        // send.closest(".post-btn").find('#likecount').html(response.postcount);
+        
+    
+  
+    }
+    else if(response.msg=="disliked"){
+        
+        ae.closest('.report-btn').getElementsByClassName('reportdis')[0].setAttribute('fill','black');
+   
+       
+        
+        
+
+    }
+    
+
+},
+error:function(){ //error
+    alert("error");
+    // console.log(JSON.stringify(error));
+}
+});
+
+
+
+}
 
    
 

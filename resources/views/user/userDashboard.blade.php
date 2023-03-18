@@ -102,39 +102,27 @@
                 <ul class="list-group">
                     <li class="list-group-item d-flex justify-content-between">
                         <div class="ps-2 lh-1">
-                            <div class="fw-bold">Group to follow</div>
+                            <div class="fw-bold">Random Posts</div>
                         </div>
                     </li>
+                    @foreach($randomposts as $rpost )
+                    @php
+                    $postuserimg=App\Models\User::where('id',$rpost->user_id)->first();
+                    @endphp
                     <li class="list-group-item d-flex justify-content-between">
                         <div class="">
-                            <img src="review6.png" height="20" width="20" class="rounded" alt="" srcset="">
+                            <img src="{{asset($postuserimg->img)}}" height="20" width="20" class="rounded" alt="" srcset="">
                         </div>
                         <div class="ps-2 lh-1">
-                            <div class="fw-bold">Group</div>
-                            <div class="text-secondary fw-light"><small> Lorem ipsum dolor sit amet........</small>
+                            <div class="fw-bold">{{$rpost->title}}</div>
+                            <div class="text-secondary fw-light"><small>{{$rpost->post}}</small>
                             </div>
                         </div>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        <div class="">
-                            <img src="review6.png" height="20" width="20" class="rounded" alt="" srcset="">
-                        </div>
-                        <div class="ps-2 lh-1">
-                            <div class="fw-bold">Group</div>
-                            <div class="text-secondary fw-light"><small> Lorem ipsum dolor sit amet........</small>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        <div class="">
-                            <img src="review6.png" height="20" width="20" class="rounded" alt="" srcset="">
-                        </div>
-                        <div class="ps-2 lh-1">
-                            <div class="fw-bold">Group</div>
-                            <div class="text-secondary fw-light"><small> Lorem ipsum dolor sit amet........</small>
-                            </div>
-                        </div>
-                    </li>
+
+                    @endforeach
+                   
+                 
                 </ul>
             </div>
       </div>
@@ -169,7 +157,7 @@ function loadmoreData(page) {
    var page=1;
    $(window).scroll(function(){
    
-    if($(window).scrollTop()+$(window).height()>$(document).height()){
+    if($(window).scrollTop()+$(window).height()+1>$(document).height()){
         page++;
         loadmoreData(page);
     }
