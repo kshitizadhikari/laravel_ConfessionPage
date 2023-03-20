@@ -12,7 +12,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<!-- test -->
 <!-- Favicon -->
 <link href="img/favicon.ico" rel="icon">
 
