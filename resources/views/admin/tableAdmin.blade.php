@@ -15,14 +15,13 @@
                 <!-- ADMIN TABLE -->
                 <h2 class="title-1 m-b-25 text-center">ADMIN TABLE</h2>
                 <div class="table-responsive table--no-card">
-                    <table class="table table-dark table-striped">
+                    <table class="table table-dark table-striped table-hover">
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Action</th>
-                                <th scope="col">Action</th>
+                                <th scope="col" class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -31,8 +30,7 @@
                                 <td>{{$user->id}}</td>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
-                                <td>#</td>
-                                <td>#</td>
+                                <td class="text-center">#</td>
                             </tr>
                             @endforeach
                         </tbody>

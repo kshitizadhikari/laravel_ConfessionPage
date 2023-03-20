@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Models\Post;
 use App\Models\Contact;
 use App\Models\post_like;
+use App\Models\post_report;
 use Dflydev\DotAccessData\Data;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -27,12 +28,14 @@ class AdminController extends Controller
         $userCount = User::where('role', 0)->count();
         $postCount = Post::count();
         $likeCount = post_like::count();
+        $reportCount = post_report::count();
         return view('admin/adminHome', ['admins' => User::where('role', 1)->paginate(10, ['*'], 'admins'),
                                         'users' => User::where('role', 0)->paginate(10, ['*'], 'users'), 
                                         'allPosts' => Post::paginate(10, ['*'], 'posts'),
                                         'userCount' => $userCount, 
                                         'postCount' => $postCount,
                                         'likeCount' => $likeCount,
+                                        'reportCount' => $reportCount,
                                         'pieChartData' => $pieChartData, 
                                         'barChartData' => $barChartData,'userCountry' => $userCountry,
                                         'allMessages' => Contact::all(),
