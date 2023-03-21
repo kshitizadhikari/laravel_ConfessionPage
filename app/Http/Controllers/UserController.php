@@ -321,6 +321,11 @@ class UserController extends Controller
             return redirect()->back();
         }
 
+        public function changeavatar($id)
+        {
+            $data=User::find($id);
+            dd($data);
+        }
 
        
        

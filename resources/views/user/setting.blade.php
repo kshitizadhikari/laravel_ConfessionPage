@@ -79,45 +79,51 @@
                         <div class="tab-pane active" id="profile">
                             <h6>PROFILE INFORMATION</h6>
                             <hr>
+
+                            <img src="{{asset(auth()->user()->img)}}" class="post-profile rounded-circle" alt="">
+
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#ModalAvatar"
+                                class="btn btn-primary">Change Avatar</a>
+
                             <form action="{{route('usereditprofile.edit')}}" method="post"
                                 enctype="multipart/form-data">
                                 @csrf
-                                <input type="hidden" class="form-control" name="id" value="{{$data->id}}">
+                                <input type="hidden" class="form-control" name="id" value="{{auth()->user()->id}}">
 
                                 <div class="mb-3">
                                     <label class="form-label">FULL NAME</label>
                                     <input type="text" class="form-control" name="names" placeholder="Name"
-                                        value="{{$data->name}}">
+                                        value="{{auth()->user()->name}}">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">EMAIL</label>
                                     <input type="email" class="form-control" name="email" placeholder="Name"
-                                        value="{{$data->email}}">
+                                        value="{{auth()->user()->email}}">
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">AGE</label>
-                                    <input type="text" class="form-control" name="age" value="{{$data->age}}"
+                                    <input type="text" class="form-control" name="age" value="{{auth()->user()->age}}"
                                         placeholder="age">
                                 </div>
-                                <input type="hidden" class="form-control" name="password" value="{{$data->password}}"
-                                    placeholder="age">
+                                <input type="hidden" class="form-control" name="password" value="{{auth()->user()->password}}"
+                                   >
 
                                 <div class="mb-3">
                                     <label class="form-label">GENDER</label>
-                                    <select name="gender" class="form-control" value="{{$data->gender}}">
+                                    <select name="gender" class="form-control" value="{{auth()->user()->gender}}">
                                         <option value="male">MALE</option>
                                         <option value="female">FEMALE</option>
                                         <option value="other">OTHER</option>
                                     </select>
-                                    <input type="text" class="form-control" name="gender" value="{{$data->gender}}">
+                                    <input type="text" class="form-control" name="gender" value="{{auth()->user()->gender}}">
 
 
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">COUNTRY</label>
                                     <input type="text" class="form-control" name="country" placeholder="Country"
-                                        value="{{$data->country}}">
+                                        value="{{auth()->user()->country}}">
 
                                 </div>
 
@@ -191,5 +197,6 @@
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
 </script>
 @include('modal.deleteuser')
+@include('modal.avatarchange')
 
 @endsection
