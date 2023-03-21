@@ -13,6 +13,5 @@ class post_report extends Model
         'user_id',
         'post_id',
         'ruser_id'
-
     ];
 }

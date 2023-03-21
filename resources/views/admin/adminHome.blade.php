@@ -138,7 +138,7 @@ function drawBarChart() {
                         <i class="zmdi zmdi-money"></i>
                     </div>
                     <div class="text">
-                        <h2>$1,060,386</h2>
+                        <h2>{{$reportCount}}</h2>
                         <span>REPORTS</span>
                     </div>
                 </div>
@@ -181,14 +181,13 @@ function drawBarChart() {
         <!-- ADMIN TABLE -->
         <h2 class="title-1 m-b-25">ADMIN TABLE</h2>
         <div class="table-responsive table--no-card">
-            <table class="table table-dark table-striped">
+            <table class="table table-dark table-striped table-hover">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Action</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -197,8 +196,7 @@ function drawBarChart() {
                         <td>{{$user->id}}</td>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
-                        <td>#</td>
-                        <td>#</td>
+                        <td class="text-center">#</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -208,15 +206,14 @@ function drawBarChart() {
         <!-- USER TABLE -->
         <h2 class="title-1 m-b-25 m-t-50 text-center">USER TABLE</h2>
         <div class="table-responsive table--no-card m-b-40">
-            <table class="table table-dark table-striped">
+            <table class="table table-dark table-striped table-hover">
 
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Action</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -225,8 +222,10 @@ function drawBarChart() {
                         <td>{{$user->id}}</td>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
-                        <td><a href="{{route('admineditUser', $user->id)}}">Edit</a></td>
-                        <td><a href="{{route('admindeleteUser', $user->id)}}">Delete</a>
+                        <td class="text-center"><a href="{{route('admineditUser', $user->id)}}"><i
+                                    class="fa-regular fa-pen-to-square"></i></a>
+                            | <a href="{{route('admindeleteUser', $user->id)}}"><i
+                                    class="fa-regular fa-trash-can"></i></a>
                         </td>
                     </tr>
                     @endforeach
@@ -238,15 +237,15 @@ function drawBarChart() {
         <!-- POST TABLE -->
         <h2 class="title-1 m-b-25 m-t-50">POST TABLE</h2>
         <div class="table-responsive table--no-card m-b-40">
-            <table class="table table-dark table-striped">
+            <table class="table table-dark table-striped table-hover">
 
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Title</th>
                         <th scope="col">Post</th>
-                        <th scope="col">User_ID</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" class="text-center">User_ID</th>
+                        <th scope="col" class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -255,8 +254,9 @@ function drawBarChart() {
                         <td>{{$post->id}}</td>
                         <td>{{$post->title}}</td>
                         <td>{{$post->post}}</td>
-                        <td>{{$post->user_id}}</td>
-                        <td><a href="{{route('admindeleteUser', $post->id)}}">Delete</a></td>
+                        <td class="text-center">{{$post->user_id}}</td>
+                        <td class="text-center"><a href="{{route('admindeletePostAdmin', $post->id)}}"><i
+                                    class="fa-regular fa-trash-can"></i></a></td>
                     </tr>
                     @endforeach
                 </tbody>
