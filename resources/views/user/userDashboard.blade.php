@@ -43,7 +43,7 @@
             <!-- //middle part -->
             <div class="col-7">
                 <!-- USER POST -->
-                <div class="new border border-gray">
+                <div class="new border border-gray shadow-lg">
                     <form action="{{route('usersavePost')}}" method="post" enctype="multipart/form-data">
                         @csrf
 
@@ -92,29 +92,29 @@
                 </div>
 
                 <div class="ajax-load text-center" style="display:none;">
-                    <img src="{{asset('images/loading-circle.gif')}}" alt="">
+                    <img src="{{asset('images/loading-circle.gif')}}" style="background:none;" alt="">
                     <p>Loading posts....</p>
                 </div>
             </div>
 
             <!-- RIGHT SECTION -->
             <div class="col">
-                <ul class="list-group">
-                    <li class="list-group-item d-flex justify-content-between">
+                <ul class="list-group shadow-lg">
+                    <li class="list-group-item d-flex justify-content-center ">
                         <div class="ps-2 lh-1">
-                            <div class="fw-bold">Random Posts</div>
+                            <div class="fw-bold fs-5">Random Posts</div>
                         </div>
                     </li>
                     @foreach($randomposts as $rpost )
                     @php
                     $postuserimg=App\Models\User::where('id',$rpost->user_id)->first();
                     @endphp
-                    <li class="list-group-item d-flex justify-content-between">
+                    <li class="list-group-item d-flex">
                         <div class="">
-                            <img src="{{asset($postuserimg->img)}}" height="20" width="20" class="rounded" alt="" srcset="">
+                            <img src="{{asset($postuserimg->img)}}" height="30" width="30" class="rounded" alt="" srcset="">
                         </div>
-                        <div class="ps-2 lh-1">
-                            <div class="fw-bold">{{$rpost->title}}</div>
+                        <div class="ps-2">
+                          <a href="{{url('user/display/post/'.$rpost->id)}}" > <div class="fw-bold">{{$rpost->title}}</div></a>
                             <div class="text-secondary fw-light"><small>{{$rpost->post}}</small>
                             </div>
                         </div>

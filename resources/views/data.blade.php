@@ -11,7 +11,7 @@
                         $comments=App\Models\Comment::where('post_id',$post['id'])->get();
                         @endphp
                         
-                        <div class="post bg-white border-gray mt-4">
+                        <div class="post bg-white border-gray mt-4 shadow-lg">
                             <div class=" pt-2 d-flex justify-content-between">
                         
                                 <div class="d-flex">

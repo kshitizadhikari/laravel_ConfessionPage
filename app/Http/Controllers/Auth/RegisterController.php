@@ -68,7 +68,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $fname=$data['name'];
-        $randomnum=mt_rand(1,14);
+        $randomnum=mt_rand(1,30);
         
         $path="pp/pp-";
         $exten="png";

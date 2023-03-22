@@ -160,13 +160,13 @@
 
                             <form action="{{route('userchangepassword')}}" method="post" enctype="multipart/form-data">
                                 @csrf
-                                <input type="hidden" class="form-control" name="id" value="{{$data->id}}">
-                                <input type="hidden" class="form-control" name="names" value="{{$data->name}}">
-                                <input type="hidden" class="form-control" name="age" value="{{$data->age}}">
-                                <input type="hidden" class="form-control" name="email" value="{{$data->email}}">
-                                <input type="hidden" class="form-control" name="gender" value="{{$data->gender}}">
-                                <input type="hidden" class="form-control" name="country" value="{{$data->country}}">
-                                <input type="hidden" class="form-control" name="pass" value="{{$data->password}}">
+                                <input type="hidden" class="form-control" name="id" value="{{auth()->user()->id}}">
+                                <input type="hidden" class="form-control" name="names" value="{{auth()->user()->name}}">
+                                <input type="hidden" class="form-control" name="age" value="{{auth()->user()->age}}">
+                                <input type="hidden" class="form-control" name="email" value="{{auth()->user()->email}}">
+                                <input type="hidden" class="form-control" name="gender" value="{{auth()->user()->gender}}">
+                                <input type="hidden" class="form-control" name="country" value="{{auth()->user()->country}}">
+                                <input type="hidden" class="form-control" name="pass" value="{{auth()->user()->password}}">
 
 
 

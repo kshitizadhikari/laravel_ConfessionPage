@@ -315,7 +315,7 @@ class UserController extends Controller
         public function deleteuse($id)
         {
             $data=User::find($id);
-            dd($data);
+           
            
             $data->delete();
             return redirect()->back();
@@ -323,8 +323,18 @@ class UserController extends Controller
 
         public function changeavatar($id)
         {
-            $data=User::find($id);
-            dd($data);
+           
+               
+            $path="pp/pp-";
+            $exten="png";
+               
+            // $data=User::find($id);
+          
+            User::find(auth()->user()->id)->update([
+                'img'=>$path.$id.".".$exten,
+            ]);
+            return redirect()->back();
+            
         }
 
        
