@@ -12,7 +12,7 @@
                     <div class="modal-body">You sure you want to delete ?</div>
                     <div class="modal-footer">
                         
-                        <a href="{{'userdeleteuse',auth()->user()->id}}"class="btn btn-danger">Delete</a>
+                        <a href="{{route('userdeleteuse',auth()->user()->id)}}"class="btn btn-danger">Delete</a>
                         <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     </div>
                 </div>

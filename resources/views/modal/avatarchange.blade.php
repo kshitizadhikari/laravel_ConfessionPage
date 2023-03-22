@@ -1,6 +1,6 @@
 <style>
         .main-container{
-           height: 80vh;
+           height: 100vh;
            display: flex;
            align-items: center;
            justify-content: center;
@@ -73,7 +73,7 @@
                     <div class="main-container">
        <div class="radio-buttons">
 <label  class="custom-radio" >
-    <input type="radio" name="radio">
+    <input type="radio" name="radio" value="1">
     <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
         <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
       </svg>
@@ -85,7 +85,7 @@
 </label>
 
 <label  class="custom-radio" >
-    <input type="radio" name="radio">
+    <input type="radio" name="radio" value="2">
     <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
         <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
       </svg>
@@ -95,7 +95,7 @@
     </span>
 </label>
 <label  class="custom-radio">
-    <input type="radio" name="radio">
+    <input type="radio" name="radio" value="3">
     <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
         <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
       </svg>
@@ -105,7 +105,7 @@
     </span>
 </label>
 <label  class="custom-radio">
-    <input type="radio" name="radio">
+    <input type="radio" name="radio" value="4">
     <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
         <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
       </svg>
@@ -115,7 +115,7 @@
     </span>
 </label>
 <label  class="custom-radio">
-    <input type="radio" name="radio">
+    <input type="radio" name="radio" value="5">
     <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
         <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
       </svg>
@@ -125,7 +125,7 @@
     </span>
 </label>
 <label  class="custom-radio">
-    <input type="radio" name="radio">
+    <input type="radio" name="radio" value="6">
     <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
         <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
       </svg>
@@ -135,7 +135,7 @@
     </span>
 </label>
 <label  class="custom-radio">
-    <input type="radio" name="radio">
+    <input type="radio" name="radio" value="7">
     <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
         <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
       </svg>
@@ -145,7 +145,7 @@
     </span>
 </label>
 <label  class="custom-radio">
-    <input type="radio" name="radio">
+    <input type="radio" name="radio" value="8">
     <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
         <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
       </svg>
@@ -155,7 +155,7 @@
     </span>
 </label>
 <label  class="custom-radio">
-    <input type="radio" name="radio">
+    <input type="radio" name="radio" value="9">
     <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
         <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
       </svg>
@@ -165,7 +165,7 @@
     </span>
 </label>
 <label  class="custom-radio">
-    <input type="radio" name="radio">
+    <input type="radio" name="radio" value="10">
     <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
         <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
       </svg>
@@ -175,7 +175,7 @@
     </span>
 </label>
 <label  class="custom-radio">
-    <input type="radio" name="radio">
+    <input type="radio" name="radio" value="11">
     <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
         <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
       </svg>
@@ -185,7 +185,7 @@
     </span>
 </label>
 <label  class="custom-radio">
-    <input type="radio" name="radio">
+    <input type="radio" name="radio" value="12">
     <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
         <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
       </svg>
@@ -195,7 +195,7 @@
     </span>
 </label>
 <label  class="custom-radio">
-    <input type="radio" name="radio">
+    <input type="radio" name="radio" value="13">
     <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
         <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
       </svg>
@@ -205,12 +205,175 @@
     </span>
 </label>
 <label  class="custom-radio">
-    <input type="radio" name="radio">
+    <input type="radio" name="radio" value="14">
     <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
         <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
       </svg>
       <div class="images">
         <img src="{{asset('pp/pp-14.png')}}" alt="" srcset="">
+      </div>
+    </span>
+</label>
+<label  class="custom-radio">
+    <input type="radio" name="radio" value="15">
+    <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+      </svg>
+      <div class="images">
+        <img src="{{asset('pp/pp-15.png')}}" alt="" srcset="">
+      </div>
+    </span>
+</label>
+
+<label  class="custom-radio" >
+    <input type="radio" name="radio" value="16">
+    <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+      </svg>
+      <div class="images">
+        <img src="{{asset('pp/pp-16.png')}}" alt="" srcset="">
+      </div>
+    
+    </span>
+</label>
+
+<label  class="custom-radio" >
+    <input type="radio" name="radio" value="17">
+    <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+      </svg>
+      <div class="images">
+        <img src="{{asset('pp/pp-17.png')}}" alt="" srcset="">
+      </div>
+    </span>
+</label>
+<label  class="custom-radio">
+    <input type="radio" name="radio" value="18">
+    <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+      </svg>
+      <div class="images">
+        <img src="{{asset('pp/pp-18.png')}}" alt="" srcset="">
+      </div>
+    </span>
+</label>
+<label  class="custom-radio">
+    <input type="radio" name="radio" value="19">
+    <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+      </svg>
+      <div class="images">
+        <img src="{{asset('pp/pp-19.png')}}" alt="" srcset="">
+      </div>
+    </span>
+</label>
+<label  class="custom-radio">
+    <input type="radio" name="radio" value="20">
+    <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+      </svg>
+      <div class="images">
+        <img src="{{asset('pp/pp-20.png')}}" alt="" srcset="">
+      </div>
+    </span>
+</label>
+<label  class="custom-radio">
+    <input type="radio" name="radio" value="21">
+    <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+      </svg>
+      <div class="images">
+        <img src="{{asset('pp/pp-21.png')}}" alt="" srcset="">
+      </div>
+    </span>
+</label>
+<label  class="custom-radio">
+    <input type="radio" name="radio" value="22">
+    <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+      </svg>
+      <div class="images">
+        <img src="{{asset('pp/pp-22.png')}}" alt="" srcset="">
+      </div>
+    </span>
+</label>
+<label  class="custom-radio">
+    <input type="radio" name="radio" value="23">
+    <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+      </svg>
+      <div class="images">
+        <img src="{{asset('pp/pp-23.png')}}" alt="" srcset="">
+      </div>
+    </span>
+</label>
+<label  class="custom-radio">
+    <input type="radio" name="radio" value="24">
+    <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+      </svg>
+      <div class="images">
+        <img src="{{asset('pp/pp-24.png')}}" alt="" srcset="">
+      </div>
+    </span>
+</label>
+<label  class="custom-radio">
+    <input type="radio" name="radio" value="25">
+    <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+      </svg>
+      <div class="images">
+        <img src="{{asset('pp/pp-25.png')}}" alt="" srcset="">
+      </div>
+    </span>
+</label>
+<label  class="custom-radio">
+    <input type="radio" name="radio" value="26">
+    <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+      </svg>
+      <div class="images">
+        <img src="{{asset('pp/pp-26.png')}}" alt="" srcset="">
+      </div>
+    </span>
+</label>
+<label  class="custom-radio">
+    <input type="radio" name="radio" value="27">
+    <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+      </svg>
+      <div class="images">
+        <img src="{{asset('pp/pp-27.png')}}" alt="" srcset="">
+      </div>
+    </span>
+</label>
+<label  class="custom-radio">
+    <input type="radio" name="radio" value="28">
+    <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+      </svg>
+      <div class="images">
+        <img src="{{asset('pp/pp-28.png')}}" alt="" srcset="">
+      </div>
+    </span>
+</label>
+<label  class="custom-radio">
+    <input type="radio" name="radio" value="29">
+    <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+      </svg>
+      <div class="images">
+        <img src="{{asset('pp/pp-29.png')}}" alt="" srcset="">
+      </div>
+    </span>
+</label>
+<label  class="custom-radio">
+    <input type="radio" name="radio" value="30">
+    <span class="radio-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+      </svg>
+      <div class="images">
+        <img src="{{asset('pp/pp-30.png')}}" alt="" srcset="">
       </div>
     </span>
 </label>
@@ -221,9 +384,18 @@
                     </div>
                     <div class="modal-footer">
                         
-                        <a href="{{'userchangeavatar',auth()->user()->id}}"class="btn btn-primary">Save Changes</a>
+                        <a href="javascript:showopt()"  class="btn btn-primary">Save Changes</a>
                         <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     </div>
                 </div>
             </div>
         </div>
+
+        <script>
+          function showopt(){
+            var id=document.querySelector('input[name="radio"]:checked').value;
+            var url='{{route("userchangeavatar",":id")}}';
+            url=url.replace(':id',id);
+            document.location.href=url;
+          }
+        </script>

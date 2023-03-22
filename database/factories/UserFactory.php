@@ -32,7 +32,23 @@ class UserFactory extends Factory
         'pp/pp-11.png',
         'pp/pp-12.png',
         'pp/pp-13.png',
-        'pp/pp-14.png'
+        'pp/pp-14.png',
+        'pp/pp-15.png',
+        'pp/pp-16.png',
+        'pp/pp-17.png',
+        'pp/pp-18.png',
+        'pp/pp-19.png',
+        'pp/pp-20.png',
+        'pp/pp-21.png',
+        'pp/pp-22.png',
+        'pp/pp-23.png',
+        'pp/pp-24.png',
+        'pp/pp-25.png',
+        'pp/pp-26.png',
+        'pp/pp-27.png',
+        'pp/pp-28.png',
+        'pp/pp-29.png',
+        'pp/pp-30.png'
        ];
         return [
             'name' => $this->faker->unique()->name(),
@@ -42,7 +58,7 @@ class UserFactory extends Factory
             'age' => $this->faker->numberBetween(18, 90),
             'country' => $this->faker->randomElement(['Nepal', 'India', 'China', 'USA', 'UK', 'Austrailia']),
             'password' => Hash::make('12345678'),
-            'img' =>$randomimg[rand(0,13)],
+            'img' =>$randomimg[rand(0,29)],
 
             'role' => $this->faker->numberBetween(0, 1),
         ];
