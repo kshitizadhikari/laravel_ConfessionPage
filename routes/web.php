@@ -106,6 +106,7 @@ Route::group(['middleware=' => 'auth'], function() {
 
        //setting delete user
        Route::get('/delete/{id}', [UserController::class, 'deleteuse'])->name('deleteuse');
+       Route::get('changeavatar/{id}',[UserController::class,'changeavatar'])->name('changeavatar');
        
 
    
