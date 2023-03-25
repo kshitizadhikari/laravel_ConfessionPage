@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-
+<style>
+    .titles:hover{
+        text-decoration:underline;
+        
+    }
+</style>
 
 
 
@@ -114,8 +119,9 @@
                             <img src="{{asset($postuserimg->img)}}" height="30" width="30" class="rounded" alt="" srcset="">
                         </div>
                         <div class="ps-2">
-                          <a href="{{url('user/display/post/'.$rpost->id)}}" > <div class="fw-bold">{{$rpost->title}}</div></a>
+                          <a href="{{url('user/display/post/'.$rpost->id)}}" > <div class="titles fw-bold text-black">{{$rpost->title}}</div></a>
                             <div class="text-secondary fw-light"><small>{{$rpost->post}}</small>
+                           
                             </div>
                         </div>
                     </li>

@@ -98,7 +98,8 @@ class UserController extends Controller
     public function displaypost($id){
         
             $post=Post::where('id',$id)->first();
-            return view('user.displaypost',compact('post'));
+            $randomposts=DB::table('Posts')->inRandomOrder()->take(8)->get();
+            return view('user.displaypost',compact('post'),compact('randomposts'));
     }
         
         public function editpost($id){
