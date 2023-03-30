@@ -12,6 +12,7 @@ class post_report extends Model
     protected $fillable = [
         'user_id',
         'post_id',
-        'ruser_id'
+        'ruser_id',
+        'report_type'
     ];
 }

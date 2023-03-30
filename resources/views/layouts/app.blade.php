@@ -217,7 +217,7 @@ $.ajax({
 
    
     
-//  console.log('hello');
+ console.log(ae);
  var send= ae.getAttribute('value');
         $('#postid').val(send);
        
@@ -268,11 +268,86 @@ error:function(){ //error
 }
 });
 
+}
+
+
+
+    
+    $('#Modalreport').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        // var btn=event.relatedTarget; // Button that triggered the modal
+        var id = button.data('id'); // Extract info from data-* attributes
+         var modal = $(this);
+        // buttonht=btn.outerHTML;
+       
+         modal.find('#inputId').val(id);
+         
+        // modal.find('#inptag').val(buttonht);
+        // console.log(id);
+        // console.log(buttonht);
+    })
+    
+
+
+   
+ function report(){
+
+
+
+    var postid = $('#inputId').val();
+    var id=document.querySelector('input[name="radio"]:checked').value;
+  
+   
+    
+
+    // console.log(postid);// Extract info from data-* attributes
+  // Do something with the button or the ID
+
+
+  $.ajax({
+type:'post',
+url:'/report-post',
+data:{
+    postid:postid,report_type:id,_token:'{{csrf_token()}}'
+},
+success:function(response){
+    if(response.msg=="liked")
+    {
+        
+    //   tag.closest('.report-btn').getElementsByClassName('reportdis')[0].setAttribute('fill','lightblue');
+    alert("lik");
+      
+            // send.closest(".post-btn").find('.postdis').attr('fill','lightblue');
+     
+        // send.closest(".post-btn").find('#likecount').html(response.postcount);
+        
+    
+  
+    }
+    else if(response.msg=="disliked"){
+        
+        // tag.closest('.report-btn').getElementsByClassName('reportdis')[0].setAttribute('fill','black');
+        alert("dis");
+   
+       
+        
+        
+
+    }
+    
+
+},
+error:function(){ //error
+    alert("error");
+    // console.log(JSON.stringify(error));
+}
+});
+
+ 
 
 
 }
 
-   
 
 
    

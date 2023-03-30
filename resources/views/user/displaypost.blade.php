@@ -90,6 +90,16 @@
         grid-template-columns:auto auto;
         /* grid-template-rows: repeat(1, 1fr); */
     }
+/*     
+    .left-line::before{
+        content:"";
+        background-color:rgb(170,170,170);
+        position: absolute;
+        min-height:100%;
+        width:1px;
+        left:270px;
+    } */
+ 
     </style>
 
 
@@ -243,9 +253,9 @@
                                     </button>
                                     @endif
                                     <small class="ms-4 text-body  mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi me-1 bi-clock" viewBox="0 0 16 16">
-  <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
-  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
-</svg>{{$post->created_at->diffForHumans()}}</small>
+                                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                                    </svg>{{$post->created_at->diffForHumans()}}</small>
 
                                 </div>
                             
@@ -254,62 +264,46 @@
                         <!-- COMMENT -->
 
                         <div class="comment h-80">
-                            <!-- <div class="card"> -->
+                            
 
-                                <!-- <div class="card-body"> -->
-
-                                    <!-- <div class=" pt-2 d-flex justify-content-between">
-                                        <div class="d-flex">
-                                            <img src="{{asset('images/review6.png')}}" class="post-profile rounded-circle" alt="">
-                                                <div class="d-flex-column">
-                                                    <form action="{{route('comment')}}" method="post" enctype="multipart/form-data">
-                                                        @csrf
-                                                            <input type="hidden" name="userid" value="{{auth()->user()->id}}">
-                                                            <input type="hidden" name="postid" value="{{$post->id}}">
-                                                            <div class="input-group">
-                                                            <input type="text" class="form-control" placeholder="comment" name="comment">
-                                                            <button class="btn btn-outline-primary" type="submit" id="button-addon2">Post</button>
-                                                            </div>
-                                                    </form>
-                                                </div>
-                                        </div>
-                                
-                                    </div> -->
-
-                                    <div class="flex items-center justify-center shadow-lg my-5">
-                                    <form action="{{route('comment')}}" method="post" enctype="multipart/form-data" class="w-full max-w-xl bg-gray rounded-lg px-4  pb-4" >
+                            <div class="flex items-center justify-center shadow-lg my-5">
+                                <form action="{{route('comment')}}" method="post" enctype="multipart/form-data" class="w-full max-w-xl bg-gray rounded-lg px-4  pb-4" >
                                         @csrf
-                                <div class="flex flex-wrap -mx-3 mv-6">
-                                <h5 class="px-4 pt-3 pb-2 text-gray-200 text-lg">Add a new Comment</h5>
-                                <div class="w-full md:w-full px-3 mb-2 mt-2">
-                                <input type="hidden" name="userid" value="{{auth()->user()->id}}">
-                                <input type="hidden" name="postid" value="{{$post->id}}">
-                                    <textarea class="bg-gray-100 rounded border-gray-400 leading-normal w-100 h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white border border-secondary" placeholder="type your comment" name="comment" required></textarea>
-                                </div>
-                                <div class="-mr-1">
+                                    <div class="flex flex-wrap -mx-3 mv-6">
+                                            <h5 class="px-4 pt-3 pb-2 text-gray-200 text-lg">Add a new Comment</h5>
+                                        <div class="w-full md:w-full px-3 mb-2 mt-2">
+                                            <input type="hidden" name="userid" value="{{auth()->user()->id}}">
+                                            <input type="hidden" name="postid" value="{{$post->id}}">
+                                            <textarea class="bg-gray-100 rounded border-gray-400 leading-normal w-100 h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white border border-secondary" placeholder="type your comment" name="comment" required></textarea>
+                                        </div>
+                                            <div class="-mr-1">
 
-                                    <input type="submit" class="bg-white text-gray-700 font-medium py-1 px-4  border border-gray-400 rounded-lg tracking-wide mr-1 ms-3" value="Post comment">
-                                </div>
-                                </div>
+                                                <input type="submit" class="bg-white text-gray-700 font-medium py-1 px-4  border border-gray-400 rounded-lg tracking-wide mr-1 ms-3" value="Post comment">
+                                            </div>
+                                    </div>
 
-                            </form>
+                                </form>
+                              
 
                         </div>
+                        @foreach($comments as $comment)
+                        @php
+                        $commentusername=App\Models\User::where('id',$comment->user_id)->first();
+                        @endphp
+                      
                                     
-                                    @foreach($comments as $comment)
-                                    @php
-                                    $commentusername=App\Models\User::where('id',$comment->user_id)->first();
-                                     @endphp
-                                    <div class="comment-container pt-1 pb-2 mb-3" style="border:1px solid rgba(0,0,0,0.3); border-radius:0.5rem;">
+
+                                     
+                                    <div class=" comment-container shadow-lg pt-1 pb-2 mb-3" style="border:1px solid rgba(0,0,0,0.3); border-radius:0.5rem;">
                                         <div class="comment-card">
                                             <div class="comment-title">
                                                 <img src="{{asset($commentusername->img)}}" class="post-profile rounded-circle"  alt="">
                                                
                                                     <strong>{{$commentusername->username}}</strong>
                                                     <small class="ms-4 text-body"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-clock me-1" viewBox="0 0 16 16">
-  <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
-  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
-</svg>{{$comment->created_at->diffForHumans()}}</small>
+                                                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                                                    </svg>{{$comment->created_at->diffForHumans()}}</small>
                                                   
                                                 <div class="comment-body fs-6"style="margin-left:60px">
 
@@ -319,19 +313,33 @@
                                                 
                                                 
                                             </div>
-                                            <div class="comment-footer">
-
+                                            <div class="comment-footer d-flex gap-2 fs-6 justify-content-end p-2 me-3 ">
+                                           
+                                            <div class="">Like</div>
+                                            <div class="btn btn-transparent p-0" onclick="reply('{{$comment->id}}','{{$commentusername->id}}')">Reply</div>
                                             </div>
                                         </div>
                                     </div>
+                                        <div class="reply shadow-lg p-2 mb-4" id="reply-form-{{$comment->id}}" style="display:none;">
+                                        <img src="{{asset($commentusername->img)}}" class="post-profile rounded-circle"  alt="">
+                                               <strong>{{$commentusername->username}}</strong>
+                                               <form action="">
+                                               <textarea id="reply-form-{{$comment->id}}-text" class="bg-gray-100 rounded border-gray-400 leading-normal w-100 h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white border border-secondary"  name="reply"  required>@ {{$commentusername->username}}</textarea>
+                                               <input type="submit" class="bg-white text-gray-700 font-medium py-1 px-4  border border-gray-400 rounded-lg tracking-wide mr-1 ms-3" value="Reply">
+
+                                               </form>
+                                        </div>
+                                    
+                              
                                     @endforeach
                                     
                                     
                                     
-                                <!-- </div> -->
-                                
-                            <!-- </div> -->
+                                    <!-- </div> -->
+                                    
+                                    <!-- </div> -->
                         </div>
+                        
 
                        
 
@@ -421,6 +429,23 @@ $.ajax({
     }
    );
    
+
+
+ function  reply(commentid,userid){
+    // alert(commentid);
+    // alert(userid);
+    var x=document.getElementById(`reply-form-${commentid}`);
+    var input=document.getElementById(`reply-form-${commentid}-text`);
+if(x.style.display==="none")
+{
+    x.style.display="block";
+    
+}
+else{
+    x.style.display="none";
+}
+
+   }
 </script>
 
 @endsection

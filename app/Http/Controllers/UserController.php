@@ -11,6 +11,7 @@ use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 
 class UserController extends Controller
@@ -243,7 +244,8 @@ class UserController extends Controller
                     post_report::create([
                         'post_id' => $data['postid'],
                         'user_id' => auth()->user()->id,
-                        'ruser_id'=>$reporter['user_id']
+                        'ruser_id'=>$reporter['user_id'],
+                        'report_type'=>$data['report_type']
                         
                     ]);
                     

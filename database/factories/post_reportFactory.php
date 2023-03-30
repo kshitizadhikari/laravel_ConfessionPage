@@ -24,6 +24,7 @@ class post_reportFactory extends Factory
             'user_id' => $user->random()->id,
             'post_id' => $post->random()->id,
             'ruser_id' => $user->random()->id,
+            'report_type' => 'spam',
             //
         ];
     }
