@@ -18,6 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('post_id');
             $table->unsignedBigInteger('ruser_id');
+            $table->string('report_type');
+
             $table->timestamps();
             
         });

@@ -27,7 +27,7 @@
                                 </div>
                                 <div class="p-2 text-gray-darker" >
                                     @if($postusername->id==auth()->user()->id)
-                                <a id="edit-post" href="{{route('usereditPost',$post['id'])}}" >
+                                <!-- <a id="edit-post" href="{{route('usereditPost',$post['id'])}}" >
 
                                         <button class="btn   p-1" >
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -46,7 +46,49 @@
                                             d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
                                         </svg>
                                     </button>
-                                </a>
+                                </a> --> 
+                                <nav class="navbar navbar-dark navbar-expand-lg  p-1">
+                       
+
+<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item dropdown">
+
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+               
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-three-dots" viewBox="0 0 16 16">
+  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+</svg></span>
+
+            </a>
+
+
+
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <a id="edit-post" class="dropdown-item" href="{{route('usereditPost',$post['id'])}}" >
+           
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                        </svg> Edit
+                                       
+                </a>
+                <a class="dropdown-item" href="{{route('userdeletePost',$post['id'])}}">
+               
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-trash-fill" viewBox="0 0 16 16">
+  <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+</svg> Delete
+                                 
+                </a>
+            </div>
+        </li>
+
+       
+    </ul>
+</div>
+</nav>
                                 @endif
                                 </div>
                             </div>
@@ -133,17 +175,17 @@
                                     <path d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z"/>
                                     </svg> {{Count($comments)}} Comments
                                     </button>
+                                  
                                     @if($postreport->count()>0)
                                     <button type="submit"
-                                        class="report-btn  bg-transparent  border-0 ms-2 text-black p-1" value="{{$post['id']}}" onclick="reportbtn(this)">
+                                        class="report-btn  bg-transparent  border-0 ms-2 text-black p-1 my-modal-trigger" value="{{$post['id']}}" data-id="{{$post['id']}}"data-bs-toggle="modal" data-bs-target="#Modalreport" >
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="reportdis" fill="lightblue" class="bi bi-flag-fill" viewBox="0 0 16 16">
                                      <path d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12.435 12.435 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A19.626 19.626 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a19.587 19.587 0 0 0 1.349-.476l.019-.007.004-.002h.001"/>
                                     </svg>
                                     </button>
                                     @else
-
                                     <button type="submit"
-                                        class="report-btn  bg-transparent  border-0 ms-2 text-black p-1" value="{{$post['id']}}" onclick="reportbtn(this)">
+                                        class="report-btn  bg-transparent  border-0 ms-2 text-black p-1 my-modal-trigger" value="{{$post['id']}}" data-id="{{$post['id']}}"  data-bs-toggle="modal" data-bs-target="#Modalreport" >
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="reportdis" fill="currentColor" class="bi bi-flag-fill" viewBox="0 0 16 16">
                                      <path d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12.435 12.435 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A19.626 19.626 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a19.587 19.587 0 0 0 1.349-.476l.019-.007.004-.002h.001"/>
                                     </svg>
@@ -159,7 +201,9 @@
                         @endforeach
                      
                         @endif
+                        @include('modal.report')
                         @endfragment
+
                       
                         
      
