@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\CommentreplyController;
 use App\Http\Controllers\TherapistController;
 use App\Http\Controllers\ChartController;
 use Illuminate\Support\Facades\Route;
@@ -118,6 +119,11 @@ Route::group(['middleware=' => 'auth'], function() {
     //comments
     
     Route::post('/comment',[CommentController::class, 'commentstore'])->name('comment');
+
+
+    //comment reply
+
+    Route::post('/reply/{id}',[CommentreplyController::class,'replystore'])->name('replies');
 
     
 });
