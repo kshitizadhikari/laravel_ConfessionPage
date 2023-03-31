@@ -9,7 +9,7 @@
                     <div class="modal-body">
                         <div class="para mb-2">We are very sorry for your bad experience.Please spend some of your valuable time to write exactly what happened so that we can take your step as soon as possible.</div>
                         <hr>
-                        <input type="text" id="inputId" value="">
+                        <input type="hidden" id="inputId" value="">
                        
                         <div class="checkboxes">
 
