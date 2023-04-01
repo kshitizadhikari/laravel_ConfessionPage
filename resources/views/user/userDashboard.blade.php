@@ -130,7 +130,38 @@
                    
                  
                 </ul>
+                <ul class="list-group shadow-lg mt-4">
+                    <li class="list-group-item d-flex justify-content-center ">
+                        <div class="ps-2 lh-1">
+                            <div class="fw-bold fs-5">Popular Posts</div>
+                        </div>
+                    </li>
+                    @foreach($pposts as $ppost )
+                    @php
+                    $postinfo=App\Models\Post::where('id',$ppost->post_id)->first();
+                    $userimg=App\Models\User::where('id',$postinfo->user_id)->first();
+               
+                    
+                    @endphp
+                   
+                    <li class="list-group-item d-flex">
+                        <div class="">
+                            <img src="{{asset($userimg->img)}}" height="30" width="30" class="rounded" alt="" srcset="">
+                        </div>
+                        <div class="ps-2">
+                          <a href="{{url('user/display/post/'.$ppost->post_id)}}" > <div class="titles fw-bold text-black">{{$postinfo['title']}}</div></a>
+                            <div class="text-secondary fw-light"><small>{{$postinfo['post']}}</small>
+                           
+                            </div>
+                        </div>
+                    </li>
+
+                    @endforeach
+                   
+                 
+                </ul>
             </div>
+            
       </div>
 
   </div>

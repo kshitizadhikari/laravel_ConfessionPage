@@ -30,11 +30,15 @@ class UserController extends Controller
             return response()->json(['html'=>$view]);
             
         }
-
+      
+      
         $randomposts=DB::table('Posts')->inRandomOrder()->take(8)->get();
+        $pposts=DB::table('post_likes')->select('post_id')->groupBy('post_id')->havingRaw('count(*) > 1')->orderByDesc(DB::raw('count(*)'))->take(8)->get();
+        
+      
         
 
-         return view('user.userDashboard',compact('posts'),compact('randomposts'));
+         return view('user.userDashboard',compact('posts','randomposts','pposts'));
         
 
     }
@@ -150,7 +154,7 @@ class UserController extends Controller
 
         public function deleteimage($img,$postid){
             
-
+           
             $data=Post::find($postid);
             $postdata=Post::where('id',$postid)->first();
             $images=explode('|',$data->img);
@@ -319,7 +323,7 @@ class UserController extends Controller
         {
             $data=User::find($id);
            
-           
+          
             $data->delete();
             return redirect()->back();
         }
