@@ -2,6 +2,7 @@
 
 
 @fragment('content')
+
 @if(count($posts)>0)
 
                         @foreach($posts as $post)
@@ -9,6 +10,9 @@
                         @php
                         $postusername=App\Models\User::where('id',$post->user_id)->first();
                         $comments=App\Models\Comment::where('post_id',$post['id'])->get();
+                        $postlen=$post->post;
+                        
+                 
                         @endphp
                         
                         <div class="post bg-white border-gray mt-4 shadow-lg">
@@ -19,10 +23,8 @@
                                     <div class="d-flex-column">
                                         <a href="{{route('userprofile',$postusername->id)}}">
                                         
-                                            <span class="fw-bold fs-6 text-black titles">{{$postusername->username}}</span>
+                                            <span class="fw-bold fs-6 text-black titles text-capitalize">{{$postusername->username}}</span>
                                         </a>
-                 
-
                                     </div>
                                 </div>
                                 <div class="p-2 text-gray-darker" >
@@ -94,15 +96,27 @@
                             </div>
                             <div class="post-body pt-2 ps-3">
                            
-                                <div class="post-title fw-bold titles">
+                                <div class="post-title fw-bold fs-5">
                                     <a href="{{url('user/display/post/'.$post->id)}}" class="text-black">
-                                        {{$post['title']}}
+                                       <span class="titles text-capitalize"> {{$post['title']}} </span>
                                     </a>
                                 </div>
-                               
-                                <div class="post-text pt-1">
-                                    {{$post['post']}}
+
+                               @if(strlen($postlen)>200)
+                               @php
+                               $stringcut=substr($postlen,0,200);
+                               $endpoint=strrpos($stringcut,' ');
+                               $postlen=$endpoint?substr($stringcut,0,$endpoint):substr($stringcut,0);
+                               @endphp
+                                <div class="post-text p-1">
+                                   {{$postlen}}...<a href="{{url('user/display/post/'.$post->id)}}" class="text-black fw-bold">Read More</a>
                                 </div>
+                                @else
+                            
+                                <div class="post-text p-1">
+                                    {{$postlen}}
+                                </div>
+                                @endif
                             </div>
                             @if(!empty($post['img']))
                             <div class="post-image pt-2 " >
@@ -199,7 +213,6 @@
                             </div>
                         </div>
                         @endforeach
-                     
                         @endif
                         @include('modal.report')
                         @include('modal.postdelete')
