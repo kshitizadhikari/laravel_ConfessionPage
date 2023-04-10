@@ -6,11 +6,11 @@
     }
 
     #left-list {
-      margin-left: 20px;
+      height: 300px;
 
     }
 
-    #left-list a {
+    /* #left-list a {
       text-decoration: none;
       padding: 5px;
       color: #000;
@@ -28,7 +28,15 @@
       width: 25px;
       height: 25px;
       border-radius: 5px;
+    } */
+
+    #left-list img {
+      width: 130px;
+      height: 130px;
+    
     }
+     
+    
 
     .border-gray {
       border-style: solid;
@@ -61,26 +69,12 @@
       border-bottom-right-radius: 12px;
       border-top-right-radius: 12px;
     }
-    .banner {
-      
-      
-     
-      object-fit: cover;
+   
+    .profile{
+      height:130px;
+      width:130px;
     }
-    #profile{
-       
-      border: 2px solid white; 
-      height: 120px; 
-      position: relative;
-      bottom:50px;
-      left:150px;
-     
-    }
-    #username{
-      position: relative;
-      left:155px;
-      bottom:40px;
-    }
+  
   </style>
 
 
@@ -88,57 +82,20 @@
   <div class="bg-light pt-4">
     <div class="container mb-5">
       <div class="row">
-        <div class="col-12">
-      
-         
-          <div class="post bg-white border-gray m-4">
-           
-            <div class="post-image pt-2 " >
-              <img src="{{asset('images/postimg.jpg')}}" class="banner img-fluid" style="max-height:250px; min-width:1067px;" alt="">
-            </div>
-            
-            
-            <img src="{{asset($data->img)}}" class="rounded-circle" style="border-color:lightgray;"id="profile" alt="" srcset="">
-            
-            <span id="username"class="fw-bold fs-6">{{$data->username}}</span>
-            <div>
-            </div>
-          </div>
-        </div>
+     
         
       <!-- LEFT_PART -->
 
 
-        <div class="col-2">
+        <div class="col-4">
   
-        <div id="left-list" class=" mt-4 d-flex flex-column">
-          <a href="" class="bg-second-color">
-            <span>Your Group</span>
-          </a>
-  
-          <a href="#">
-            <span class="position-relative me-auto">
-              <img src="{{asset('images/review6.png')}}" alt="">
-              <span
-                class="position-absolute top-0 start-50 translate-middle ms-2 p-1 bg-danger border border-light rounded-circle">
-  
-                <span class="visually-hidden">New alerts</span>
-              </span>
-            </span>
-            <span>Group 1</span>
-          </a>
-          <a href="">
-            <img src="{{asset('images/review6.png')}}" alt="">
-            <span>Group 2</span>
-          </a>
-          <a href="">
-            <img src="{{asset('images/review6.png')}}" alt="">
-            <span>Group 2</span>
-          </a>
-          <a href="">
-            <img src="{{asset('images/review6.png')}}" alt="">
-            <span>Group 2</span>
-          </a>
+        <div id="left-list" class="bg-white m-4 p-4 border-gray d-flex flex-column shadow-lg">
+          <div class="profile rounded mx-auto d-block">
+
+            <img src="{{asset($data->img)}}" class="border border-2 border-dark rounded-circle" >
+          </div>
+        <span class="fw-bold text-center fs-5 mb-4 mt-2">{{$data->username}}</span>
+        <span class="fs-6 text-center">Joined at:{{$data->created_at}}</span>
         </div>
       </div>
 
@@ -150,7 +107,7 @@
                         @foreach($posts as $post)
                         @if($post['user_id'] == $data->id)
                         
-                        <div class="post bg-white border-gray mt-4">
+                        <div class="post bg-white border-gray mt-4 shadow-lg">
                             <div class=" pt-2 d-flex justify-content-between">
                                 <div class="d-flex">
                                     <img src="{{asset($data->img)}}" class="post-profile rounded-circle" alt="">

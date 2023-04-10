@@ -213,6 +213,7 @@
                             </div>
                         </div>
                         @endforeach
+                        
                         @endif
                         @include('modal.report')
                         @include('modal.postdelete')

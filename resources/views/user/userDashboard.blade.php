@@ -6,23 +6,15 @@
         text-decoration:underline;
         
     }
+    .post{
+        resize:none;
+    }
   
     /* input[type="radio"]
     {
         display:none;
     } */
-    .accordion {
-        padding:0;
-    }
-    .accordion .content{
-        max-height:0;
-        overflow:hidden;
-        /* transition:max-height 0.5s; */
-    }
-
-    .accordion input["radio"]:checked + .content{
-        max-height:400px;
-    }
+    
 </style>
 
 
@@ -32,48 +24,51 @@
     <div class="container mb-5">
         <div class="row">
             <div id="left-list" class="col-2 d-flex flex-column">
-                <a href="" class="bg-second-color text-center">
-                    <span class="rounded">+</span>
-                    <span class="text-white">Create Post</span>
+               
 
-                </a>
-
-                <a href="#">
-                    <span class="position-relative me-auto">
-                        <img src="{{asset('images/review6.png')}}" alt="">
-                        <span
+                <a href="{{route('login')}}" class="mt-3">
+                    <!-- <span class="position-relative me-auto"> -->
+                       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                        <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+                        </svg>
+                        <!-- <span
                             class="position-absolute top-0 start-50 translate-middle ms-2 p-1 bg-danger border border-light rounded-circle">
 
                             <span class="visually-hidden">New alerts</span>
                         </span>
-                    </span>
-                    <span>Group 1</span>
+                    </span> -->
+                    <span class="fs-6 fw-bold ms-3">Home</span>
                 </a>
-                <a href="">
-                    <img src="{{asset('images/review6.png')}}" alt="">
-                    <span>Group 2</span>
+                <a href="{{route('userprofile',auth()->user()->id)}}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                </svg>
+                    <span class="fs-6 fw-bold ms-3">Profile</span>
                 </a>
-                <a href="">
-                    <img src="{{asset('images/review6.png')}}" alt="">
-                    <span>Group 2</span>
+                <a href="#" class="bg-second-color text-center">
+                    
+                    <span class="text-white" data-bs-toggle="modal" data-bs-target="#Modalpost">Create Post</span>
+
                 </a>
-                <a href="">
-                    <img src="{{asset('images/review6.png')}}" alt="">
-                    <span>Group 2</span>
-                </a>
+               
             </div>
             <!-- //middle part -->
+           
+
+            
+
             <div class="col-7">
                 <!-- USER POST -->
                 <div class="new border border-gray shadow-lg">
-                
-              
-                       
+                    
+                    
                    
-                            <img src="{{asset(auth()->user()->img)}}" class="post-profile rounded-circle" alt="">
-                            <label for="Post">Do you want to share something ?</label>
-                            <input type="submit" class="bg-secondary  text-gray-700 font-medium py-1 px-4  border border-gray-400 rounded-pill tracking-wide mr-1 ms-3" value="Create Post">
-                            
+                    
+                    
+                    <img src="{{asset(auth()->user()->img)}}" class="post-profile rounded-circle" alt="">
+                    <label for="Post">Do you want to share something ?</label>
+                    
+                    <div class="content">
                       
                
                   
@@ -86,12 +81,12 @@
                             <div class="col">
                                 
                                 <input type="text" style="min-width:90%"
-                                    class="  m-3 border border-dark text-black-dark rounded-pill bg-light ps-2 text-start"
+                                    class="  m-3 border border-darker text-black-dark rounded-pill bg-light ps-2 p-1 text-start"
                                     placeholder="Title" name="postTitle">
 
                                 <textarea style="min-width:90%"
-                                    class="  m-3  border border-dark text-black-dark bg-light ps-2 text-start"
-                                    placeholder="Enter Text" name="post" rows="10" cols="30"> </textarea>
+                                    class=" post  m-3  border border-dark text-black-dark  rounded bg-light ps-2 text-start"
+                                    placeholder="Enter Text" name="post" rows="8" cols="20"> </textarea>
                                 <input type="hidden" value="{{ auth()->user()->id}}" name="user_id">
                             </div>
                         </div>
@@ -109,15 +104,12 @@
                         <div class="row text-gray-darker pt-4 pb-2 ps-3 pe-4 ">
                             <div class="col text-center">
 
-                                <button type="submit" class="border border-none w-100 ">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                        class="bi bi-pen-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z" />
-                                    </svg>Post</button>
+                            <input type="submit" class="bg-secondary  text-gray-700  font-medium py-1 px-4  border border-gray-400 rounded-pill tracking-wide mr-1 ms-3" value="Create Post">
                             </div>
                         </div>
                     </form>
+                
+                    </div>
                     </div>
 
                 
@@ -126,11 +118,12 @@
                     @include('data')
                 </div>
 
-                <div class="ajax-load text-center" style="display:none;">
-                <div class="spinner-border text-secondary mt-1" role="status">
-             <span class="visually-hidden">Loading...</span>
-            </div>
+                    <div class="ajax-load text-center" style="display:none;">
+                    <div class="spinner-border text-secondary mt-1" role="status">
+                <span class="visually-hidden">Loading...</span>
                 </div>
+                </div>
+            
             </div>
 
             <!-- RIGHT SECTION -->
@@ -206,8 +199,8 @@
                             <div class="titles fw-bold text-black">{{$rpost->title}}</div>
                         </a>
                         
-                        <div class="text-secondary fw-light"><small>{{$randpost}}</small>
-                    </div>
+                        <div class="text-secondary fw-light"><small>{{$randpost}}</small> 
+                    </div> 
                         </div>
                     </li>
 
@@ -262,5 +255,5 @@ function loadmoreData(page) {
 
 
 </script>
-
+@include('modal.createpost')
 @endsection
