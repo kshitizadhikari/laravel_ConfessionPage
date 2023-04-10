@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+
 Route::get('/register', [RegisterController::class, 'register'])->name('register');
 
 Route::get('/contact', [ContactController::class, 'contact'])->name('contact');

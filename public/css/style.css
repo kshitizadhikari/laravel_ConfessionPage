@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Source+Sans+3&display=swap");
+/* font-family: "Source Sans 3", sans-serif; */
+
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto&family=Source+Sans+3&display=swap");
+/* font-family: 'Abril Fatface', cursive; */
+
+body {
+    margin: 0;
+    line-height: normal;
+    overflow-x: hidden;
+}
+
+:root {
+    /* Colors */
+    --color-white: #fffff;
+    --color-gray: rgba(0, 0, 0, 0.55);
+    --color-black: #000;
+    --color-saddlebrown-100: #6c480f;
+    --color-burlywood: #efc687;
+}
+
+#app {
+    background-color: #ffffff;
+    font-family: "Roboto", sans-serif;
+    font-family: "Source Sans 3", sans-serif;
+}
+
+.navbar {
+    padding-top: 50px;
+}
+
+nav {
+    letter-spacing: 0.32rem;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+}
+
+.nav-link {
+    margin-right: 10px;
+}
+
+.nav-link::after {
+    content: "";
+    width: 0%;
+    height: 3px;
+    background: #efc687;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* HERO SECTION */
+
+.heroInfo {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.heroTitle {
+    text-transform: uppercase;
+    font-family: "Abril Fatface";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.75rem;
+    text-transform: uppercase;
+    line-height: 85px;
+    margin-bottom: 1.5rem;
+    color: #5b3c11;
+}
+
+.heroText {
+    font-family: "Source Sans 3";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 34px;
+    letter-spacing: -0.045em;
+    color: #6c480f;
+    margin-bottom: 1.5rem;
+}
+
+.heroBtn {
+    background: #efc687;
+    width: max-content;
+    border: 1px solid gainsboro;
+    border-radius: 42px;
+    padding: 1rem;
+    text-transform: uppercase;
+    font-family: "Source Sans 3";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 30px;
+    letter-spacing: 0.1em;
+    transition: all 0.3s linear;
+}
+
+.heroBtn:hover {
+    border: 1px solid #5b3c11;
+}
+
+.heroImg {
+    width: 100%;
+    height: 100%;
+}
