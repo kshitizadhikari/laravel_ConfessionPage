@@ -109,6 +109,7 @@
 <!-- END BLACK STRIP -->
 
 <!-- TO Go To Connect Part -->
+
 <div class="con" id="contact"></div>
 <div class="container">
     <div class="connectWithUs">
