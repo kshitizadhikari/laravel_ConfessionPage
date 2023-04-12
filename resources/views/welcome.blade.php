@@ -108,6 +108,7 @@
 <div class="mainWrap1" style="height:15vh; background-color: black;"></div>
 <!-- END BLACK STRIP -->
 
+<!-- TO Go To Connect Part -->
 <div class="con" id="contact"></div>
 <div class="container">
     <div class="connectWithUs">
