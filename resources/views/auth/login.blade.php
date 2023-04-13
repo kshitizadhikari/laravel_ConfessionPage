@@ -1,12 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
 @section('content')
 <style>
-.container {
-    height: 90vh;
+.loginCard {
+    overflow: hidden;
 }
 
 .card {
+    border: 2px solid #000;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     overflow: hidden;
     color: white;
@@ -18,6 +19,7 @@
 
 .imag {
     margin: auto;
+    overflow: hidden;
 
 }
 
@@ -25,9 +27,62 @@
     display: block;
     height: 100%;
 }
+
+
+.card-title {
+    font-family: 'Abril Fatface';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3rem;
+    line-height: 1rem;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    color: #5B3C11;
+}
+
+.form-control {
+    background: #E8E8E8;
+}
+
+
+.loginBtn {
+    background-color: #fff;
+    border: 2px solid #422800;
+    border-radius: 20px;
+    box-shadow: #422800 4px 4px 0 0;
+    color: #422800;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 10px 18px;
+    line-height: 26px;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.loginBtn:hover {
+    background-color: #fbeee0;
+}
+
+.loginBtn:active {
+    box-shadow: #422800 2px 2px 0 0;
+    transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+    .loginBtn {
+        min-width: 120px;
+        padding: 0 25px;
+    }
+}
 </style>
 
-<div class="container d-flex justify-content-center align-items-center">
+<div class="container d-flex justify-content-center align-items-center" style="height: 85vh;">
 
     <div class="card w-100" style="max-width: 600px;">
         @if(Session::has('fail'))
@@ -35,17 +90,19 @@
             {{Session::get('fail')}}
         </div>
         @endif
-        <div class="row g-0">
+        <div class="row  loginCard g-0">
+            <!-- IMAGE PART -->
             <div class="imag col-md-6 p-5">
-                <img class="imageko img-fluid" src="/images/cat1.svg">
+                <img class="imageko img-fluid" src="/images/koalaMeditate.png">
             </div>
-            <div class="col-md-6 bg-dark">
+            <!-- FORM PART -->
+            <div class="col-md-6 cardKo">
                 <div class=" card-body">
-                    <div class="text-center mt-2">
-                        <h3 class="card-title text-info">Login Form</h3>
+                    <div class="text-center mt-5">
+                        <h3 class="card-title">login</h3>
                         <form class="mt-5 p-2" action="{{ route('login') }}" method="post">
                             @csrf
-                            <div class="mb-3 p-0">
+                            <div class="mb-1 p-0">
                                 <!-- <label for="email" class="form-label">Email Address</label> -->
                                 <input type="email" class="form-control  @error('email') is-invalid @enderror" id="
                                     email" placeholder="Email" name="email" aria-describedby="emailHelp">
@@ -61,21 +118,18 @@
                                 <div class="form-text">@error('password') {{$message}} @enderror <br>
                                 </div>
                             </div>
-                            <div class="mb-3 p-0">
-
+                            <!-- <div class="mb-1 p-0">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember"
                                         {{ old('remember') ? 'checked' : '' }}>
 
-                                    <label class="form-check-label" for="remember">
+                                    <label class="form-check-label text-dark" for="remember">
                                         Remember Me
                                     </label>
 
                                 </div>
-                            </div>
-
-
-                            <button type="submit" class="btn btn-primary">Login</button>
+                            </div> -->
+                            <button class="loginBtn">login</button>
                         </form>
 
                     </div>
