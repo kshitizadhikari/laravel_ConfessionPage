@@ -20,6 +20,7 @@
                 @guest
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('welcome')}}">HOME</a>
+
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#about">ABOUT</a>
