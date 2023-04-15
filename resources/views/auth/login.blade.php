@@ -43,43 +43,6 @@
 .form-control {
     background: #E8E8E8;
 }
-
-
-.loginBtn {
-    background-color: #fff;
-    border: 2px solid #422800;
-    border-radius: 20px;
-    box-shadow: #422800 4px 4px 0 0;
-    color: #422800;
-    cursor: pointer;
-    display: inline-block;
-    font-weight: 600;
-    font-size: 18px;
-    padding: 10px 18px;
-    line-height: 26px;
-    text-transform: uppercase;
-    text-align: center;
-    text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-}
-
-.loginBtn:hover {
-    background-color: #fbeee0;
-}
-
-.loginBtn:active {
-    box-shadow: #422800 2px 2px 0 0;
-    transform: translate(2px, 2px);
-}
-
-@media (min-width: 768px) {
-    .loginBtn {
-        min-width: 120px;
-        padding: 0 25px;
-    }
-}
 </style>
 
 <div class="container d-flex justify-content-center align-items-center" style="height: 85vh;">
@@ -129,7 +92,7 @@
 
                                 </div>
                             </div> -->
-                            <button class="loginBtn">login</button>
+                            <button class="primaryBtn">login</button>
                         </form>
 
                     </div>
