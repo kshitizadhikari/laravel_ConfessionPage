@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" style="background-color: #FFEBEB">
         {{View::make('../layouts/header')}}
         <main class="py-3">
             <div class="mainWrap">

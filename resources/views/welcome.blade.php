@@ -122,7 +122,7 @@
 }
 
 .form-control {
-    background-color: #E8E8E8;
+    background-color: transparent;
     border-color: #EFC687;
 }
 
