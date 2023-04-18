@@ -149,221 +149,221 @@
                         </div>
                     </nav>
             </div>
-            <div class="container-fluid bg-dark">
+            <div class="container-fluid">
                 @yield('content')
             </div>
 </body>
 <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
 <script>
-function likebtn(ae){
+function likebtn(ae) {
 
 
-   
-    
+
+
     //  console.log('hello');
-     var send= ae.getAttribute('value');
-            $('#postid').val(send);
-           
+    var send = ae.getAttribute('value');
+    $('#postid').val(send);
 
-            var postid=$('#postid').val();
-            console.log(postid);
-            
-    
+
+    var postid = $('#postid').val();
+    console.log(postid);
+
+
     // var postid=$(this).closest(".likeform").find('.idpost').val();
-  
-      
-   
-$.ajax({
-    type:'post',
-    url:'/user/like-post',
-    data:{
-        postid:postid,_token:'{{csrf_token()}}'
-    },
-    success:function(response){
-        if(response.msg=="liked")
-        {
-            
-          ae.closest('.post-btn').getElementsByClassName('postdis')[0].setAttribute('fill','lightblue');
-          
+
+
+
+    $.ajax({
+        type: 'post',
+        url: '/user/like-post',
+        data: {
+            postid: postid,
+            _token: '{{csrf_token()}}'
+        },
+        success: function(response) {
+            if (response.msg == "liked") {
+
+                ae.closest('.post-btn').getElementsByClassName('postdis')[0].setAttribute('fill',
+                    'lightblue');
+
                 // send.closest(".post-btn").find('.postdis').attr('fill','lightblue');
-                ae.closest('.post-btn').getElementsByClassName('likecount')[0].innerHTML=response.postcount;
-            // send.closest(".post-btn").find('#likecount').html(response.postcount);
-            
-        
-      
+                ae.closest('.post-btn').getElementsByClassName('likecount')[0].innerHTML = response
+                    .postcount;
+                // send.closest(".post-btn").find('#likecount').html(response.postcount);
+
+
+
+            } else if (response.msg == "disliked") {
+
+                ae.closest('.post-btn').getElementsByClassName('postdis')[0].setAttribute('fill', 'black');
+
+                ae.closest('.post-btn').getElementsByClassName('likecount')[0].innerHTML = response
+                    .postcount;
+
+
+
+            }
+
+
+        },
+        error: function() {
+            alert("error");
         }
-        else if(response.msg=="disliked"){
-            
-            ae.closest('.post-btn').getElementsByClassName('postdis')[0].setAttribute('fill','black');
-       
-            ae.closest('.post-btn').getElementsByClassName('likecount')[0].innerHTML=response.postcount;
-            
-            
-
-        }
-        
-
-    },
-    error:function(){
-        alert("error");
-    }
-});
+    });
 
 
-   
-    }
-    function reportbtn(ae){
-
-
-   
-    
- console.log(ae);
- var send= ae.getAttribute('value');
-        $('#postid').val(send);
-       
-
-        var postid=$('#postid').val();
-        console.log(postid);
-      
-        
-
-// var postid=$(this).closest(".likeform").find('.idpost').val();
-
-  
-
-$.ajax({
-type:'post',
-url:'/report-post',
-data:{
-    postid:postid,_token:'{{csrf_token()}}'
-},
-success:function(response){
-    if(response.msg=="liked")
-    {
-        
-      ae.closest('.report-btn').getElementsByClassName('reportdis')[0].setAttribute('fill','lightblue');
-      
-            // send.closest(".post-btn").find('.postdis').attr('fill','lightblue');
-     
-        // send.closest(".post-btn").find('#likecount').html(response.postcount);
-        
-    
-  
-    }
-    else if(response.msg=="disliked"){
-        
-        ae.closest('.report-btn').getElementsByClassName('reportdis')[0].setAttribute('fill','black');
-   
-       
-        
-        
-
-    }
-    
-
-},
-error:function(){ //error
-    alert("error");
-    // console.log(JSON.stringify(error));
-}
-});
 
 }
 
+function reportbtn(ae) {
 
 
-    
-    $('#Modalreport').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget);
-        // var btn=event.relatedTarget; // Button that triggered the modal
-        var id = button.data('id'); // Extract info from data-* attributes
-         var modal = $(this);
-        // buttonht=btn.outerHTML;
-       
-         modal.find('#inputId').val(id);
-         
-        // modal.find('#inptag').val(buttonht);
-        // console.log(id);
-        // console.log(buttonht);
-    })
-
-    $('#postdelete').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget);
-        
-        var id = button.data('id'); 
-    
-         var modal = $(this);
-       
-       
-        modal.find('#inputid').val(id);
-         
-       
-    })
-    
 
 
-   
- function report(){
+    console.log(ae);
+    var send = ae.getAttribute('value');
+    $('#postid').val(send);
+
+
+    var postid = $('#postid').val();
+    console.log(postid);
+
+
+
+    // var postid=$(this).closest(".likeform").find('.idpost').val();
+
+
+
+    $.ajax({
+        type: 'post',
+        url: '/report-post',
+        data: {
+            postid: postid,
+            _token: '{{csrf_token()}}'
+        },
+        success: function(response) {
+            if (response.msg == "liked") {
+
+                ae.closest('.report-btn').getElementsByClassName('reportdis')[0].setAttribute('fill',
+                    'lightblue');
+
+                // send.closest(".post-btn").find('.postdis').attr('fill','lightblue');
+
+                // send.closest(".post-btn").find('#likecount').html(response.postcount);
+
+
+
+            } else if (response.msg == "disliked") {
+
+                ae.closest('.report-btn').getElementsByClassName('reportdis')[0].setAttribute('fill',
+                    'black');
+
+
+
+
+
+            }
+
+
+        },
+        error: function() { //error
+            alert("error");
+            // console.log(JSON.stringify(error));
+        }
+    });
+
+}
+
+
+
+
+$('#Modalreport').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget);
+    // var btn=event.relatedTarget; // Button that triggered the modal
+    var id = button.data('id'); // Extract info from data-* attributes
+    var modal = $(this);
+    // buttonht=btn.outerHTML;
+
+    modal.find('#inputId').val(id);
+
+    // modal.find('#inptag').val(buttonht);
+    // console.log(id);
+    // console.log(buttonht);
+})
+
+$('#postdelete').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget);
+
+    var id = button.data('id');
+
+    var modal = $(this);
+
+
+    modal.find('#inputid').val(id);
+
+
+})
+
+
+
+
+function report() {
 
 
 
     var postid = $('#inputId').val();
-    var id=document.querySelector('input[name="radio"]:checked').value;
-  
-   
-    
+    var id = document.querySelector('input[name="radio"]:checked').value;
+
+
+
 
     // console.log(postid);// Extract info from data-* attributes
-  // Do something with the button or the ID
+    // Do something with the button or the ID
 
 
-  $.ajax({
-type:'post',
-url:'/report-post',
-data:{
-    postid:postid,report_type:id,_token:'{{csrf_token()}}'
-},
-success:function(response){
-    if(response.msg=="liked")
-    {
-        
-    //   tag.closest('.report-btn').getElementsByClassName('reportdis')[0].setAttribute('fill','lightblue');
-    alert("lik");
-      
-            // send.closest(".post-btn").find('.postdis').attr('fill','lightblue');
-     
-        // send.closest(".post-btn").find('#likecount').html(response.postcount);
-        
-    
-  
-    }
-    else if(response.msg=="disliked"){
-        
-        // tag.closest('.report-btn').getElementsByClassName('reportdis')[0].setAttribute('fill','black');
-        alert("dis");
-   
-       
-        
-        
+    $.ajax({
+        type: 'post',
+        url: '/report-post',
+        data: {
+            postid: postid,
+            report_type: id,
+            _token: '{{csrf_token()}}'
+        },
+        success: function(response) {
+            if (response.msg == "liked") {
 
-    }
-    
+                //   tag.closest('.report-btn').getElementsByClassName('reportdis')[0].setAttribute('fill','lightblue');
+                alert("lik");
 
-},
-error:function(){ //error
-    alert("error");
-    // console.log(JSON.stringify(error));
+                // send.closest(".post-btn").find('.postdis').attr('fill','lightblue');
+
+                // send.closest(".post-btn").find('#likecount').html(response.postcount);
+
+
+
+            } else if (response.msg == "disliked") {
+
+                // tag.closest('.report-btn').getElementsByClassName('reportdis')[0].setAttribute('fill','black');
+                alert("dis");
+
+
+
+
+
+            }
+
+
+        },
+        error: function() { //error
+            alert("error");
+            // console.log(JSON.stringify(error));
+        }
+    });
+
+
+
+
 }
-});
-
- 
-
-
-}
-
-
-
-   
 </script>
 
 </html>
