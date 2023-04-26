@@ -61,6 +61,42 @@ function drawBarChart() {
 }
 </script>
 
+<style>
+.overview__inner {
+    position: relative;
+}
+
+.hawabox {
+    position: absolute;
+    height: 100px;
+    width: 100%;
+    background: green;
+    top: 85px;
+    left: 0;
+    background: transparent;
+}
+
+
+.grey-strip {
+    height: 50px;
+    width: 100%;
+    background-color: grey;
+}
+
+.au-chat {
+    position: relative;
+}
+
+
+.au-message__footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+</style>
 @extends('layouts.adminLayout')
 @section('admin-content')
 
@@ -88,6 +124,7 @@ function drawBarChart() {
                 <div class="overview-chart">
                     <canvas id="widgetChart1"></canvas>
                 </div>
+                <div class="hawabox"></div>
             </div>
         </div>
     </div>
@@ -107,6 +144,7 @@ function drawBarChart() {
                 <div class="overview-chart">
                     <canvas id="widgetChart2"></canvas>
                 </div>
+                <div class="hawabox"></div>
             </div>
         </div>
     </div>
@@ -126,6 +164,7 @@ function drawBarChart() {
                 <div class="overview-chart">
                     <canvas id="widgetChart3"></canvas>
                 </div>
+                <div class="hawabox"></div>
             </div>
         </div>
     </div>
@@ -145,6 +184,7 @@ function drawBarChart() {
                 <div class="overview-chart">
                     <canvas id="widgetChart4"></canvas>
                 </div>
+                <div class="hawabox"></div>
             </div>
         </div>
     </div>
@@ -372,16 +412,18 @@ function drawBarChart() {
                 <div class="au-message js-list-load">
                     <div class="au-message__noti">
                         <p>You Have
-                            <span>2</span>
+                            <span>{{$unreadMessageCount}}</span>
                             new messages
                         </p>
                     </div>
                     <div class="au-message-list">
                         @foreach($allMessages as $val)
+                        @if($val['status']=="unread")
                         <div class="au-message__item unread">
                             <div class="au-message__item-inner">
                                 <div class="au-message__item-text">
                                     <div class="text">
+                                        <p class="idd" hidden>{{$val->id}}</p>
                                         <h5 class="name">Subject: {{$val->subject}}</h5>
                                         <p class="sender">Sender: {{$val->name}}</p>
                                         <p class="mail" hidden>{{$val->email}}</p>
@@ -396,32 +438,47 @@ function drawBarChart() {
                                 </div>
                             </div>
                         </div>
+                        @endif
                         @endforeach
                     </div>
-                    <div class="au-message__footer">
-                        <button class="au-btn au-btn-load js-load-btn">load more</button>
+                    <div class="grey-strip">
                     </div>
                 </div>
                 <!-- MESSAGE DETAILS -->
+
                 <div class="au-chat">
-                    <aside class="profile-nav alt">
-                        <section class="card">
-                            <div class="card-header user-header alt bg-dark">
-                                <div class="media">
-                                    <div class="media-body">
-                                        <h2 class="text-light display-6"></h2>
-                                        <p class="text-light">Project Manager</p>
+                    <form action="{{ route('adminmarkAsRead')}}" method="post">
+                        @csrf
+                        <aside class="profile-nav alt">
+                            <section class="card">
+                                <div class="card-header user-header alt bg-dark">
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <h3 class="text-light display-6" name="sender"></h3>
+                                            <p class="text-light"></p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <ul class="list-group list-group-flush mt-4">
-                                <li class="subject list-group-item fs-5 mt-4">SUBJECT: </li>
-                                <li class="messagee list-group-item fs-5 mt-4">MESSAGE: </li>
-                                <li class="sentAt list-group-item fs-5 mt-4">SENT AT: </li>
-                            </ul>
+                                <div class="">
+                                    <ul class="list-group list-group-flush mt-3">
+                                        <input type="hidden" class="contactId" name="contactId" id="contactId">
+                                        <li class="contactId list-group-item mt-3"></li>
+                                        <li class="subject list-group-item mt-3">SUBJECT: </li>
+                                        <li class="messagee list-group-item mt-3">MESSAGE: </li>
+                                        <li class="sentAt list-group-item mt-3">SENT AT: </li>
+                                    </ul>
+                                </div>
 
-                        </section>
-                    </aside>
+                            </section>
+
+                        </aside>
+                        <div class="au-message__footer">
+                            <button type="submit" class="btn btn-secondary btn-lg">Mark as
+                                Read</button>
+                            <!-- <button type="button" id="goBackBtn" class="btn btn-secondary btn-lg">Go Back</button> -->
+                        </div>
+                    </form>
+
                 </div>
             </div>
         </div>

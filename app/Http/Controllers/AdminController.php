@@ -29,6 +29,8 @@ class AdminController extends Controller
         $postCount = Post::count();
         $likeCount = post_like::count();
         $reportCount = post_report::count();
+        $unreadMessageCount = Contact::where('status', "unread")->count();
+        
         return view('admin/adminHome', ['admins' => User::where('role', 1)->paginate(10, ['*'], 'admins'),
                                         'users' => User::where('role', 0)->paginate(10, ['*'], 'users'), 
                                         'allPosts' => Post::paginate(10, ['*'], 'posts'),
@@ -36,6 +38,7 @@ class AdminController extends Controller
                                         'postCount' => $postCount,
                                         'likeCount' => $likeCount,
                                         'reportCount' => $reportCount,
+                                        'unreadMessageCount' => $unreadMessageCount,
                                         'pieChartData' => $pieChartData, 
                                         'barChartData' => $barChartData,'userCountry' => $userCountry,
                                         'allMessages' => Contact::all(),
@@ -132,13 +135,14 @@ class AdminController extends Controller
         $userCount = User::where('role', 0)->count();
         $postCount = Post::count();
         $likeCount = post_like::count();
+        $reportCount = post_report::count();
         return view('admin/adminCharts', ['admins' => User::where('role', 1)->paginate(10, ['*'], 'admins'),
                                           'users' => User::where('role', 0)->paginate(10, ['*'], 'users'), 
-                                          'allPosts' => Post::paginate(10, ['*'], 'posts'),
                                           'allPosts' => Post::paginate(10, ['*'], 'posts'), 
                                           'userCount' => $userCount, 
                                           'postCount' => $postCount, 
                                           'likeCount' => $likeCount,
+                                          'reportCount' => $reportCount,
                                           'pieChartData' => $pieChartData, 
                                           'barChartData' => $barChartData,
                                           'userCountry' => $userCountry]);
@@ -234,4 +238,12 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+
+    public function markAsRead(Request $request)
+    {
+        $contactObj = Contact::find($request->contactId);
+        $contactObj->status = "read";
+        $contactObj->save();
+        return redirect()->route('adminadminHome');
+    }
 }

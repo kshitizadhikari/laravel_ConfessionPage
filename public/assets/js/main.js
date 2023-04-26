@@ -1734,18 +1734,21 @@
                     .first()
                     .text()
                     .replace("Subject: ", "");
-
+                var contactId = that.find(".idd").text();
                 var mail = that.find(".mail").text();
                 var messagee = that.find(".messagee").text();
                 var sentAt = that.find(".sentAt").text();
 
                 //update the chat box content with message details
                 var getSentBy = $(".au-chat");
-                getSentBy.find(".media h2").text(sender);
+                getSentBy.find(".media h3").text(sender);
                 getSentBy.find(".media p").text(mail);
+
+                getSentBy.find(".list-group .contactId").append(contactId);
                 getSentBy.find(".list-group .subject").append(subject);
                 getSentBy.find(".list-group .messagee").append(messagee);
                 getSentBy.find(".list-group .sentAt").append(sentAt);
+                $("#contactId").val(contactId);
                 $(this).parent().parent().parent().toggleClass("show-chat-box");
             });
         });
