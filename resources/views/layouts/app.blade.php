@@ -158,8 +158,6 @@
 function likebtn(ae) {
 
 
-
-
     //  console.log('hello');
     var send = ae.getAttribute('value');
     $('#postid').val(send);
