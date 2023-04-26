@@ -22,7 +22,6 @@ function drawChart() {
     };
 
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
     chart.draw(data, options);
 }
 
@@ -66,8 +65,8 @@ function drawBarChart() {
 
 <div class="row">
     <div class="col-md-12 p-4 mt-5 ">
-        <div class="overview-wrap">
-            <h2 class="title-1 ">Charts</h2>
+        <div class="overview-wrap d-flex justify-content-center p-2">
+            <h2 class="title-1">CHARTS</h2>
         </div>
     </div>
 
@@ -86,14 +85,15 @@ function drawBarChart() {
                 </div>
             </div>
         </div>
-        <div class="row"></div>
-        <!-- PIE-CHART -->
-        <div class="col-lg-12">
-            <div class="au-card chart-percent-card">
-                <div class="au-card-inner">
-                    <h3 class="title-2 tm-b-5">Gender Pie-Chart</h3>
-                    <div class="row no-gutters">
-                        <div id="piechart" class="ms-5" style="width: 100%; height: 347px;">
+        <div class="row">
+            <!-- GENDER PIE-CHART -->
+            <div class="col-lg-12">
+                <div class="au-card chart-percent-card">
+                    <div class="au-card-inner">
+                        <h3 class="title-2 tm-b-5">Gender Pie-Chart</h3>
+                        <div class="row no-gutters">
+                            <div id="piechart" class="ms-5" style="width: 100%; height: 347px;">
+                            </div>
                         </div>
                     </div>
                 </div>
