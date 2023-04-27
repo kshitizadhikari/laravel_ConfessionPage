@@ -302,6 +302,61 @@ $('#postdelete').on('show.bs.modal', function(event) {
 
 })
 
+$('#commentdelete').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget);
+
+    var id = button.data('id');
+
+    var modal = $(this);
+
+
+    modal.find('#deletecommentid').val(id);
+
+
+})
+
+$('#replydelete').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget);
+
+    var id = button.data('id');
+
+    var modal = $(this);
+
+
+    modal.find('#deletereplyid').val(id);
+
+
+})
+
+
+$('#Modalreportcomm').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget);
+    // var btn=event.relatedTarget; // Button that triggered the modal
+    var id = button.data('id'); // Extract info from data-* attributes
+    var modal = $(this);
+    // buttonht=btn.outerHTML;
+
+    modal.find('#commId').val(id);
+
+    // modal.find('#inptag').val(buttonht);
+    // console.log(id);
+    // console.log(buttonht);
+})
+
+$('#Modalreportreply').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget);
+    // var btn=event.relatedTarget; // Button that triggered the modal
+    var id = button.data('id'); // Extract info from data-* attributes
+    var modal = $(this);
+    // buttonht=btn.outerHTML;
+
+    modal.find('#replyId').val(id);
+
+    // modal.find('#inptag').val(buttonht);
+    // console.log(id);
+    // console.log(buttonht);
+})
+
 
 
 
@@ -362,6 +417,9 @@ function report() {
 
 
 }
+
+
+
 </script>
 
 </html>

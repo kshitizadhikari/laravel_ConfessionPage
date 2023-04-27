@@ -130,9 +130,26 @@ Route::group(['middleware=' => 'auth'], function() {
     Route::post('/comment',[CommentController::class, 'commentstore'])->name('comment');
 
 
+    //comment-report
+
+    Route::post('/report-comment',[CommentController::class,'reportcomment']);
+
+    //comment delete
+
+    Route::get('/delete-comment/{id}', [CommentController::class, 'deletecomment'])->name('deletecomm');
+
     //comment reply
 
     Route::post('/reply/{id}',[CommentreplyController::class,'replystore'])->name('replies');
+
+
+    //comment reply report
+
+    Route::post('/report-reply',[CommentreplyController::class,'reportreply']);
+
+    //reply delete
+
+    Route::get('/delete-reply/{id}', [CommentreplyController::class,'deletereply'])->name('deletereply');
 
     
 });
