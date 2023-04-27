@@ -1,7 +1,8 @@
 <style>
 .logoImg {
-    height: 8 0px;
-    width: 100px;
+    position: absolute;
+    height: 70px;
+    width: 80px;
 }
 </style>
 
@@ -15,7 +16,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse mt-3" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
 

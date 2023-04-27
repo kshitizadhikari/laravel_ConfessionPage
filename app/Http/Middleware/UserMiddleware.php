@@ -15,8 +15,12 @@ class UserMiddleware
         //user role == 0
         
         if(Auth::check()){
-            if(Auth::user()->role == '0'){
+            if(Auth::user()->role == '0' && Auth::user()->status == 'active'){
                 return $next($request);
+            } else if(Auth::user()->role == '0' && Auth::user()->status == 'banned'){
+                // return $next($request);
+                Auth::logout();
+                return redirect()->route('login')->with('error', 'Too many reports. Your account has been banned.');
             } else if(Auth::user()->role == '1'){
                 return redirect('/admin/admin-home')->with('status', 'Access Denied');
             } 

@@ -43,10 +43,8 @@ class LoginController extends Controller
     {
         if(Auth::user()->role == '1'){
             return redirect('/admin/admin-home');
-        } else if(Auth::user()->role == '0'){
+        } else if(Auth::user()->role == '0' && Auth::user()->status == 'active'){
             return redirect('/user/user-home');
-        } else if(Auth::user()->role == '2'){
-            return redirect('/therapist/therapist-home');
         } else {
             return redirect('login');
         }

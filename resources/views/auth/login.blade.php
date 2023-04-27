@@ -43,18 +43,30 @@
 .form-control {
     background: #E8E8E8;
 }
+
+.errorBox {
+    position: fixed;
+    top: 120px;
+    left: 380px;
+    height: 30px;
+    width: 600px;
+    z-index: 99;
+}
 </style>
 
 <div class="container d-flex justify-content-center align-items-center" style="height: 85vh;">
-    @if (session('error'))
-    <div class="alert alert-danger">{{ session('error') }}</div>
-    @endif
+    <div class="errorBox">
+        @if (session('error'))
+        <div class="alert alert-danger">{{ session('error') }}</div>
+        @endif
+    </div>
     <div class="card w-100" style="max-width: 600px;">
         @if(Session::has('fail'))
         <div class="alert alert-danger m-0" role="alert">
             {{Session::get('fail')}}
         </div>
         @endif
+
         <div class="row  loginCard g-0">
             <!-- IMAGE PART -->
             <div class="imag col-md-6 p-5">
