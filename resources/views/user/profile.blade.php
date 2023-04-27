@@ -189,7 +189,7 @@
 
                                        
                                     
-                                        <img src="{{url($image)}}" class="img-fluid w-100 h-100" alt="" style="object-fit:cover;" >
+                                <img src="{{url('public/uploads/'.$image)}}"value="{{url('public/uploads/'.$image)}}" data-id="{{url('public/uploads/'.$image)}}"  data-bs-toggle="modal" data-bs-target="#displayimg" class="img-fluid w-100 h-100 gallery-items" alt="" style="object-fit:cover;" >
 
                                   
                                                           
@@ -326,4 +326,5 @@ $('.post-btn').click(function(e) {
 </script>
 @include('modal.report')
 @include('modal.postdelete')
+@include('modal.imagedisplay')
 @endsection

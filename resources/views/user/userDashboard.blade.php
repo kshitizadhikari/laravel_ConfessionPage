@@ -14,6 +14,9 @@
     {
         display:none;
     } */
+    .bg-second-color{
+        background: #EFC687;
+    }
     
 </style>
 
@@ -47,7 +50,7 @@
                 </a>
                 <a href="#" class="bg-second-color text-center">
                     
-                    <span class="text-white" data-bs-toggle="modal" data-bs-target="#Modalpost">Create Post</span>
+                    <span class="text-black fw-bold" data-bs-toggle="modal" data-bs-target="#Modalpost">Create Post</span>
 
                 </a>
                
@@ -59,7 +62,7 @@
 
             <div class="col-7">
                 <!-- USER POST -->
-                <div class="new border border-gray shadow-lg">
+                <!-- <div class="new border border-gray shadow-lg">
                     
                     
                    
@@ -110,7 +113,7 @@
                     </form>
                 
                     </div>
-                    </div>
+                    </div> -->
 
                 
                 <!-- POSTS -->
@@ -129,9 +132,9 @@
             <!-- RIGHT SECTION -->
             <div class="col">
             <ul class="list-group shadow-lg ">
-                    <li class="list-group-item d-flex justify-content-center ">
-                        <div class="ps-2 lh-1">
-                            <div class="fw-bold fs-5">Popular Posts</div>
+                    <li class="list-group-item d-flex justify-content-center bg-second-color ">
+                        <div class="ps-2 lh-1 ">
+                            <div class="fw-bold  fs-5">Popular Posts</div>
                         </div>
                     </li>
                     @foreach($pposts as $ppost )
@@ -169,7 +172,7 @@
                  
                 </ul>
                 <ul class="list-group shadow-lg mt-4">
-                    <li class="list-group-item d-flex justify-content-center ">
+                    <li class="list-group-item d-flex justify-content-center bg-second-color ">
                         <div class="ps-2 lh-1">
                             <div class="fw-bold fs-5">Random Posts</div>
                         </div>

@@ -47,6 +47,9 @@
         margin: 15px 0 10px;
 
     }
+    .gallery-items:hover{
+        cursor:pointer;
+    }
     </style>
     <title>KPK Confession</title>
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
@@ -356,6 +359,33 @@ $('#Modalreportreply').on('show.bs.modal', function(event) {
     // console.log(id);
     // console.log(buttonht);
 })
+
+
+$('#displayimg').on('show.bs.modal', function(event) {
+    var id=0;
+    var button = $(event.relatedTarget);
+
+    // var btn=event.relatedTarget; // Button that triggered the modal
+     id = button.data('id'); // Extract info from data-* attributes
+    // alert(id);
+    // var modal = $(this);
+    
+
+    // modal.find('.modal-img').src(id);
+    document.querySelector(".modal-img").src=id;
+
+
+})
+
+
+// document.addEventListener("click",function(e){
+
+//     if(e.target.classList.contains("gallery-items"))
+//     {
+//         const src=e.target.getAttribute("src");
+//         console.log(src);
+//     }
+// })
 
 
 
