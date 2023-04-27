@@ -57,6 +57,18 @@ function drawBasic() {
 }
 </script>
 
+<style>
+.logo {
+    display: flex;
+    justify-content: center;
+}
+
+.logoImg {
+    height: 8 0px;
+    width: 100px;
+}
+</style>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -96,7 +108,7 @@ function drawBasic() {
                     <div class="container-fluid">
                         <div class="header-mobile-inner">
                             <a class="logo" href="{{route('adminadminHome')}}">
-                                <img src="images/icon/logo.png" alt="KPK LOGO" />
+                                <img class="logoImg" src="/images/logo.png">
                             </a>
                             <button class="hamburger hamburger--slider" type="button">
                                 <span class="hamburger-box">
@@ -142,7 +154,7 @@ function drawBasic() {
             <aside class="menu-sidebar d-none d-lg-block">
                 <div class="logo">
                     <a href="{{route('adminadminHome')}}">
-                        <img src="{{asset('assets/images/icon/logo.png')}}" alt="KPK Logo" />
+                        <img class="logoImg" src="/images/logo.png">
                     </a>
                 </div>
                 <div class="menu-sidebar__content js-scrollbar1">
@@ -216,10 +228,7 @@ function drawBasic() {
                                                     <a href="{{route('adminAccountView')}}">
                                                         <i class="fas fa-user"></i>Profile</a>
                                                 </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="fas fa-cog"></i>Setting</a>
-                                                </div>
+
                                             </div>
                                             <div class="account-dropdown__footer">
                                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
