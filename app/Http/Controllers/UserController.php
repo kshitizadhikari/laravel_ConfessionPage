@@ -116,15 +116,16 @@ class UserController extends Controller
 
             $data=Post::find($req->id);
             
-        $images=explode('|',$data->img);
-        foreach($images as $image)
-        {
-
-            if(file_exists($image)){
-                unlink($image);
+            $images=explode('|',$data->img);
+            foreach($images as $image)
+            {
+                
+                if(file_exists($image)){
+                    unlink($image);
+                }
             }
-        }
-        $image=array();
+            // dd($images);
+            $image=array();
         if( $files=$req->file('file')){
            
 
@@ -138,15 +139,16 @@ class UserController extends Controller
                 $imageurl=$imagefullname;
                 $file->move($uploadspath,$imagefullname);
                 $image[]=$imageurl;
+                
              }
             
             }
-
+                $arrmeg=array_merge($images,$image);
 
              $data->title=$req->postTitle;
              $data->post=$req->post;
              $data->user_id=$req->user_id;
-             $data->img=implode('|',$image);
+             $data->img=implode('|',$arrmeg);
              $data->save();
             return redirect()->route('login');
         }
