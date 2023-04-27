@@ -177,7 +177,6 @@
                     @foreach($randomposts as $rpost )
                     @php
                     $postuserimg=App\Models\User::where('id',$rpost->user_id)->first();
-
                     $randpost=$rpost->post;
                     if(strlen($randpost)>40):
                                

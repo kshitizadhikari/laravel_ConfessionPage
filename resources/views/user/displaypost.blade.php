@@ -232,16 +232,16 @@
                                     </svg> {{count($comments)}} Comments
                                     </button>
                                     @if($postreport->count()>0)
+                                    
                                     <button type="submit"
-                                        class="report-btn  bg-transparent  border-0 ms-2 text-black p-1" value="{{$post['id']}}"data-id="{{$post['id']}}" data-bs-toggle="modal" data-bs-target="#Modalreport" >
+                                        class="report-btn  bg-transparent  border-0 ms-2 text-black p-1 my-modal-trigger" value="{{$post['id']}}" data-id="{{$post['id']}}"data-bs-toggle="modal" data-bs-target="#Modalreport" >
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="reportdis" fill="lightblue" class="bi bi-flag-fill" viewBox="0 0 16 16">
                                      <path d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12.435 12.435 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A19.626 19.626 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a19.587 19.587 0 0 0 1.349-.476l.019-.007.004-.002h.001"/>
                                     </svg>
                                     </button>
                                     @else
-
                                     <button type="submit"
-                                        class="report-btn  bg-transparent  border-0 ms-2 text-black p-1" value="{{$post['id']}}" data-id="{{$post['id']}}" data-bs-toggle="modal" data-bs-target="#Modalreport" >
+                                        class="report-btn  bg-transparent  border-0 ms-2 text-black p-1 my-modal-trigger" value="{{$post['id']}}" data-id="{{$post['id']}}"  data-bs-toggle="modal" data-bs-target="#Modalreport" >
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="reportdis" fill="currentColor" class="bi bi-flag-fill" viewBox="0 0 16 16">
                                      <path d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12.435 12.435 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A19.626 19.626 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a19.587 19.587 0 0 0 1.349-.476l.019-.007.004-.002h.001"/>
                                     </svg>
@@ -302,7 +302,7 @@
                                                   
                                                 <div class="comment-body fs-6"style="margin-left:60px">
 
-                                                    <span>{{$comment->comment}}</span>
+                                                    <span class="me-2">{{$comment->comment}}</span>
                                                 </div>
                                               
                                                 
@@ -310,8 +310,24 @@
                                             </div>
                                             <div class="comment-footer d-flex gap-2 fs-6 justify-content-end p-2 me-3 ">
                                            
-                                            <div class="">Like</div>
+                                            
                                             <div class="btn btn-transparent p-0" onclick="reply('{{$comment->id}}','{{$commentusername->username}}')">Reply</div>
+                                            <div class="">
+                                            <button type="submit"
+                                        class=" bg-transparent  border-0 ms-2 text-black p-0 my-modal-trigger" value="{{$comment->id}}" data-id="{{$comment->id}}"data-bs-toggle="modal" data-bs-target="#Modalreportcomm" >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  fill="currentcolor" class="bi bi-flag-fill" viewBox="0 0 16 16">
+                                     <path d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12.435 12.435 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A19.626 19.626 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a19.587 19.587 0 0 0 1.349-.476l.019-.007.004-.002h.001"/>
+                                    </svg>
+                                    </button>
+                                        @if($comment->user_id==auth()->user()->id)
+                                    <button type="submit"
+                                        class=" bg-transparent  border-0 ms-2 text-black p-0 my-modal-trigger" value="{{$comment->id}}" data-id="{{$comment->id}}"data-bs-toggle="modal" data-bs-target="#commentdelete" >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                        </svg>
+                                    </button>
+                                    @endif
+                                            </div>
                                             </div>
                                         </div>
                                     </div>
@@ -336,7 +352,7 @@
                                                   
                                                     <div class="comment-body fs-6"style="margin-left:60px">
 
-                                                      <span>{{$reply->message}}</span>
+                                                      <span class="me-2">{{$reply->message}}</span>
                                                  </div>
                                               
                                                 
@@ -344,9 +360,25 @@
                                                 </div>
                                                     <div class="comment-footer d-flex gap-2 fs-6 justify-content-end p-2 me-3 ">
                                            
-                                                    <div class="">Like</div>
+                                                    
                                                 <div class="btn btn-transparent p-0" onclick="reply('{{$comment->id}}','{{$reply->user->username}}')">Reply</div>
+                                          
+                                    <button type="submit"
+                                        class=" bg-transparent  border-0 ms-2 text-black p-0 my-modal-trigger" value="{{$reply->id}}" data-id="{{$reply->id}}"data-bs-toggle="modal" data-bs-target="#Modalreportreply" >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  fill="currentcolor" class="bi bi-flag-fill" viewBox="0 0 16 16">
+                                     <path d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12.435 12.435 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A19.626 19.626 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a19.587 19.587 0 0 0 1.349-.476l.019-.007.004-.002h.001"/>
+                                    </svg>
+                                    </button>
+                                    @if($reply->user_id==auth()->user()->id)
+                                    <button type="submit"
+                                        class=" bg-transparent  border-0 ms-2 text-black p-0 my-modal-trigger" value="{{$reply->id}}" data-id="{{$reply->id}}"data-bs-toggle="modal" data-bs-target="#replydelete" >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-trash-fill" viewBox="0 0 16 16">
+  <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+</svg>
+                                    </button>
+                                    @endif
                                              </div>
+                                             
                                          </div>
                                         </div>
                                     @endforeach
@@ -483,6 +515,121 @@ else{
 }
 
    }
+
+
+   function reportcomm(){
+    var comid = $('#commId').val();
+    
+    var id = document.querySelector('input[name="radio"]:checked').value;
+    
+
+    
+  
+
+    $.ajax({
+        type:'post',
+        url:'/report-comment',
+        data:{
+            comment_id:comid,
+            report_type:id,
+            _token:'{{csrf_token()}}'
+        },
+        success: function(response) {
+            if (response.msg == "liked") {
+
+                //   tag.closest('.report-btn').getElementsByClassName('reportdis')[0].setAttribute('fill','lightblue');
+                alert("lik");
+
+                // send.closest(".post-btn").find('.postdis').attr('fill','lightblue');
+
+                // send.closest(".post-btn").find('#likecount').html(response.postcount);
+
+
+
+            } else if (response.msg == "disliked") {
+
+                // tag.closest('.report-btn').getElementsByClassName('reportdis')[0].setAttribute('fill','black');
+                alert("dis");
+
+
+
+
+
+            }
+
+
+        },
+        error: function() { //error
+            alert("error");
+            // console.log(JSON.stringify(error));
+        }
+    });
+
+
+
+    
+   }
+
+
+   function reportreply(){
+    var replyid = $('#replyId').val();
+    
+    var id = document.querySelector('input[name="radio"]:checked').value;
+ 
+    
+
+    $.ajax({
+        type:'post',
+        url:'/report-reply',
+        data:{
+            reply_id:replyid,
+            report_type:id,
+            _token:'{{csrf_token()}}'
+        },
+        success: function(response) {
+            if (response.msg == "liked") {
+
+                //   tag.closest('.report-btn').getElementsByClassName('reportdis')[0].setAttribute('fill','lightblue');
+                alert("lik");
+
+                // send.closest(".post-btn").find('.postdis').attr('fill','lightblue');
+
+                // send.closest(".post-btn").find('#likecount').html(response.postcount);
+
+
+
+            } else if (response.msg == "disliked") {
+
+                // tag.closest('.report-btn').getElementsByClassName('reportdis')[0].setAttribute('fill','black');
+                alert("dis");
+
+
+
+
+
+            }
+
+
+        },
+        error: function() { //error
+            alert("error");
+            // console.log(JSON.stringify(error));
+        }
+    });
+
+
+
+    
+   }
+
+   
+
+
+
 </script>
+@include('modal.reportcomment')
 @include('modal.report')
+@include('modal.reportreply')
+@include('modal.deletecomm')
+@include('modal.deletereply')
 @endsection
