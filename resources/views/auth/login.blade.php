@@ -46,7 +46,9 @@
 </style>
 
 <div class="container d-flex justify-content-center align-items-center" style="height: 85vh;">
-
+    @if (session('error'))
+    <div class="alert alert-danger">{{ session('error') }}</div>
+    @endif
     <div class="card w-100" style="max-width: 600px;">
         @if(Session::has('fail'))
         <div class="alert alert-danger m-0" role="alert">

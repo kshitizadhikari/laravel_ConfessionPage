@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\post_report;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 
@@ -50,16 +51,17 @@ class UserFactory extends Factory
         'pp/pp-29.png',
         'pp/pp-30.png'
        ];
+
+       
         return [
             'name' => $this->faker->unique()->name(),
             'username' => $this->faker->unique()->text(13),
             'email' => $this->faker->unique()->safeEmail(),
+            'password' => Hash::make('12345678'),
             'gender' => $this->faker->randomElement(['Male', 'Female', 'Other']),
             'age' => $this->faker->numberBetween(18, 90),
             'country' => $this->faker->randomElement(['Nepal', 'India', 'China', 'USA', 'UK', 'Austrailia']),
-            'password' => Hash::make('12345678'),
             'img' =>$randomimg[rand(0,29)],
-
             'role' => $this->faker->numberBetween(0, 1),
         ];
     }

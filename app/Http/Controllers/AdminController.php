@@ -246,4 +246,19 @@ class AdminController extends Controller
         $contactObj->save();
         return redirect()->route('adminadminHome');
     }
+
+    public function banUser($id) {
+        $userObj = User::find($id);
+        $userObj->status = "banned";
+        $userObj->save();
+        return redirect()->route('adminadminHome');
+        
+    }
+
+    public function unbanUser($id) {
+        $userObj = User::find($id);
+        $userObj->status = "active";
+        $userObj->save();
+        return redirect()->route('adminadminHome');
+    }
 }

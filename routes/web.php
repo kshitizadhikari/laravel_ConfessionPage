@@ -55,6 +55,10 @@ Route::group(['middleware=' => 'auth'], function() {
         
         Route::get('/edit-user/{id}', [AdminController::class, 'editUser'])->name('editUser');
         Route::post('/edit-user-po', [AdminController::class, 'editUserPo'])->name('editUserPo');
+
+        
+        Route::get('/ban-user/{id}', [AdminController::class, 'banUser'])->name('banUser');
+        Route::get('/unban-user/{id}', [AdminController::class, 'unbanUser'])->name('unbanUser');
         
         Route::post('/markAsRead', [AdminController::class, 'markAsRead'])->name('markAsRead');
 

@@ -1,7 +1,14 @@
+<style>
+.logoImg {
+    height: 8 0px;
+    width: 100px;
+}
+</style>
+
 <nav class="navbar navbar-expand-md pt-4">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Logo') }}
+            <img class="logoImg" src="/images/logo.png">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

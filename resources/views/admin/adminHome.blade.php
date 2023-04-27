@@ -254,6 +254,7 @@ function drawBarChart() {
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
                         <th scope="col" class="text-center">Action</th>
+                        <th scope="col" class="text-center">Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -267,6 +268,17 @@ function drawBarChart() {
                             | <a href="{{route('admindeleteUser', $user->id)}}"><i
                                     class="fa-regular fa-trash-can"></i></a>
                         </td>
+                        @if($user->status == "active")
+                        <td class="text-center"><a href="{{route('adminbanUser', $user->id)}}">
+                                <i class="fa-solid fa-check"></i>
+                            </a>
+                        </td>
+                        @else
+                        <td class="text-center"><a href="{{route('adminunbanUser', $user->id)}}">
+                                <i class="fa-solid fa-ban"></i>
+                            </a>
+                        </td>
+                        @endif
                     </tr>
                     @endforeach
                 </tbody>
