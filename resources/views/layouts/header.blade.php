@@ -1,8 +1,8 @@
 <style>
 .logoImg {
     position: absolute;
-    height: 70px;
-    width: 80px;
+    height: 50px;
+    width: 70px;
 }
 </style>
 
