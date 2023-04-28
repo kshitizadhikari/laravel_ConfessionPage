@@ -27,8 +27,14 @@
     <div class="container mb-5">
         <div class="row">
             <div id="left-list" class="col-2 d-flex flex-column">
-               
+            <a href="#" class="bg-second-color text-center mt-4">
+                    
+                    <span class="text-black fw-bold " data-bs-toggle="modal" data-bs-target="#Modalpost">Create Post</span>
 
+                </a>
+                <div class="shadow-lg mt-3 ">
+
+               
                 <a href="{{route('login')}}" class="mt-3">
                     <!-- <span class="position-relative me-auto"> -->
                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
@@ -48,11 +54,8 @@
                 </svg>
                     <span class="fs-6 fw-bold ms-3">Profile</span>
                 </a>
-                <a href="#" class="bg-second-color text-center">
-                    
-                    <span class="text-black fw-bold" data-bs-toggle="modal" data-bs-target="#Modalpost">Create Post</span>
-
-                </a>
+                </div>
+                
                
             </div>
             <!-- //middle part -->
@@ -130,7 +133,7 @@
             </div>
 
             <!-- RIGHT SECTION -->
-            <div class="col">
+            <div class="col mt-4">
             <ul class="list-group shadow-lg ">
                     <li class="list-group-item d-flex justify-content-center bg-second-color ">
                         <div class="ps-2 lh-1 ">

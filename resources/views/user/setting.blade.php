@@ -112,11 +112,13 @@
                                 <div class="mb-3">
                                     <label class="form-label">GENDER</label>
                                     <select name="gender" class="form-control" value="{{auth()->user()->gender}}">
+
+                                        
                                         <option value="male">MALE</option>
                                         <option value="female">FEMALE</option>
                                         <option value="other">OTHER</option>
                                     </select>
-                                    <input type="text" class="form-control" name="gender" value="{{auth()->user()->gender}}">
+                                    <!-- <input type="text" class="form-control" name="gender" value="{{auth()->user()->gender}}"> -->
 
 
                                 </div>
