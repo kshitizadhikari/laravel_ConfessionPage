@@ -294,8 +294,8 @@ class UserController extends Controller
 
         public function changepass(Request $req){
             $data=User::find($req->id);
-           
             $passwordstatus=Hash::check($req->oldpass,auth()->user()->password);
+            
             if($passwordstatus){
                 if($req->newpass==$req->passconfirm)
                 {

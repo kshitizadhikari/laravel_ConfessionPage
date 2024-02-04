@@ -47,8 +47,13 @@
         margin: 15px 0 10px;
 
     }
-    .gallery-items:hover{
-        cursor:pointer;
+
+    .gallery-items:hover {
+        cursor: pointer;
+    }
+
+    .bg-second-color {
+        background: #efc687;
     }
     </style>
     <title>KPK Confession</title>
@@ -62,7 +67,7 @@
         @guest
 
         <nav class="navbar navbar-dark navbar-expand-lg bg-dark p-2">
-            <a class="navbar-brand" href="{{route('login')}}">KPK</a>
+            <a class="navbar-brand" href="{{route('login')}}">Confession Site</a>
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav ms-auto">
@@ -93,7 +98,7 @@
 
                     @else
                     <nav class="navbar navbar-dark navbar-expand-lg bg-dark p-2">
-                        <a class="navbar-brand" href="{{route('login')}}">KPK</a>
+                        <a class="navbar-brand" href="{{route('login')}}">C.S</a>
 
                         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                             <ul class="navbar-nav ms-auto">
@@ -362,17 +367,17 @@ $('#Modalreportreply').on('show.bs.modal', function(event) {
 
 
 $('#displayimg').on('show.bs.modal', function(event) {
-    var id=0;
+    var id = 0;
     var button = $(event.relatedTarget);
 
     // var btn=event.relatedTarget; // Button that triggered the modal
-     id = button.data('id'); // Extract info from data-* attributes
+    id = button.data('id'); // Extract info from data-* attributes
     // alert(id);
     // var modal = $(this);
-    
+
 
     // modal.find('.modal-img').src(id);
-    document.querySelector(".modal-img").src=id;
+    document.querySelector(".modal-img").src = id;
 
 
 })
@@ -416,7 +421,7 @@ function report() {
             if (response.msg == "liked") {
 
                 //   tag.closest('.report-btn').getElementsByClassName('reportdis')[0].setAttribute('fill','lightblue');
-                alert("lik");
+                // alert("lik");
 
                 // send.closest(".post-btn").find('.postdis').attr('fill','lightblue');
 
@@ -427,7 +432,7 @@ function report() {
             } else if (response.msg == "disliked") {
 
                 // tag.closest('.report-btn').getElementsByClassName('reportdis')[0].setAttribute('fill','black');
-                alert("dis");
+                // alert("dis");
 
 
 
@@ -447,9 +452,6 @@ function report() {
 
 
 }
-
-
-
 </script>
 
 </html>

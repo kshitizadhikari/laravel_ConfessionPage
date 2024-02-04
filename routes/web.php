@@ -51,6 +51,7 @@ Route::group(['middleware=' => 'auth'], function() {
         Route::get('/admin-table', [AdminController::class, 'tableAdmin'])->name('tableAdmin');
         Route::get('/user-table', [AdminController::class, 'tableUser'])->name('tableUser');
         Route::get('/post-table', [AdminController::class, 'tablePost'])->name('tablePost');
+        Route::get('/report-table', [AdminController::class, 'tableReport'])->name('tableReport');
 
         Route::get('/admin-charts', [AdminController::class, 'adminCharts'])->name('adminCharts');
         Route::get('/edit-admin', [AdminController::class, 'editAdmin'])->name('editAdmin');

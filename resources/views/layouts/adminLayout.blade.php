@@ -142,6 +142,9 @@ function drawBasic() {
                                     <li>
                                         <a href="{{route('admintablePost')}}">Post Table</a>
                                     </li>
+                                    <li>
+                                        <a href="{{route('admintablePost')}}">Report Table</a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -182,6 +185,9 @@ function drawBasic() {
                                     </li>
                                     <li>
                                         <a href="{{route('admintablePost')}}">Post Table</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('admintableReport')}}">Report Table</a>
                                     </li>
                                 </ul>
                             </li>

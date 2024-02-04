@@ -2,6 +2,7 @@
 @section('admin-content')
 
 <div class="row">
+
     <div class="col-md-12 p-4 mt-2">
         <div class="row">
             <!-- TABLES -->
@@ -54,4 +55,5 @@
         </div>
     </div>
 
-    @endsection
+</div>
+@endsection
